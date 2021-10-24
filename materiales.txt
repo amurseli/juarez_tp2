@@ -1,0 +1,5 @@
+piedra 109
+madera 90
+metal 55
+oro 90
+hierro 100
