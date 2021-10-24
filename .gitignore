@@ -93,3 +93,12 @@ cmake-build-debug/Makefile
 *.xml
 cmake-build-debug/CMakeCache.txt
 CMakeLists.txt
+cmake-build-debug/CMakeFiles/3.19.2/CompilerIdCXX/CMakeCXXCompilerId.cpp
+.vscode/settings.json
+.vscode/settings.json
+*.json
+.vscode/launch.json
+.vscode/launch.json
+.vscode/settings.json
+.vscode/tasks.json
+*.json
