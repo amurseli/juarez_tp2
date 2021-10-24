@@ -77,7 +77,6 @@ cmake-build-debug/CMakeFiles/clion-log.txt
 *.cmake
 *.bin
 *.c
-*.cpp
 cmake-build-debug/CMakeFiles/clion-environment.txt
 *.check_cache
 *.log
