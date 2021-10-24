@@ -43,6 +43,12 @@ void archivo::agregarElementoArray(string elemento)
 
 }
 
+void archivo::mostarContenido(){
+
+    contenido->mostrarArray();
+
+}
+
 archivo::~archivo()
 {
 

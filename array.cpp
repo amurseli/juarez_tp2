@@ -22,6 +22,7 @@ void array::agregarElemento(string elemento)
 
     lista[tamanio-1] = elemento;
 
+
 }
 
 void array::crearMemoria()
@@ -59,7 +60,6 @@ void array::mostrarArray(){
     {
         cout<<lista[i]<<endl;
     }
-
 }
 
 array::~array(){

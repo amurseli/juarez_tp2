@@ -15,9 +15,9 @@ int main()
 
     materiales materialesTxt(PATH_MATERIALES);
 
-    materialesTxt.mostrarArray();
+    materialesTxt.mostarContenido();
 
-    archivo sarasa();
+
 
 
 

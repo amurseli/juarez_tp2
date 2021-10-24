@@ -31,6 +31,10 @@ class archivo : public array
         //Post: 
         void agregarElementoArray(string elemento);
 
+        //Pre:-
+        //Post:Muestra el array
+        void mostarContenido();
+
         ~archivo();
         
 

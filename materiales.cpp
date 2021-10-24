@@ -6,9 +6,9 @@ using namespace std;
 
 materiales::materiales(string nombre):archivo(nombre){
 
-    //leerArchivo(nombre);
+    leerArchivo(nombre);
 
-    fstream documento(nombre, ios::in);
+   fstream documento(nombre, ios::in);
 
     string nombreMaterial, cantidad;
 
@@ -25,7 +25,7 @@ materiales::materiales(string nombre):archivo(nombre){
 
 }
 
-/*void leerArchivo(string nombre)
+void leerArchivo(string nombre)
 {
 
     fstream documento(nombre, ios::in);
@@ -35,9 +35,9 @@ materiales::materiales(string nombre):archivo(nombre){
     while (documento >> nombreMaterial)
     {
         documento >> cantidad;
-        agre
+        agregarElementoArray(cantidad);
         
     }
 
     documento.close();
-}*/
+}

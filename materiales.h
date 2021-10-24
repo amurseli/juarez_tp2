@@ -9,7 +9,7 @@ class materiales : public archivo
 {
 public:
     materiales(string nombre);
-    //void leerArchivo(string nombre);
+    void leerArchivo(string nombre);
 };
 
 
