@@ -17,7 +17,7 @@ materiales::materiales(string nombre):archivo(nombre){
         documento >> cantidad;
         agregarElementoArray(nombreMaterial);
         agregarElementoArray(cantidad);
-        
+        //asd
     }
 
     documento.close();
