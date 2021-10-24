@@ -4,11 +4,13 @@
 #include"materiales.h"
 #include"array.h"
 #include"edificios.h"
+#include"mapa.h"
 
 using namespace std;
 
-const string PATH_MATERIALES = "materiales.txt";
-const string PATH_EDIFICIOS = "edificios.txt";
+const string PATH_MATERIALES = "../materiales.txt";
+const string PATH_EDIFICIOS = "../edificios.txt";
+const string PATH_MAPA = "../mapa.txt";
 
 int main()
 {
@@ -16,11 +18,15 @@ int main()
 
     materiales materialesTxt(PATH_MATERIALES);
 
-    materialesTxt.mostarContenido();
+    materialesTxt.mostrarContenido();
 
     edificios edificiosTxt(PATH_EDIFICIOS);  
 
-    edificiosTxt.mostarContenido();
+    edificiosTxt.mostrarContenido();
+
+    mapa mapaTxt(PATH_MAPA);
+
+    mapaTxt.mostrarContenido();
 
     return 0;
 }
