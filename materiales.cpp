@@ -25,7 +25,7 @@ materiales::materiales(string nombre):archivo(nombre){
 
 }
 
-void leerArchivo(string nombre)
+void materiales::leerArchivo(string nombre)
 {
 
     fstream documento(nombre, ios::in);
