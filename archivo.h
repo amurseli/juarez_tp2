@@ -25,7 +25,7 @@ class archivo : public array<string>
 
         //Pre:
         //Post: 
-        virtual void leerArchivo(string nombre)=0;
+        virtual void leerArchivo(string nombre) = 0;
 
         //Pre:
         //Post: 

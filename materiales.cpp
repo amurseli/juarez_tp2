@@ -4,6 +4,11 @@
 
 using namespace std;
 
+materiales::materiales(string nombre):archivo(nombre){
+
+    leerArchivo(nombre);
+
+}
 void materiales::leerArchivo(string nombre)
 {
 

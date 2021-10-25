@@ -7,7 +7,7 @@
 
 using namespace std;
 
-class matriz : public array
+class matriz : public array<string>
 {
 private:
 

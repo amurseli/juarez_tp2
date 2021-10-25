@@ -4,6 +4,12 @@
 
 using namespace std;
 
+edificios::edificios(string nombre):archivo(nombre){
+
+    leerArchivo(nombre);
+
+}
+
 void edificios::leerArchivo(string nombre)
 {
 
