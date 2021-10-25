@@ -11,8 +11,8 @@ archivo::archivo(string nombreArchivo)
 
     validarArchivo();
 
-    //if (getArchivoValido())
-      //  leerArchivo(nombre);
+    if (getArchivoValido())
+        leerArchivo(nombre);
 }
 
 void archivo::validarArchivo()
@@ -40,7 +40,6 @@ bool archivo::getArchivoValido()
 void archivo::agregarElementoArray(string elemento)
 {
     contenido->agregarElemento(elemento);
-
 }
 
 void archivo::mostarContenido(){

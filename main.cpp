@@ -12,8 +12,6 @@ const string PATH_EDIFICIOS = "edificios.txt";
 
 int main()
 {
-    //leer archivo materiales - nombre_edificio piedra madera metal máxima_cantidad_permitidos
-
     materiales materialesTxt(PATH_MATERIALES);
 
     materialesTxt.mostarContenido();

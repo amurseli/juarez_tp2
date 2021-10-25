@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class archivo : public array
+class archivo : public array<string>
 {
     private:
         

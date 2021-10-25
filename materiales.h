@@ -8,7 +8,7 @@ using namespace std;
 class materiales : public archivo
 {
 public:
-    materiales(string nombre);
+    using archivo::archivo;
     void leerArchivo(string nombre);
 };
 
