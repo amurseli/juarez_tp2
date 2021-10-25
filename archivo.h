@@ -33,7 +33,7 @@ class archivo : public array<string>
 
         //Pre:-
         //Post:Muestra el array
-        void mostarContenido();
+        void mostrarContenido();
 
         ~archivo();
         
