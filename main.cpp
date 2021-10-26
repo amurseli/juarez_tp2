@@ -2,9 +2,11 @@
 #include<fstream>
 #include<string>
 #include"materiales.h"
-#include"array.h"
+#include "array.h"
 #include"edificios.h"
 #include"mapa.h"
+#include"matriz.h"
+
 
 using namespace std;
 
@@ -24,8 +26,11 @@ int main()
 
     mapa mapaTxt(PATH_MAPA);
 
-    mapaTxt.mostrarContenido();
+    archivo::array * a = new archivo::array();
 
+    Matriz matrizOriginal(mapaTxt.devolverAncho(), mapaTxt.devolverAlto(), a);
+
+    delete a;
     return 0;
 }
 

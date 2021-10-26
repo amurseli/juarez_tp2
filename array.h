@@ -29,12 +29,17 @@ private:
 public:
 
      array();
+     array(int tamanio);
 
     //Pre:Recibe el elemento a agregar y la posicion donde se agregara en el array.
     //Post:agrega un elemento a la posicion pasada.
     void agregarElemento(T elemento);
 
+    int devolverTamanio();
     //void cambiarElemento(string elemento,int posicion);
+
+
+    T devolverElemento(int indice);
 
     ~array();
 
@@ -49,6 +54,14 @@ template<typename T>
 array<T>::array(){
 
     tamanio=0;
+
+}
+
+template<typename T>
+array<T>::array(int ancho)
+{
+    tamanio = ancho;
+    crearMemoria();
 
 }
 
@@ -97,6 +110,19 @@ void array<T>::transferenciaInformacion(){
 }
 
 template<typename T>
+int array<T>::devolverTamanio()
+{
+    return tamanio;
+}
+
+template<typename T>
+T array<T>::devolverElemento(int indice)
+{
+    return lista[indice];
+}
+
+
+template<typename T>
 void array<T>::mostrarArray(){
     
     for (int i = 0; i < tamanio; i++)
@@ -109,6 +135,8 @@ template<typename T>
 array<T>::~array(){
     if (tamanio>0)
        delete [] lista;
+    else
+        delete lista;
 }
 
 #endif

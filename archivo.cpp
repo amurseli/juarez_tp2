@@ -11,8 +11,6 @@ archivo::archivo(string nombreArchivo)
 
     validarArchivo();
 
-   // if (getArchivoValido())
-    //    leerArchivo(nombre);
 }
 
 void archivo::validarArchivo()

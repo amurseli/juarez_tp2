@@ -26,6 +26,15 @@ void mapa::leerArchivo(string nombre)
         agregarElementoArray(tipoTerreno);
     }
 
+
     documento.close();
 }
 
+int mapa::devolverAncho()
+{
+    return ancho;
+}
+int mapa::devolverAlto()
+{
+    return alto;
+}

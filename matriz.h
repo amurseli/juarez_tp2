@@ -1,27 +1,26 @@
-#ifndef ARCHIVO_H
-#define ARCHIVO_H
 #include<string>
 #include<fstream>
 #include"array.h"
-#include "archivo.h"
 
 using namespace std;
 
-class matriz : public array<string>
+class Matriz : public array<string>
 {
 private:
-
-
-    array* contenido;
+    int tamanio;
+    array* columnas;
 
 public:
 
-    matriz(ancho,alto,contenido)
+    Matriz(int ancho,int alto, array* &contenido);
 
+    void agregarElementoArrayMatriz(string elemento);
 
+    void mostrarMatriz();
+
+    ~Matriz();
 };
 
 
 
 
-#endif
