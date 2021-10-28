@@ -16,21 +16,8 @@ const string PATH_MAPA = "../mapa.txt";
 
 int main()
 {
-    materiales materialesTxt(PATH_MATERIALES);
+    Matriz prueba(2,2);
 
-    materialesTxt.mostrarContenido();
-
-    edificios edificiosTxt(PATH_EDIFICIOS);  
-
-    edificiosTxt.mostrarContenido();
-
-    mapa mapaTxt(PATH_MAPA);
-
-    archivo::array * a = new archivo::array();
-
-    Matriz matrizOriginal(mapaTxt.devolverAncho(), mapaTxt.devolverAlto(), a);
-
-    delete a;
     return 0;
 }
 

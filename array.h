@@ -11,7 +11,8 @@ class array
 private:
     T* lista;
     T* auxiliarLista;
-    int tamanio;   
+    T** puntero;
+    int tamanio, dimensionAuxiliar;
 
     //Pre:Recibe un valor, es el tamanio de la lista
     //Post:Crea en el heap los bloques de memoria solicitada
@@ -29,7 +30,11 @@ private:
 public:
 
      array();
-     array(int tamanio);
+     array(int filas, int columnas);
+
+    //Pre:Recibe la cantidad de punteros que habra en el array.
+    //Post:Genera un array de punteros.
+    void crearMemoriaPunteros();
 
     //Pre:Recibe el elemento a agregar y la posicion donde se agregara en el array.
     //Post:agrega un elemento a la posicion pasada.
@@ -47,6 +52,8 @@ public:
     //Post:Muestra la informacion almacenada
     void mostrarArray();
 
+    void mostrarArrayPuntero();
+
     
 };
 
@@ -58,10 +65,23 @@ array<T>::array(){
 }
 
 template<typename T>
-array<T>::array(int ancho)
+array<T>::array(int filas, int columnas)
 {
-    tamanio = ancho;
-    crearMemoria();
+    tamanio = filas;
+    dimensionAuxiliar=columnas;
+    crearMemoriaPunteros();
+}
+
+template<typename T>
+void array<T>::crearMemoriaPunteros()
+{
+
+    puntero = new T*[tamanio];
+
+    for (int i = 0; i < tamanio-1; i++)
+    {
+      *puntero= new T[dimensionAuxiliar];       
+    }
 
 }
 
@@ -129,6 +149,30 @@ void array<T>::mostrarArray(){
     {
         cout<<lista[i]<<endl;
     }
+}
+
+template<typename T>
+void array<T>::mostrarArrayPuntero(){
+
+    cout << "Entramos a imprimir" << endl;
+
+    for (int i = 0; i < tamanio-1; i++)
+    {
+        for (int j = 0; j < dimensionAuxiliar; j++)
+        {
+            puntero[i][j]="A";
+        }
+    }
+
+    for (int i = 0; i < tamanio-1; i++)
+    {
+        for (int j = 0; j < dimensionAuxiliar; j++)
+        {
+            cout<<puntero[i][j]<<endl;   
+        }
+    }
+
+    cout << "finalizamos imprimir" << endl;
 }
 
 template<typename T>

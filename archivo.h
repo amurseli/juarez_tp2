@@ -6,13 +6,13 @@
 
 using namespace std;
 
-class archivo : public array<string>
+class archivo
 {
     private:
         
         string nombre;
         bool existenciaArchivo;
-        array* contenido;
+        array<string>* contenido;
 
     public:
         //Pre:Debe recibir el nombre del archivo.

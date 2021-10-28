@@ -1,18 +1,21 @@
 #include<string>
 #include<fstream>
-#include"array.h"
+#include "array.h"
+
 
 using namespace std;
 
-class Matriz : public array<string>
+class Matriz
 {
 private:
-    int tamanio;
-    array* columnas;
+    int tamanio, columnas, filas;
+    array<string>* punteroMatriz;
 
 public:
 
-    Matriz(int ancho,int alto, array* &contenido);
+    Matriz(int ancho,int alto);
+
+    void construirMatriz();
 
     void agregarElementoArrayMatriz(string elemento);
 

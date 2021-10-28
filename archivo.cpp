@@ -7,7 +7,7 @@ using namespace std;
 archivo::archivo(string nombreArchivo)
 {
     nombre = nombreArchivo;
-    contenido = new array();
+    contenido = new array<string>();
 
     validarArchivo();
 

@@ -3,16 +3,25 @@
 
 using namespace std;
 
-Matriz::Matriz(int ancho, int alto, array *&contenido) {
-    columnas = new array<string>(ancho);
-    for (int i = 0; i < ancho; ++i) {
-        //columnas->agregarElemento("a");
-    }
-    tamanio = columnas->devolverTamanio();
-    //cout<<tamanio<<endl;
-//contenido->devolverElemento(i)
-    cout<<columnas->devolverElemento(0)<<endl;
+Matriz::Matriz(int anchoMatriz, int altoMatriz) {
+    
+    columnas=anchoMatriz;
+    filas=altoMatriz;
+
+    construirMatriz();
+
+
 }
+
+void Matriz::construirMatriz()
+{
+
+    punteroMatriz = new array<string>(filas,columnas);
+
+    punteroMatriz->mostrarArrayPuntero();
+
+}   
+
 
 void Matriz::agregarElementoArrayMatriz(string elemento)
 {
