@@ -78,9 +78,9 @@ void array<T>::crearMemoriaPunteros()
 
     puntero = new T*[tamanio];
 
-    for (int i = 0; i < tamanio-1; i++)
+    for (int i = 0; i < tamanio; i++)
     {
-      *puntero= new T[dimensionAuxiliar];       
+      puntero[i]= new T[dimensionAuxiliar];
     }
 
 }
@@ -156,7 +156,7 @@ void array<T>::mostrarArrayPuntero(){
 
     cout << "Entramos a imprimir" << endl;
 
-    for (int i = 0; i < tamanio-1; i++)
+    for (int i = 0; i < tamanio; i++)
     {
         for (int j = 0; j < dimensionAuxiliar; j++)
         {
@@ -164,12 +164,13 @@ void array<T>::mostrarArrayPuntero(){
         }
     }
 
-    for (int i = 0; i < tamanio-1; i++)
+    for (int i = 0; i < tamanio; i++)
     {
         for (int j = 0; j < dimensionAuxiliar; j++)
         {
-            cout<<puntero[i][j]<<endl;   
+            cout<<puntero[i][j];
         }
+        cout << " "<< endl;
     }
 
     cout << "finalizamos imprimir" << endl;
