@@ -168,7 +168,7 @@ void array<T>::mostrarArrayPuntero(){
     {
         for (int j = 0; j < dimensionAuxiliar; j++)
         {
-            cout<<puntero[i][j];
+            cout<< " " <<puntero[i][j];
         }
         cout << " "<< endl;
     }
@@ -178,10 +178,21 @@ void array<T>::mostrarArrayPuntero(){
 
 template<typename T>
 array<T>::~array(){
-    if (tamanio>0)
-       delete [] lista;
+    if (dimensionAuxiliar > 0)
+    {
+        for (int i = 0; i < tamanio; ++i) {
+            delete[] puntero[i];
+        }
+        delete[] puntero;
+    }
     else
-        delete lista;
+    {
+        if (tamanio > 0)
+            delete[] lista;
+        else
+            delete lista;
+    }
+
 }
 
 #endif
