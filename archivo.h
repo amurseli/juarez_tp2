@@ -6,13 +6,13 @@
 
 using namespace std;
 
-class archivo : public array
+class archivo
 {
     private:
         
         string nombre;
         bool existenciaArchivo;
-        array* contenido;
+        array<string>* contenido;
 
     public:
         //Pre:Debe recibir el nombre del archivo.
@@ -25,7 +25,7 @@ class archivo : public array
 
         //Pre:
         //Post: 
-        virtual void leerArchivo(string nombre)=0;
+        virtual void leerArchivo(string nombre) = 0;
 
         //Pre:
         //Post: 
@@ -33,7 +33,7 @@ class archivo : public array
 
         //Pre:-
         //Post:Muestra el array
-        void mostarContenido();
+        void mostrarContenido();
 
         ~archivo();
         

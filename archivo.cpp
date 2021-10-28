@@ -7,12 +7,10 @@ using namespace std;
 archivo::archivo(string nombreArchivo)
 {
     nombre = nombreArchivo;
-    contenido = new array();
+    contenido = new array<string>();
 
     validarArchivo();
 
-    //if (getArchivoValido())
-      //  leerArchivo(nombre);
 }
 
 void archivo::validarArchivo()
@@ -40,10 +38,9 @@ bool archivo::getArchivoValido()
 void archivo::agregarElementoArray(string elemento)
 {
     contenido->agregarElemento(elemento);
-
 }
 
-void archivo::mostarContenido(){
+void archivo::mostrarContenido(){
 
     contenido->mostrarArray();
 
