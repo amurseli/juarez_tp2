@@ -52,7 +52,7 @@ public:
     //Post:Muestra la informacion almacenada
     void mostrarArray();
 
-    void agregarCasilla();
+    void agregarCasillaArray(string elemento, int i, int j);
 
     void mostrarArrayPuntero();
 
@@ -147,13 +147,8 @@ void array<T>::mostrarArray(){
 }
 
 template<typename T>
-void array<T>::agregarCasilla(){
-
-    for (int i = 0; i < tamanio; i++)
-    {
-        for (int j = 0; j < dimensionAuxiliar; j++)
-            puntero[i][j]="A";
-    }
+void array<T>::agregarCasillaArray(string elemento, int i , int j){
+    puntero[j][i]=elemento;
 
 }
 

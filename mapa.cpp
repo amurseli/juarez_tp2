@@ -12,6 +12,8 @@ mapa::mapa(string nombre):archivo(nombre){
 
 void mapa::leerArchivo(string nombre)
 {
+    int i = 0;
+    int j = 0;
 
     fstream documento(nombre, ios::in);
 
@@ -22,24 +24,24 @@ void mapa::leerArchivo(string nombre)
 
     construirMatriz();
 
-    while (documento >> tipoTerreno)
-    {
-        agregarElementoArray(tipoTerreno);
+    while (documento >> tipoTerreno) {
+        matrizMapa->agregarCasillero(tipoTerreno, i, j);
+        i++;
+        if (i % columnas == 0)
+        {
+            j++;
+            i = 0;
+        }
     }
-
+    matrizMapa->mostrarMatriz();
 
     documento.close();
 }
 
 void mapa::construirMatriz(){
-
     matrizMapa = new Matriz(columnas,filas);
-
-
 }
 
 mapa::~mapa() {
-
     delete matrizMapa;
-
 }

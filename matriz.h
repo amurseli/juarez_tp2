@@ -22,7 +22,11 @@ public:
 
     void agregarElementoArrayMatriz(string elemento);
 
+    void agregarCasillero(string tipoTerreno, int i, int j);
+
     void mostrarMatriz();
+
+
 
     ~Matriz();
 };
