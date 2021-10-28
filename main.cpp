@@ -16,7 +16,7 @@ const string PATH_MAPA = "../mapa.txt";
 
 int main()
 {
-    Matriz prueba(10,8);
+    mapa prueba(PATH_MAPA);
 
     return 0;
 }

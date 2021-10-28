@@ -15,11 +15,12 @@ void mapa::leerArchivo(string nombre)
 
     fstream documento(nombre, ios::in);
 
-    int ancho,alto;
     string tipoTerreno;
 
-    documento >> ancho;
-    documento >> alto;
+    documento >> filas;
+    documento >> columnas;
+
+    construirMatriz();
 
     while (documento >> tipoTerreno)
     {
@@ -30,11 +31,15 @@ void mapa::leerArchivo(string nombre)
     documento.close();
 }
 
-int mapa::devolverAncho()
-{
-    return ancho;
+void mapa::construirMatriz(){
+
+    matrizMapa = new Matriz(columnas,filas);
+
+
 }
-int mapa::devolverAlto()
-{
-    return alto;
+
+mapa::~mapa() {
+
+    delete matrizMapa;
+
 }

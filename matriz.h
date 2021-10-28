@@ -1,3 +1,6 @@
+#ifndef MATRIZ_H
+#define MATRIZ_H
+
 #include<string>
 #include<fstream>
 #include "array.h"
@@ -24,6 +27,6 @@ public:
     ~Matriz();
 };
 
-
+#endif
 
 

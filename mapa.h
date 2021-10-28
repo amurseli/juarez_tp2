@@ -1,6 +1,7 @@
 #ifndef MAPA_H
 #define MAPA_H
 #include "archivo.h"
+#include "matriz.h"
 #include<string>
 
 using namespace std;
@@ -8,14 +9,16 @@ using namespace std;
 class mapa : public archivo
 {
 private:
-    int ancho;
-    int alto;
+    int filas;
+    int columnas;
+    Matriz* matrizMapa;
+
 
 public:
     mapa(string nombre);
     void leerArchivo(string nombre);
-    int devolverAncho();
-    int devolverAlto();
+    void construirMatriz();
+    ~mapa();
 };
 
 #endif

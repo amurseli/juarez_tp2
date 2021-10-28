@@ -52,6 +52,8 @@ public:
     //Post:Muestra la informacion almacenada
     void mostrarArray();
 
+    void agregarCasilla();
+
     void mostrarArrayPuntero();
 
     
@@ -65,7 +67,7 @@ array<T>::array(){
 }
 
 template<typename T>
-array<T>::array(int filas, int columnas)
+array<T>::array(int columnas, int filas)
 {
     tamanio = filas;
     dimensionAuxiliar=columnas;
@@ -75,14 +77,10 @@ array<T>::array(int filas, int columnas)
 template<typename T>
 void array<T>::crearMemoriaPunteros()
 {
-
     puntero = new T*[tamanio];
 
     for (int i = 0; i < tamanio; i++)
-    {
-      puntero[i]= new T[dimensionAuxiliar];
-    }
-
+      puntero[i] = new T[dimensionAuxiliar];      
 }
 
 template<typename T>
@@ -123,10 +121,7 @@ void array<T>::transferenciaInformacion(){
     int tamanioArrayAux = tamanio -1;
 
     for (int i = 0; i < tamanioArrayAux; i++)
-    {
-        lista[i]=auxiliarLista[i];
-    }
-    
+        lista[i]=auxiliarLista[i];    
 }
 
 template<typename T>
@@ -152,39 +147,40 @@ void array<T>::mostrarArray(){
 }
 
 template<typename T>
+void array<T>::agregarCasilla(){
+
+    for (int i = 0; i < tamanio; i++)
+    {
+        for (int j = 0; j < dimensionAuxiliar; j++)
+            puntero[i][j]="A";
+    }
+
+}
+
+template<typename T>
 void array<T>::mostrarArrayPuntero(){
 
-    cout << "Entramos a imprimir" << endl;
-
     for (int i = 0; i < tamanio; i++)
     {
         for (int j = 0; j < dimensionAuxiliar; j++)
-        {
-            puntero[i][j]="A";
-        }
-    }
-
-    for (int i = 0; i < tamanio; i++)
-    {
-        for (int j = 0; j < dimensionAuxiliar; j++)
-        {
             cout<< " " <<puntero[i][j];
-        }
+
         cout << " "<< endl;
     }
-
-    cout << "finalizamos imprimir" << endl;
 }
 
 template<typename T>
 array<T>::~array(){
+    
     if (dimensionAuxiliar > 0)
     {
-        for (int i = 0; i < tamanio; ++i) {
+        
+        for (int i = 0; i < tamanio; ++i)
             delete[] puntero[i];
-        }
+
         delete[] puntero;
     }
+
     else
     {
         if (tamanio > 0)
