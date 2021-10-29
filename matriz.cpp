@@ -15,7 +15,7 @@ Matriz::Matriz(int columnasMatriz, int filasMatriz) {
 void Matriz::construirMatriz()
 {
 
-    punteroMatriz = new array<string>(columnas,filas);
+    punteroMatriz = new array<Casillero*>(columnas,filas);
     //punteroMatriz->agregarCasilla();//Agrega una A
     punteroMatriz->mostrarArrayPuntero();
 

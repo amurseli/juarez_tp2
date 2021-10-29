@@ -1,9 +1,9 @@
 #include "casillero.h"
 
-casillero::casillero(string letraMapa) {
+Casillero::Casillero(string letraMapa) {
     tipoTerreno = letraMapa;
 }
 
-void casillero::mostrarTipoTerreno (){
+void Casillero::mostrarTipoTerreno (){
     cout << tipoTerreno << endl;
 }

@@ -3,12 +3,12 @@
 
 using namespace std;
 
-class casillero
+class Casillero
 {
 private:
     string tipoTerreno;
 
 public:
-    casillero(string letraMapa);
+    Casillero(string letraMapa);
     void mostrarTipoTerreno ();
 };

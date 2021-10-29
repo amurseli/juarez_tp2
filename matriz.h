@@ -12,7 +12,7 @@ class Matriz
 {
 private:
     int tamanio, columnas, filas;
-    array<string>* punteroMatriz;
+    array<Casillero>* punteroMatriz;
 
 public:
 

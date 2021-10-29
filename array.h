@@ -2,6 +2,7 @@
 #define ARRAY_H
 #include <string>
 #include <iostream>
+#include "casillero.h"
 
 using namespace std;
 
@@ -148,21 +149,21 @@ void array<T>::mostrarArray(){
 
 template<typename T>
 void array<T>::agregarCasillaArray(string elemento, int i , int j){
-    puntero[j][i]=elemento;
+    puntero[j][i] = new Casillero(elemento);
 
 }
 
 template<typename T>
 void array<T>::mostrarArrayPuntero(){
-
+/*
     for (int i = 0; i < tamanio; i++)
     {
         for (int j = 0; j < dimensionAuxiliar; j++)
-            cout<< " " <<puntero[i][j];
+            //cout<< " " <<puntero[i][j];
 
-        cout << " "<< endl;
+        //cout << " "<< endl;
     }
-}
+*/}
 
 template<typename T>
 array<T>::~array(){
