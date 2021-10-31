@@ -1,9 +1,13 @@
 #include "casillero.h"
 
+Casillero::Casillero() {
+
+}
+
 Casillero::Casillero(string letraMapa) {
     tipoTerreno = letraMapa;
 }
 
-void Casillero::mostrarTipoTerreno (){
-    cout << tipoTerreno << endl;
+string Casillero::mostrarTipoTerreno (){
+    return tipoTerreno ;
 }

@@ -15,11 +15,14 @@ Matriz::Matriz(int columnasMatriz, int filasMatriz) {
 void Matriz::construirMatriz()
 {
 
-    punteroMatriz = new array<Casillero*>(columnas,filas);
+    punteroMatriz = new array<Casillero>(columnas,filas);
     //punteroMatriz->agregarCasilla();//Agrega una A
-    punteroMatriz->mostrarArrayPuntero();
+    //punteroMatriz->mostrarArrayPuntero();
+
 
 }
+
+
 
 void Matriz::agregarCasillero(string tipoTerreno, int i, int j) {
     punteroMatriz->agregarCasillaArray(tipoTerreno,  i ,  j);

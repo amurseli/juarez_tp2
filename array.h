@@ -12,7 +12,7 @@ class array
 private:
     T* lista;
     T* auxiliarLista;
-    T** puntero;
+    T*** puntero;
     int tamanio, dimensionAuxiliar;
 
     //Pre:Recibe un valor, es el tamanio de la lista
@@ -53,6 +53,8 @@ public:
     //Post:Muestra la informacion almacenada
     void mostrarArray();
 
+    T*** getMatriz();
+
     void agregarCasillaArray(string elemento, int i, int j);
 
     void mostrarArrayPuntero();
@@ -78,10 +80,10 @@ array<T>::array(int columnas, int filas)
 template<typename T>
 void array<T>::crearMemoriaPunteros()
 {
-    puntero = new T*[tamanio];
+    puntero = new T**[tamanio];
 
     for (int i = 0; i < tamanio; i++)
-      puntero[i] = new T[dimensionAuxiliar];      
+      puntero[i] = new T*[dimensionAuxiliar];
 }
 
 template<typename T>
@@ -149,21 +151,31 @@ void array<T>::mostrarArray(){
 
 template<typename T>
 void array<T>::agregarCasillaArray(string elemento, int i , int j){
-    puntero[j][i] = new Casillero(elemento);
 
+    Casillero* aux = new Casillero(elemento);
+    aux->mostrarTipoTerreno();
+    puntero[j][i] = aux;
 }
 
 template<typename T>
 void array<T>::mostrarArrayPuntero(){
-/*
+
+
     for (int i = 0; i < tamanio; i++)
     {
         for (int j = 0; j < dimensionAuxiliar; j++)
-            //cout<< " " <<puntero[i][j];
+            cout << puntero[i][j]->mostrarTipoTerreno();
 
-        //cout << " "<< endl;
+        cout << " "<< endl;
     }
-*/}
+}
+
+template<typename T>
+T*** array<T>::getMatriz()
+{
+    return puntero;
+
+}
 
 template<typename T>
 array<T>::~array(){

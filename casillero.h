@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <string>
 
@@ -9,6 +10,7 @@ private:
     string tipoTerreno;
 
 public:
+    Casillero();
     Casillero(string letraMapa);
-    void mostrarTipoTerreno ();
+    string mostrarTipoTerreno ();
 };
