@@ -3,6 +3,9 @@
 
 #include "edificios.h"
 #include "matriz.h"
+#include "materiales.h"
+#include "edificios.h"
+
 const int OPCION_MINIMA = 1;
 const int OPCION_MAXIMA = 10;
 const int CONSTRUIR_EDIFICIOS = 1;
@@ -22,7 +25,7 @@ void mostrar_menu();
 
 //pre: -
 //post: Realiza la opcion pedida
-void procesar_opcion(Matriz* punteroMatriz, int opcion_elegida);
+void procesar_opcion(Matriz* punteroMatriz, int opcion_elegida, Materiales materiales, Edificios edificios);
 
 //pre:-
 //post: Frena el programa hasta recibir un input

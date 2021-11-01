@@ -15,11 +15,13 @@ const string PATH_MAPA = "../mapa.txt";
 
 int main()
 {
+    Materiales materialesTxt(PATH_MATERIALES);
+    Edificios edificiosTxt(PATH_EDIFICIOS);
+    Mapa mapaTxt(PATH_MAPA);
+
     Matriz* punteroOriginal; // Para trabajar con la matriz desde el main
 
-    Mapa prueba(PATH_MAPA);
-
-    punteroOriginal = prueba.retornarPunteroMatriz();
+    punteroOriginal = mapaTxt.retornarPunteroMatriz();
 
     cout << "Bienvenido a Andypolis!" << endl;
 
@@ -33,7 +35,7 @@ int main()
             mostrar_menu();
             cin >> opcion_elegida;
         }
-        procesar_opcion(punteroOriginal,opcion_elegida);
+        procesar_opcion(punteroOriginal,opcion_elegida,materialesTxt,edificiosTxt);
     }while(opcion_elegida != SALIR);
 
 

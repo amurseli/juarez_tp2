@@ -18,7 +18,7 @@ void mostrar_menu(){
 
 }
 
-void procesar_opcion(Matriz* punteroMatriz, int opcion_elegida) {
+void procesar_opcion(Matriz* punteroMatriz, int opcion_elegida, Materiales materiales, Edificios edificios) {
     string aux;
     switch (opcion_elegida) {
         case CONSTRUIR_EDIFICIOS: //cambiar los nombres del switch en menu.h
@@ -45,7 +45,7 @@ void procesar_opcion(Matriz* punteroMatriz, int opcion_elegida) {
             punteroMatriz->mostrarCoordenada(coord1-1,coord2-1);
             break;
         case MOSTRAR_INVENTARIO:
-
+            materiales.mostrarContenido();
             break;
         case RECOLECTAR:
 

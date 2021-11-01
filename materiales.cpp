@@ -6,8 +6,9 @@ using namespace std;
 
 Materiales::Materiales(string nombre):Archivo(nombre){
 
-    leerArchivo(nombre);
     crearContenido();
+    leerArchivo(nombre);
+
 
 }
 void Materiales::leerArchivo(string nombre)
@@ -22,8 +23,12 @@ void Materiales::leerArchivo(string nombre)
         documento >> cantidad;
         agregarElementoArray(nombreMaterial);
         agregarElementoArray(cantidad);
-        
+
     }
 
     documento.close();
+}
+
+void Materiales::mostrarMateriales() {
+    mostrarContenido();
 }

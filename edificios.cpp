@@ -6,8 +6,9 @@ using namespace std;
 
 Edificios::Edificios(string nombre):Archivo(nombre){
 
-    leerArchivo(nombre);
     crearContenido();
+    leerArchivo(nombre);
+
 
 }
 

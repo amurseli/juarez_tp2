@@ -9,9 +9,9 @@ template<typename T>
 class Array
 {
 private:
+    int tamanio;
     T* lista;
     T* auxiliarLista;
-    int tamanio;
 
     //Pre:Recibe un valor, es el tamanio de la lista
     //Post:Crea en el heap los bloques de memoria solicitada
@@ -69,7 +69,7 @@ void Array<T>::agregarElemento(T elemento)
 template<typename T>
 void Array<T>::crearMemoria()
 {
-      
+
     if (tamanio != 1)
     {
         auxiliarLista = lista;

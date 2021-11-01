@@ -7,9 +7,12 @@ using namespace std;
 
 class Materiales : public Archivo
 {
+private:
+    int tamanio = 0;
 public:
     Materiales(string nombre);
     void leerArchivo(string nombre);
+    void mostrarMateriales();
 };
 
 #endif
