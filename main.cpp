@@ -6,8 +6,7 @@
 #include"edificios.h"
 #include"mapa.h"
 #include"matriz.h"
-
-
+#include"menu.h"
 using namespace std;
 
 const string PATH_MATERIALES = "../materiales.txt";
@@ -22,10 +21,21 @@ int main()
 
     punteroOriginal = prueba.retornarPunteroMatriz();
 
-    punteroOriginal->mostrarCoordenada(0,0);
-    punteroOriginal->mostrarCoordenada(1,5);
+    cout << "Bienvenido a Andypolis!" << endl;
 
-    
+    int opcion_elegida;
+    do{
+        cout << "Escriba una opcion" << endl;
+        mostrar_menu();
+        cin >> opcion_elegida;
+        while(!es_opcion_valida(opcion_elegida)){
+            cout << "Ese numero de opcion no es valido, intentemos otra vez:"<< endl;
+            mostrar_menu();
+            cin >> opcion_elegida;
+        }
+        procesar_opcion(punteroOriginal,opcion_elegida);
+    }while(opcion_elegida != SALIR);
+
 
 
 
