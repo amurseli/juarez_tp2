@@ -5,10 +5,10 @@
 
 using namespace std;
 
-class materiales : public archivo
+class Materiales : public Archivo
 {
 public:
-    materiales(string nombre);
+    Materiales(string nombre);
     void leerArchivo(string nombre);
 };
 

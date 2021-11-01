@@ -1,23 +1,27 @@
-#ifndef ARCHIVO_H
-#define ARCHIVO_H
+#ifndef ARCVHIVO_H
+#define ARCVHIVO_H
 #include<string>
 #include<fstream>
 #include"array.h"
 
 using namespace std;
 
-class archivo
+class Archivo
 {
     private:
         
         string nombre;
         bool existenciaArchivo;
-        array<string>* contenido;
+        Array<string>* contenido = NULL;
 
     public:
-        //Pre:Debe recibir el nombre del archivo.
+        //Pre:Debe recibir el nombre del Archivo.
         //Post: crea la Lista.
-        archivo(string nombreArchivo);
+        Archivo(string nombreArchivo);
+
+        //Pre:
+        //Post: 
+        void crearContenido();
 
         //Pre:-
         //Post:devuelve el estado del la variable existeciaArchivo.
@@ -35,13 +39,13 @@ class archivo
         //Post:Muestra el array
         void mostrarContenido();
 
-        ~archivo();
+        ~Archivo();
         
 
     private:
         
-        //Pre:Debe recibir el nombre del archivo.
-        //Post:valida si existe el archivo.
+        //Pre:Debe recibir el nombre del Archivo.
+        //Post:valida si existe el Archivo.
         void validarArchivo();
 
 

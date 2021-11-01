@@ -4,13 +4,14 @@
 
 using namespace std;
 
-edificios::edificios(string nombre):archivo(nombre){
+Edificios::Edificios(string nombre):Archivo(nombre){
 
     leerArchivo(nombre);
+    crearContenido();
 
 }
 
-void edificios::leerArchivo(string nombre)
+void Edificios::leerArchivo(string nombre)
 {
 
    fstream documento(nombre, ios::in);

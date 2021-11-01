@@ -3,7 +3,7 @@
 
 #include<string>
 #include<fstream>
-#include "array.h"
+#include"casillero.h"
 
 
 using namespace std;
@@ -11,8 +11,8 @@ using namespace std;
 class Matriz
 {
 private:
-    int tamanio, columnas, filas;
-    array<Casillero>* punteroMatriz;
+    int columnas, filas;
+    Casillero*** puntero;
 
 public:
 
@@ -22,11 +22,13 @@ public:
 
     void agregarElementoArrayMatriz(string elemento);
 
-    void agregarCasillero(string tipoTerreno, int i, int j);
+    void crearMemoriaPunteros();
+
+    void agregarCasillero(string tipoTerreno, int coordenadaX, int coordenadaY);
+
+    void mostrarCoordenada(int coordenadaX, int CoordenadaY);
 
     void mostrarMatriz();
-
-
 
     ~Matriz();
 };

@@ -4,12 +4,13 @@
 
 using namespace std;
 
-materiales::materiales(string nombre):archivo(nombre){
+Materiales::Materiales(string nombre):Archivo(nombre){
 
     leerArchivo(nombre);
+    crearContenido();
 
 }
-void materiales::leerArchivo(string nombre)
+void Materiales::leerArchivo(string nombre)
 {
 
     fstream documento(nombre, ios::in);

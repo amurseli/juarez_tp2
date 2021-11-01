@@ -3,40 +3,64 @@
 
 using namespace std;
 
-Matriz::Matriz(int columnasMatriz, int filasMatriz) {
-    
-    filas=filasMatriz;
-    columnas=columnasMatriz;
-
-    construirMatriz();
-
-}
-
-void Matriz::construirMatriz()
+Matriz::Matriz(int columnasMatriz, int filasMatriz)
 {
 
-    punteroMatriz = new array<Casillero>(columnas,filas);
-    //punteroMatriz->agregarCasilla();//Agrega una A
-    //punteroMatriz->mostrarArrayPuntero();
+    filas = filasMatriz;
+    columnas = columnasMatriz;
 
-
+    crearMemoriaPunteros();
 }
 
+void Matriz::crearMemoriaPunteros()
+{
+    puntero = new Casillero **[filas];
 
-
-void Matriz::agregarCasillero(string tipoTerreno, int i, int j) {
-    punteroMatriz->agregarCasillaArray(tipoTerreno,  i ,  j);
+    for (int i = 0; i < filas; i++)
+        puntero[i] = new Casillero *[columnas];
 }
 
+void Matriz::agregarCasillero(string elemento, int coordenadaX, int coordenadaY)
+{
+
+    Casillero *aux = new Casillero(elemento);
+    puntero[coordenadaY][coordenadaX] = aux;
+}
+
+void Matriz::mostrarCoordenada(int coordenadaX, int CoordenadaY){
+
+    puntero[coordenadaX][CoordenadaY]->queSoy();
+
+}
 
 void Matriz::mostrarMatriz()
 {
-    punteroMatriz->mostrarArrayPuntero();
+
+    for (int i = 0; i < filas; i++)
+    {
+        for (int j = 0; j < columnas; j++)
+
+            puntero[i][j]->mostrarTipoTerreno();
+
+        cout << " " << endl;
+    }
 }
 
-Matriz::~Matriz() {
+Matriz::~Matriz()
+{
 
-    delete punteroMatriz;
+    if (columnas > 0)
+    {
 
+        for (int i = 0; i < filas; i++)
+        {
+            for (int j = 0; j < columnas; j++)
+
+                delete puntero[i][j];
+
+            delete[] puntero[i];
+        }
+
+        delete puntero;
+    }
 }
-

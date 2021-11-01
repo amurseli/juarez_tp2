@@ -1,3 +1,5 @@
+#ifndef CASILLERO_H
+#define CASILLERO_H
 
 #include <iostream>
 #include <string>
@@ -10,7 +12,10 @@ private:
     string tipoTerreno;
 
 public:
-    Casillero();
+
     Casillero(string letraMapa);
-    string mostrarTipoTerreno ();
+    void mostrarTipoTerreno();
+    void queSoy();
 };
+
+#endif

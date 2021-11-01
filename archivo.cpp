@@ -4,16 +4,19 @@
 
 using namespace std;
 
-archivo::archivo(string nombreArchivo)
+Archivo::Archivo(string nombreArchivo)
 {
     nombre = nombreArchivo;
-    contenido = new array<string>();
-
     validarArchivo();
 
 }
 
-void archivo::validarArchivo()
+void Archivo::crearContenido(){
+
+    contenido = new Array<string>();
+}
+
+void Archivo::validarArchivo()
 {
 
     fstream documento(nombre, ios::in);
@@ -22,32 +25,32 @@ void archivo::validarArchivo()
 
     if (!existenciaArchivo)
     {
-        cout << "No se encontro un archivo con nombre \"" << nombre << endl;
+        cout << "No se encontro un Archivo con nombre \"" << nombre << endl;
     }
 
     documento.close();
 
 }
 
-bool archivo::getArchivoValido()
+bool Archivo::getArchivoValido()
 {
 
     return existenciaArchivo;
 }
 
-void archivo::agregarElementoArray(string elemento)
+void Archivo::agregarElementoArray(string elemento)
 {
     contenido->agregarElemento(elemento);
 }
 
-void archivo::mostrarContenido(){
+void Archivo::mostrarContenido(){
 
     contenido->mostrarArray();
 
 }
 
-archivo::~archivo()
+Archivo::~Archivo()
 {
-
-    delete contenido;
+    if (!NULL)
+        delete contenido;    
 }

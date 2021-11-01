@@ -1,13 +1,25 @@
 #include "casillero.h"
 
-Casillero::Casillero() {
-
-}
 
 Casillero::Casillero(string letraMapa) {
     tipoTerreno = letraMapa;
 }
 
-string Casillero::mostrarTipoTerreno (){
-    return tipoTerreno ;
+void Casillero::mostrarTipoTerreno (){
+    cout << tipoTerreno;
+}
+
+void Casillero::queSoy(){
+
+    if(tipoTerreno == "T"){
+        cout << "HOLA... SOY UN CASILLERO TRANSITABLE" << endl;
+    }
+    else if (tipoTerreno == "L")
+    {
+        cout << "HOLA... SOY UN LAGO" << endl;
+    }
+    else{
+        cout << "HOLA... SOY UN CASILLERO CONSTRUIBLE" << endl;
+    }
+    
 }

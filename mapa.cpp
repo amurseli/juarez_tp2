@@ -4,13 +4,13 @@
 
 using namespace std;
 
-mapa::mapa(string nombre):archivo(nombre){
+Mapa::Mapa(string nombre):Archivo(nombre){
 
     leerArchivo(nombre);
 
 }
 
-void mapa::leerArchivo(string nombre)
+void Mapa::leerArchivo(string nombre)
 {
     int i = 0;
     int j = 0;
@@ -25,6 +25,7 @@ void mapa::leerArchivo(string nombre)
     construirMatriz();
 
     while (documento >> tipoTerreno) {
+        
         matrizMapa->agregarCasillero(tipoTerreno, i, j);
         i++;
         if (i % columnas == 0)
@@ -33,15 +34,19 @@ void mapa::leerArchivo(string nombre)
             i = 0;
         }
     }
-    matrizMapa->mostrarMatriz();
 
     documento.close();
 }
 
-void mapa::construirMatriz(){
+void Mapa::construirMatriz(){
     matrizMapa = new Matriz(columnas,filas);
 }
 
-mapa::~mapa() {
+Matriz* Mapa::retornarPunteroMatriz(){
+
+    return matrizMapa;
+}
+
+Mapa::~Mapa() {
     delete matrizMapa;
 }

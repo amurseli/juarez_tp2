@@ -2,18 +2,16 @@
 #define ARRAY_H
 #include <string>
 #include <iostream>
-#include "casillero.h"
 
 using namespace std;
 
 template<typename T>
-class array
+class Array
 {
 private:
     T* lista;
     T* auxiliarLista;
-    T*** puntero;
-    int tamanio, dimensionAuxiliar;
+    int tamanio;
 
     //Pre:Recibe un valor, es el tamanio de la lista
     //Post:Crea en el heap los bloques de memoria solicitada
@@ -30,64 +28,34 @@ private:
 
 public:
 
-     array();
-     array(int filas, int columnas);
-
-    //Pre:Recibe la cantidad de punteros que habra en el array.
-    //Post:Genera un array de punteros.
-    void crearMemoriaPunteros();
+     Array();
 
     //Pre:Recibe el elemento a agregar y la posicion donde se agregara en el array.
     //Post:agrega un elemento a la posicion pasada.
     void agregarElemento(T elemento);
 
     int devolverTamanio();
+
     //void cambiarElemento(string elemento,int posicion);
 
-
     T devolverElemento(int indice);
-
-    ~array();
 
     //Pre:-
     //Post:Muestra la informacion almacenada
     void mostrarArray();
 
-    T*** getMatriz();
-
-    void agregarCasillaArray(string elemento, int i, int j);
-
-    void mostrarArrayPuntero();
-
-    
+    ~Array();    
 };
 
 template<typename T>
-array<T>::array(){
+Array<T>::Array(){
 
     tamanio=0;
 
 }
 
 template<typename T>
-array<T>::array(int columnas, int filas)
-{
-    tamanio = filas;
-    dimensionAuxiliar=columnas;
-    crearMemoriaPunteros();
-}
-
-template<typename T>
-void array<T>::crearMemoriaPunteros()
-{
-    puntero = new T**[tamanio];
-
-    for (int i = 0; i < tamanio; i++)
-      puntero[i] = new T*[dimensionAuxiliar];
-}
-
-template<typename T>
-void array<T>::agregarElemento(T elemento)
+void Array<T>::agregarElemento(T elemento)
 {
     tamanio += 1;
     crearMemoria();
@@ -99,7 +67,7 @@ void array<T>::agregarElemento(T elemento)
 }
 
 template<typename T>
-void array<T>::crearMemoria()
+void Array<T>::crearMemoria()
 {
       
     if (tamanio != 1)
@@ -112,14 +80,14 @@ void array<T>::crearMemoria()
 }
 
 template<typename T>
-void array<T>::eliminarMemoria()
+void Array<T>::eliminarMemoria()
 {
     transferenciaInformacion();
     delete[] auxiliarLista;
 }
 
 template<typename T>
-void array<T>::transferenciaInformacion(){
+void Array<T>::transferenciaInformacion(){
 
     int tamanioArrayAux = tamanio -1;
 
@@ -128,20 +96,20 @@ void array<T>::transferenciaInformacion(){
 }
 
 template<typename T>
-int array<T>::devolverTamanio()
+int Array<T>::devolverTamanio()
 {
     return tamanio;
 }
 
 template<typename T>
-T array<T>::devolverElemento(int indice)
+T Array<T>::devolverElemento(int indice)
 {
     return lista[indice];
 }
 
 
 template<typename T>
-void array<T>::mostrarArray(){
+void Array<T>::mostrarArray(){
     
     for (int i = 0; i < tamanio; i++)
     {
@@ -150,53 +118,14 @@ void array<T>::mostrarArray(){
 }
 
 template<typename T>
-void array<T>::agregarCasillaArray(string elemento, int i , int j){
-
-    Casillero* aux = new Casillero(elemento);
-    aux->mostrarTipoTerreno();
-    puntero[j][i] = aux;
-}
-
-template<typename T>
-void array<T>::mostrarArrayPuntero(){
-
-
-    for (int i = 0; i < tamanio; i++)
-    {
-        for (int j = 0; j < dimensionAuxiliar; j++)
-            cout << puntero[i][j]->mostrarTipoTerreno();
-
-        cout << " "<< endl;
-    }
-}
-
-template<typename T>
-T*** array<T>::getMatriz()
-{
-    return puntero;
-
-}
-
-template<typename T>
-array<T>::~array(){
+Array<T>::~Array(){
     
-    if (dimensionAuxiliar > 0)
-    {
-        
-        for (int i = 0; i < tamanio; ++i)
-            delete[] puntero[i];
-
-        delete[] puntero;
+    if (tamanio > 0){
+        delete[] lista;
     }
-
-    else
-    {
-        if (tamanio > 0)
-            delete[] lista;
-        else
-            delete lista;
+    else{
+        delete lista;
     }
-
 }
 
 #endif

@@ -16,7 +16,16 @@ const string PATH_MAPA = "../mapa.txt";
 
 int main()
 {
-    mapa prueba(PATH_MAPA);
+    Matriz* punteroOriginal; // Para trabajar con la matriz desde el main
+
+    Mapa prueba(PATH_MAPA);
+
+    punteroOriginal = prueba.retornarPunteroMatriz();
+
+    punteroOriginal->mostrarCoordenada(0,0);
+    punteroOriginal->mostrarCoordenada(1,5);
+
+    
 
 
 

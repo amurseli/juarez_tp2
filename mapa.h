@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class mapa : public archivo
+class Mapa : public Archivo
 {
 private:
     int filas;
@@ -15,10 +15,15 @@ private:
 
 
 public:
-    mapa(string nombre);
+    Mapa(string nombre);
     void leerArchivo(string nombre);
     void construirMatriz();
-    ~mapa();
+
+    //Pre:
+    //Post:Devuelve la direccion de memoria de la matriz.
+    Matriz* retornarPunteroMatriz();
+    
+    ~Mapa();
 };
 
 #endif
