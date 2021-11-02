@@ -14,14 +14,13 @@ class Casillero
 private:
     string tipoTerreno;
 
-    //CasilleroConstruible* punteroConstruible = NULL;
+
 
 public:
 
     Casillero(string letraMapa);
-    //void tipoCasillero();
     void mostrarTipoTerreno();
-    virtual void queSoy() = 0; //este debe ser un virtual
+    virtual void queSoy() = 0; 
     virtual ~Casillero();
 };
 

@@ -12,17 +12,22 @@ void Ubicaciones::leerArchivo(string nombre)
 
     string nombreEdificio;
     string coordX, coordY;
-
+    int cleanCoordX, cleanCoordY, cantDigitos, inicioNumero;
     while (documento >> nombreEdificio)
     {
-        (getline(documento,coordX,','));
-        (getline(documento,coordY,')'));
-        int coordXInt = atoi(coordX.c_str());
-        int coordYInt = atoi(coordY.c_str());
+
         documento >> coordX;
         documento >> coordY;
 
-        cout << coordXInt << " " << coordYInt << endl;
+        coordX = coordX.substr(1);
+        coordX.pop_back();
+        cleanCoordX = atoi(coordX.c_str());
+
+        coordY.pop_back();
+        cleanCoordY = atoi(coordY.c_str());
+
+
+       cout << cleanCoordX << " " << cleanCoordY << " " << nombreEdificio << endl;
 
     }
 

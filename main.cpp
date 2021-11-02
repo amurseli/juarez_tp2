@@ -45,23 +45,6 @@ int main()
         }
 
     } while (opcionElegida != SALIR);
-    
-
-    /*;
-    do{
-        cout << "Escriba una opcion" << endl;
-        mostrar_menu();
-        cin >> opcion_elegida;
-        while(!es_opcion_valida(opcion_elegida)){
-            cout << "Ese numero de opcion no es valido, intentemos otra vez:"<< endl;
-            mostrar_menu();
-            cin >> opcion_elegida;
-        }
-        procesar_opcion(punteroOriginal,opcion_elegida,materialesTxt,edificiosTxt);
-    }while(opcion_elegida != SALIR);*/
-
-
-
 
     return 0;
 }
