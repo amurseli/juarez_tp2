@@ -14,22 +14,35 @@ Matriz::Matriz(int columnasMatriz, int filasMatriz)
 
 void Matriz::crearMemoriaPunteros()
 {
-    puntero = new Casillero **[filas];
+    punteroMatriz = new Casillero **[filas];
 
     for (int i = 0; i < filas; i++)
-        puntero[i] = new Casillero *[columnas];
+        punteroMatriz[i] = new Casillero *[columnas];
 }
 
 void Matriz::agregarCasillero(string elemento, int coordenadaX, int coordenadaY)
 {
-
-    Casillero *aux = new Casillero(elemento);
-    puntero[coordenadaY][coordenadaX] = aux;
+    if (elemento == "L")
+    {   
+        Casillero *aux = new CasilleroInaccesible(elemento);
+        punteroMatriz[coordenadaY][coordenadaX] = aux;
+    }
+    else if (elemento == "C")
+    {
+        Casillero *aux = new CasilleroConstruible(elemento);
+        punteroMatriz[coordenadaY][coordenadaX] = aux;
+    }
+    else if (elemento == "T")
+    {
+        Casillero *aux = new CasilleroTransitable(elemento);
+        punteroMatriz[coordenadaY][coordenadaX] = aux;
+    }
+    
 }
 
 void Matriz::mostrarCoordenada(int coordenadaX, int CoordenadaY){
 
-    puntero[coordenadaX][CoordenadaY]->queSoy();
+    punteroMatriz[coordenadaX][CoordenadaY]->queSoy();
 
 }
 
@@ -40,7 +53,7 @@ void Matriz::mostrarMatriz()
     {
         for (int j = 0; j < columnas; j++)
 
-            puntero[i][j]->mostrarTipoTerreno();
+            punteroMatriz[i][j]->mostrarTipoTerreno();
 
         cout << " " << endl;
     }
@@ -56,11 +69,11 @@ Matriz::~Matriz()
         {
             for (int j = 0; j < columnas; j++)
 
-                delete puntero[i][j];
+                delete punteroMatriz[i][j];
 
-            delete[] puntero[i];
+            delete[] punteroMatriz[i];
         }
 
-        delete puntero;
+        delete punteroMatriz;
     }
 }

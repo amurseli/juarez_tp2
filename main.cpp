@@ -25,7 +25,25 @@ int main()
 
     cout << "Bienvenido a Andypolis!" << endl;
 
-    int opcion_elegida;
+    int opcionElegida = -1;
+
+    do
+    {
+        mostrarMenu();
+        opcionElegida = elegirOpcion();
+
+        if (!esOpcionValida(opcionElegida))
+            mostrarMensajeError();
+
+        else{
+
+            procesarOpcion(punteroOriginal,opcionElegida,materialesTxt,edificiosTxt);
+        }
+
+    } while (opcionElegida != SALIR);
+    
+
+    /*;
     do{
         cout << "Escriba una opcion" << endl;
         mostrar_menu();
@@ -36,7 +54,7 @@ int main()
             cin >> opcion_elegida;
         }
         procesar_opcion(punteroOriginal,opcion_elegida,materialesTxt,edificiosTxt);
-    }while(opcion_elegida != SALIR);
+    }while(opcion_elegida != SALIR);*/
 
 
 

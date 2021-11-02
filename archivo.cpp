@@ -51,6 +51,8 @@ void Archivo::mostrarContenido(){
 
 Archivo::~Archivo()
 {
-    if (!NULL)
-        delete contenido;    
+    if (contenido != NULL){
+        delete contenido;
+        contenido = NULL;
+    }    
 }

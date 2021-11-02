@@ -21,18 +21,26 @@ const int SALIR = 10;
 
 //pre: -
 //post: Imprime por pantalla el menu
-void mostrar_menu();
+void mostrarMenu();
+
+//pre: -
+//post: Guarda la opcion del usuario
+int elegirOpcion();
+
+//pre: -
+//post: Imprime por pantalla que fue invalido la opcion elegida.
+void mostrarMensajeError();
 
 //pre: -
 //post: Realiza la opcion pedida
-void procesar_opcion(Matriz* punteroMatriz, int opcion_elegida, Materiales materiales, Edificios edificios);
+void procesarOpcion(Matriz* &punteroMatriz, int opcion_elegida, Materiales &materiales, Edificios &edificios);
 
 //pre:-
 //post: Frena el programa hasta recibir un input
-void presione_enter();
+void presioneEnter();
 
 //pre: -
 //post: devuelve true si la opcion recibida esta en el rango valido y sino devuelve false.
-bool es_opcion_valida(int elegida);
+bool esOpcionValida(int elegida);
 
 #endif //TP1_MENU_H

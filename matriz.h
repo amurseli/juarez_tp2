@@ -4,6 +4,9 @@
 #include<string>
 #include<fstream>
 #include"casillero.h"
+#include"casilleroInaccesible.h"
+#include "casilleroTransitable.h"
+#include "casilleroConstruible.h"
 
 
 using namespace std;
@@ -12,7 +15,7 @@ class Matriz
 {
 private:
     int columnas, filas;
-    Casillero*** puntero;
+    Casillero*** punteroMatriz;
 
 public:
 
