@@ -39,6 +39,6 @@ void Casillero::mostrarTipoTerreno (){
 
 Casillero::~Casillero(){
 
-    delete this;
+    //delete this;
     
 }
