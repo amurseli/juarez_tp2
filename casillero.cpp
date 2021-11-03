@@ -14,10 +14,6 @@ string Casillero::obtenerTipoTerreno(){
     return (tipoTerreno);
 }
 
-void Casillero::setEdificio(Edificio* &nuevoEdificio){}
-
-
-
 Casillero::~Casillero(){
 
 }

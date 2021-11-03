@@ -18,11 +18,14 @@ public:
     
     void queSoy();
 
+
     //PRE:Recibe el material a agregar en el terreno
     //POST:Coloca el material.
     void agregarAlTerreno(string elemento);
 
     void inicializarMaterial();
+
+    void agregarEdificio(string nombreEdificio, Edificio* &edificio);
 
     virtual ~CasilleroTransitable();
 };
