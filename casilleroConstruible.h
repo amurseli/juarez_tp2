@@ -25,6 +25,10 @@ public:
     
     void queSoy();
 
+    //PRE:Recibe el edificio a agregar
+    //Post:Agrega el edificio a la casilla correspondiente.
+    void agregarAlTerreno(string elemento);
+
     void agregarEdificio(string edificio, Edificio* &edificioNuevo);
 
     virtual ~CasilleroConstruible();

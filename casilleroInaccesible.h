@@ -13,6 +13,11 @@ private:
 public:
     CasilleroInaccesible(string elemento);
     void queSoy();
+
+    //PRE:
+    //POST: Al ser hijo de casillero debe estar definido.
+    void agregarAlTerreno(string elemento);
+    
     virtual ~CasilleroInaccesible();
 };
 

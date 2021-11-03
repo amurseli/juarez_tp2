@@ -10,6 +10,6 @@ void CasilleroInaccesible::queSoy(){
 
 }
 
-CasilleroInaccesible::~CasilleroInaccesible(){
+void CasilleroInaccesible::agregarAlTerreno(string elemento){}
 
-}
+CasilleroInaccesible::~CasilleroInaccesible(){}

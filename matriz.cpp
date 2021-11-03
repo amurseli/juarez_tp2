@@ -21,22 +21,23 @@ void Matriz::crearMemoriaPunteros()
 }
 
 void Matriz::agregarCasillero(string elemento, int coordenadaX, int coordenadaY)
-{
-    if (elemento == "L")
+{   
+    Casillero *crearCasillero;
+
+    if (elemento == LAGO)
     {   
-        Casillero *aux = new CasilleroInaccesible(elemento);
-        punteroMatriz[coordenadaY][coordenadaX] = aux;
+        crearCasillero = new CasilleroInaccesible(elemento);
     }
-    else if (elemento == "C")
+    else if (elemento == CONSTRUIBLE)
     {
-        Casillero *aux = new CasilleroConstruible(elemento);
-        punteroMatriz[coordenadaY][coordenadaX] = aux;
+        crearCasillero = new CasilleroConstruible(elemento);
     }
-    else if (elemento == "T")
+    else if (elemento == TRANSITABLE)
     {
-        Casillero *aux = new CasilleroTransitable(elemento);
-        punteroMatriz[coordenadaY][coordenadaX] = aux;
+        crearCasillero = new CasilleroTransitable(elemento);
     }
+
+    punteroMatriz[coordenadaY][coordenadaX] = crearCasillero;
     
 }
 
@@ -46,10 +47,10 @@ void Matriz::mostrarCoordenada(int coordenadaX, int CoordenadaY){
 
 }
 
-void Matriz::construirEdificio(Edificio* &nuevoEdificio, int coordX, int coordY, string nombreNuevoEdificio)
+/*void Matriz::construirEdificio(Edificio* &nuevoEdificio, int coordX, int coordY, string nombreNuevoEdificio)
 {
     punteroMatriz[coordX][coordY]->agregarEdificio(nombreNuevoEdificio,nuevoEdificio);
-}
+}*/
 
 void Matriz::mostrarMatriz()
 {
@@ -61,6 +62,32 @@ void Matriz::mostrarMatriz()
             punteroMatriz[i][j]->mostrarTipoTerreno();
 
         cout << " " << endl;
+    }
+}
+
+void Matriz::generarLluviaMateriales(){
+
+    string tipoTerreno;
+
+    for (int i = 0; i < filas; i++)
+    {
+        for (int j = 0; j < columnas; j++)
+        {
+
+            tipoTerreno = punteroMatriz[i][j]->obtenerTipoTerreno();
+            validarTipoTerreno(tipoTerreno,i,j);
+        }
+    }
+
+}
+
+void Matriz::validarTipoTerreno(string tipoTerreno, int coordenadaX, int coordenadaY){
+
+    string materialCayendo;
+    if (tipoTerreno == TRANSITABLE)
+    {
+        materialCayendo = "PIEDRA"; //generar random de material en otro metodo
+        punteroMatriz[coordenadaX][coordenadaY]->agregarAlTerreno(materialCayendo);
     }
 }
 

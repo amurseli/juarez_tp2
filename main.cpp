@@ -26,7 +26,7 @@ int main()
 
     punteroOriginal = mapaTxt.retornarPunteroMatriz();
 
-    Ubicaciones ubicacionesTxt(PATH_UBICACIONES,punteroOriginal);
+    //Ubicaciones ubicacionesTxt(PATH_UBICACIONES,punteroOriginal);
 
     cout << "Bienvenido a Andypolis!" << endl;
 

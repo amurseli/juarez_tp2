@@ -27,8 +27,8 @@ void Ubicaciones::leerArchivo(string nombre)
         coordY.pop_back();
         cleanCoordY = atoi(coordY.c_str());
 
-        punteroEdificio = new Edificio(nombreEdificio,cleanCoordX,cleanCoordY);
-        punteroMatriz[cleanCoordX][cleanCoordY]->agregarEdificio(nombreEdificio,punteroEdificio);
+        //punteroEdificio = new Edificio(nombreEdificio,cleanCoordX,cleanCoordY);
+        //punteroMatriz[cleanCoordX][cleanCoordY]->agregarEdificio(nombreEdificio,punteroEdificio);
     }
 
     documento.close();

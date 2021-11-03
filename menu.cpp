@@ -67,7 +67,7 @@ void procesarOpcion(Matriz* &punteroMatriz, int opcion_elegida, Materiales &mate
             cout << "Soy la opcion 8" << endl;
             break;
         case LLUVIA_DE_RECUROS:
-            cout << "Soy la opcion 9" << endl;
+            punteroMatriz->generarLluviaMateriales();
             break;
         case SALIR:
 

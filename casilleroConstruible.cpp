@@ -16,10 +16,8 @@ void CasilleroConstruible::agregarEdificio(string edificio, Edificio* &edificioN
 
     tipoEdificio = edificio;
     punteroEdificio = edificioNuevo;
-
 }
 
+void CasilleroConstruible::agregarAlTerreno(string elemento){}
 
-CasilleroConstruible::~CasilleroConstruible(){
-
-}
+CasilleroConstruible::~CasilleroConstruible(){}
