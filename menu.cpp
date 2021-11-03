@@ -37,7 +37,7 @@ void mostrarMensajeError(){
 void procesarOpcion(Matriz* &punteroMatriz, int opcion_elegida, Materiales &materiales, Edificios &edificios) {
     string aux;
     switch (opcion_elegida) {
-        case CONSTRUIR_EDIFICIOS: //cambiar los nombres del switch en menu.h
+        case CONSTRUIR_EDIFICIOS:
             cout << "Soy la opcion 1" << endl;
             break;
         case MOSTRAR_EDIFICIOS_CONSTRUIDOS:

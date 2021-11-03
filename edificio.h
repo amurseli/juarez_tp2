@@ -8,11 +8,21 @@ using namespace std;
 class Edificio
 {
 private:
-    string edificio;
-    int posicionX,posicionY;
+
+    string nombre;
 
 public:
-    Edificio (string tipoEdificio, int coordX, int coordY);
+    
+    Edificio (string tipoEdificio);
+
+    string devolverNombre();
+
+    //PRE:
+    //POST:Va a sumar a la lista de materiales lo que el edificio que este custruido otorgue.
+    void recolectar();
+
+    //virtual ~Edificio();
+
 };
 
 

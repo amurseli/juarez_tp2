@@ -5,17 +5,20 @@
 #include <string>
 #include "matriz.h"
 #include <string>
-#include "edificio.h"
-
 
 using namespace std;
 
 class Ubicaciones : public Archivo
 {
 private:
+
     Matriz* punteroMatriz;
+
 public:
+
     Ubicaciones(string nombre,Matriz* &matriz);
+
+    
     void leerArchivo(string nombre);
 };
 

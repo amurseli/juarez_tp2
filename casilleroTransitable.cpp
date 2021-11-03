@@ -9,7 +9,7 @@ void CasilleroTransitable::queSoy(){
     if (materialEnCasilla != NULL)
     {   
         cout << "Y NO ME ENCUENTRO VACIO" << endl;
-      //  materialEnCasilla->hablar();
+        materialEnCasilla->hablar();
     }
     else
     {   cout << "Y ME ENCUENTRO VACIO" << endl;}
@@ -22,12 +22,12 @@ void CasilleroTransitable::agregarAlTerreno(string elemento){
         inicializarMaterial();
     }
   
-   // materialEnCasilla->agregarMaterial(elemento);
+    materialEnCasilla->agregarMaterial(elemento);
 }
 
 void CasilleroTransitable::inicializarMaterial(){
     
- //   materialEnCasilla = new Material();
+    materialEnCasilla = new Material();
 }
 void CasilleroTransitable::agregarEdificio(string edificio, Edificio* &edificioNuevo) {
 
@@ -38,7 +38,7 @@ CasilleroTransitable::~CasilleroTransitable(){
 
     if (materialEnCasilla != NULL)
     {
-//        delete materialEnCasilla;
+        delete materialEnCasilla;
     }    
 
 }

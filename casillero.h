@@ -32,7 +32,7 @@ public:
     //POST:Llama al hijo respectivo.
     virtual void agregarAlTerreno(string elemento) = 0;
 
-    virtual ~Casillero();
+    virtual ~Casillero()=0;
 
     virtual void agregarEdificio(string nombreEdificio, Edificio* &edificio) = 0;
 };

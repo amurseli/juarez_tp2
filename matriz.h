@@ -7,6 +7,7 @@
 #include"casilleroInaccesible.h"
 #include "casilleroTransitable.h"
 #include "casilleroConstruible.h"
+#include "edificio.h"
 
 const string LAGO = "L";
 const string TRANSITABLE = "T";
@@ -18,6 +19,7 @@ using namespace std;
 class Matriz
 {
 private:
+
     int columnas, filas;
     Casillero*** punteroMatriz;
 
@@ -35,7 +37,7 @@ public:
 
     void mostrarCoordenada(int coordenadaX, int CoordenadaY);
 
-    void construirEdificio(Edificio* &nuevoEdificio, int coordX, int coordY, string nombreNuevoEdificio);
+    void construirEdificio(int coordX, int coordY, string nombreNuevoEdificio);
 
     void mostrarMatriz();
 
@@ -45,7 +47,7 @@ public:
 
     //PRE:necesita el tipo de terreno
     //POST:Valida el tipo de terreno sea un transitable y ejecuta el posible material en el random.
-    void validarTipoTerreno(string tipoTerreno, int coordenadaX, int coordenadaY);
+    void validarTipoTerreno(string elemento,int coordenadaX, int coordenadaY);
 
     ~Matriz();
 };

@@ -9,12 +9,11 @@ Ubicaciones::Ubicaciones(string nombre, Matriz* &matriz):Archivo(nombre){
 }
 void Ubicaciones::leerArchivo(string nombre)
 {
-    Edificio* punteroEdificio;
     fstream documento(nombre, ios::in);
 
     string nombreEdificio;
     string coordX, coordY;
-    int cleanCoordX, cleanCoordY, cantDigitos, inicioNumero;
+    int cleanCoordX, cleanCoordY;
     while (documento >> nombreEdificio)
     {
         documento >> coordX;
@@ -25,11 +24,11 @@ void Ubicaciones::leerArchivo(string nombre)
         cleanCoordX = atoi(coordX.c_str());
 
         coordY.pop_back();
-        cleanCoordY = atoi(coordY.c_str());
+        cleanCoordY = atoi(coordY.c_str());        
 
-        punteroEdificio = new Edificio(nombreEdificio,cleanCoordX,cleanCoordY);
-        punteroMatriz->construirEdificio(punteroEdificio,cleanCoordX,cleanCoordY,nombreEdificio);
+        punteroMatriz->construirEdificio(cleanCoordX,cleanCoordY,nombreEdificio);
     }
 
     documento.close();
 }
+

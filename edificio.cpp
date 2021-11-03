@@ -1,11 +1,13 @@
 #include "edificio.h"
 
 
-using namespace std;
-
-Edificio::Edificio(string tipoEdificio, int coordX, int coordY)
+Edificio::Edificio(string tipoEdificio)
 {
-    edificio = tipoEdificio;
-    posicionX = coordX;
-    posicionY = coordY;
+    nombre = tipoEdificio;
 }
+
+string Edificio::devolverNombre(){ return ("Hola");}
+
+
+
+//Edificio::~Edificio(){}

@@ -6,13 +6,6 @@
 
 using namespace std;
 
-const int MINA = 15; // brinda piedras.  
-const int ASERRADERO = 25; // brinda maderas. 
-const int FABRICA = 40; // brinda metales. 
-const int ESCUELA = 0; // no brinda materiales.  
-const int OBELISCO = 0; // no brinda materiales.  
-const int PLANTAELECTRICA = 0; // no brinda materiales. 
-
 class CasilleroConstruible : public Casillero //debe heredar de casillero.h
 {
 private:
@@ -31,6 +24,12 @@ public:
 
     void agregarEdificio(string edificio, Edificio* &edificioNuevo);
 
+    //PRE:Recibe las coordenadas
+    //POST:Recolecta los materiales/2 los suma a materiales (llamando a edificio), eliminar la memoria y apunta a NULL.
+    //void demoler();
+
+    //PRE:
+    //POST:Borra la direccion de memoria solicitada en ubicaciones.cpp.
     virtual ~CasilleroConstruible();
    
 };

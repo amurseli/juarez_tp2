@@ -47,9 +47,15 @@ void Matriz::mostrarCoordenada(int coordenadaX, int CoordenadaY){
 
 }
 
-void Matriz::construirEdificio(Edificio* &nuevoEdificio, int coordX, int coordY, string nombreNuevoEdificio)
+void Matriz::construirEdificio(int coordX, int coordY, string nombreNuevoEdificio)
 {
-    punteroMatriz[coordX][coordY]->agregarEdificio(nombreNuevoEdificio,nuevoEdificio);
+    Edificio* punteroEdificio = NULL;
+
+    if (punteroMatriz[coordX][coordY]->obtenerTipoTerreno() == CONSTRUIBLE)
+    {
+        //punteroEdificio = new Edificio(nombreNuevoEdificio);
+        punteroMatriz[coordX][coordY]->agregarEdificio(nombreNuevoEdificio,punteroEdificio);
+    }
 }
 
 void Matriz::mostrarMatriz()
@@ -60,7 +66,6 @@ void Matriz::mostrarMatriz()
         for (int j = 0; j < columnas; j++)
 
             punteroMatriz[i][j]->mostrarTipoTerreno();
-
         cout << " " << endl;
     }
 }
@@ -73,7 +78,6 @@ void Matriz::generarLluviaMateriales(){
     {
         for (int j = 0; j < columnas; j++)
         {
-
             tipoTerreno = punteroMatriz[i][j]->obtenerTipoTerreno();
             validarTipoTerreno(tipoTerreno,i,j);
         }
