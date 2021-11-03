@@ -9,6 +9,10 @@ void Casillero::mostrarTipoTerreno (){
     cout << tipoTerreno;
 }
 
+void Casillero::setEdificio(Edificio* &nuevoEdificio)
+{
+
+}
 
 Casillero::~Casillero(){
 

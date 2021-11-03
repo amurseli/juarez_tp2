@@ -1,13 +1,15 @@
 #include "ubicaciones.h"
 
+
 using namespace std;
 
-Ubicaciones::Ubicaciones(string nombre):Archivo(nombre){
+Ubicaciones::Ubicaciones(string nombre, Matriz* &matriz):Archivo(nombre){
+    punteroMatriz = matriz;
     leerArchivo(nombre);
 }
 void Ubicaciones::leerArchivo(string nombre)
 {
-
+    Edificio* punteroEdificio;
     fstream documento(nombre, ios::in);
 
     string nombreEdificio;
@@ -15,7 +17,6 @@ void Ubicaciones::leerArchivo(string nombre)
     int cleanCoordX, cleanCoordY, cantDigitos, inicioNumero;
     while (documento >> nombreEdificio)
     {
-
         documento >> coordX;
         documento >> coordY;
 
@@ -26,9 +27,8 @@ void Ubicaciones::leerArchivo(string nombre)
         coordY.pop_back();
         cleanCoordY = atoi(coordY.c_str());
 
-
-       cout << cleanCoordX << " " << cleanCoordY << " " << nombreEdificio << endl;
-
+        punteroEdificio = new Edificio(nombreEdificio,cleanCoordX,cleanCoordY);
+        punteroMatriz[cleanCoordX][cleanCoordY]->agregarEdificio(nombreEdificio,punteroEdificio);
     }
 
     documento.close();

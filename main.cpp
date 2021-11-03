@@ -18,7 +18,6 @@ const string PATH_UBICACIONES = "../ubicaciones.txt";
 
 int main()
 {
-    Ubicaciones ubicacionesTxt(PATH_UBICACIONES);
     Materiales materialesTxt(PATH_MATERIALES);
     Edificios edificiosTxt(PATH_EDIFICIOS);
     Mapa mapaTxt(PATH_MAPA);
@@ -26,6 +25,8 @@ int main()
     Matriz* punteroOriginal; // Para trabajar con la matriz desde el main
 
     punteroOriginal = mapaTxt.retornarPunteroMatriz();
+
+    Ubicaciones ubicacionesTxt(PATH_UBICACIONES,punteroOriginal);
 
     cout << "Bienvenido a Andypolis!" << endl;
 

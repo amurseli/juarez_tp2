@@ -46,6 +46,11 @@ void Matriz::mostrarCoordenada(int coordenadaX, int CoordenadaY){
 
 }
 
+void Matriz::construirEdificio(Edificio* &nuevoEdificio, int coordX, int coordY, string nombreNuevoEdificio)
+{
+    punteroMatriz[coordX][coordY]->agregarEdificio(nombreNuevoEdificio,nuevoEdificio);
+}
+
 void Matriz::mostrarMatriz()
 {
 

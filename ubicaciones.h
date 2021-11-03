@@ -3,15 +3,19 @@
 
 #include "archivo.h"
 #include <string>
+#include "matriz.h"
+#include <string>
+#include "edificio.h"
+
 
 using namespace std;
 
 class Ubicaciones : public Archivo
 {
 private:
-    int tamanio = 0;
+    Matriz* punteroMatriz;
 public:
-    Ubicaciones(string nombre);
+    Ubicaciones(string nombre,Matriz* &matriz);
     void leerArchivo(string nombre);
 };
 

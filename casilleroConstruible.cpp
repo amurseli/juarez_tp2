@@ -12,11 +12,13 @@ void CasilleroConstruible::queSoy(){
 
 }
 
-void CasilleroConstruible::agregarEdificio(string edificio){
+void CasilleroConstruible::agregarEdificio(string edificio, Edificio* &edificioNuevo){
 
     tipoEdificio = edificio;
+    punteroEdificio = edificioNuevo;
 
 }
+
 
 CasilleroConstruible::~CasilleroConstruible(){
 

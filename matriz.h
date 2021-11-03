@@ -31,6 +31,8 @@ public:
 
     void mostrarCoordenada(int coordenadaX, int CoordenadaY);
 
+    void construirEdificio(Edificio* &nuevoEdificio, int coordX, int coordY);
+
     void mostrarMatriz();
 
     ~Matriz();

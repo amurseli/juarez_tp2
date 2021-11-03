@@ -18,13 +18,14 @@ class CasilleroConstruible : public Casillero //debe heredar de casillero.h
 private:
     
     string tipoEdificio;
+    Edificio* punteroEdificio = NULL;
 
 public:
     CasilleroConstruible(string elemento);
     
     void queSoy();
 
-    void agregarEdificio(string edificio);
+    void agregarEdificio(string edificio, Edificio* &edificioNuevo);
 
     virtual ~CasilleroConstruible();
    
