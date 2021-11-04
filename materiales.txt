@@ -1,4 +1,4 @@
-piedra 109
+piedra 100
 madera 90
 metal 55
 oro 90

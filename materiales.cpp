@@ -21,14 +21,41 @@ void Materiales::leerArchivo(string nombre)
     while (documento >> nombreMaterial)
     {
         documento >> cantidad;
-        agregarElementoArray(nombreMaterial);
-        agregarElementoArray(cantidad);
-
+        guardarDatos(nombreMaterial,cantidad);
     }
-
     documento.close();
+}
+int Materiales::devolverPiedra()
+{
+    return piedra;
+}
+int Materiales::devolverMadera()
+{
+    return madera;
+}
+int Materiales::devolverMetal()
+{
+    return metal;
+}
+
+void Materiales::guardarDatos(string nombreMaterial, string cantidad)
+{
+    if( nombreMaterial == "piedra")
+    {
+        piedra = atoi(cantidad.c_str());
+    }
+    else if (nombreMaterial == "madera")
+    {
+        madera =  atoi(cantidad.c_str());
+    }
+    else if (nombreMaterial == "metal")
+    {
+        metal =  atoi(cantidad.c_str());
+    }
 }
 
 void Materiales::mostrarMateriales() {
-    mostrarContenido();
+    cout << "Piedra disponible: " << piedra << endl;
+    cout << "Madera disponible: " << madera << endl;
+    cout << "Metal disponible: " << metal << endl;
 }

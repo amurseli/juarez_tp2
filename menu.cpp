@@ -35,44 +35,76 @@ void mostrarMensajeError()
     cout << "\nIngrese una opcion valida: " << endl;
 }
 
-bool validarEdificio(string edificio, Edificios &edificios)
+int validarEdificio(string edificio, Edificios &edificios)
 {
+    int i, contador;
     bool found = false;
-    for (int i = 0; i < edificios.devolverTamanio(); i = i + 5)
+    for ( i = 0; i < edificios.devolverTamanio(); ++i)
     {
         if (edificio == edificios.devolverElemento(i))
         {
             found = true;
+            contador = i;
         }
     }
-    return found;
+    if (!found)
+    {
+        i = -1;
+    }
+    return contador;
+}
+
+bool validarMateriales(int posicion, Edificios &edificios, Materiales &materiales)
+{
+    bool piedraOk = false ,maderaOk = false,metalOk = false;
+    if(atoi(edificios.devolverElemento(posicion+1).c_str()) <= materiales.devolverPiedra())
+    {
+        piedraOk = true;
+    }
+    if(atoi(edificios.devolverElemento(posicion+2).c_str()) <= materiales.devolverMadera())
+    {
+        maderaOk = true;
+    }
+    if(atoi(edificios.devolverElemento(posicion+3).c_str()) <= materiales.devolverMetal())
+    {
+        metalOk = true;
+    }
+    return (maderaOk && piedraOk && metalOk);
 }
 
 void correrFuncion(Matriz *&punteroMatriz, int opcion_elegida, Materiales &materiales, Edificios &edificios)
 {
     string nombreNuevoEdificio;
-    bool entradaValida = false;
+    int entradaValida;
+    bool materialesValidos = false;
     int coord1, coord2;
 
     cout << "Ingrese el nombre del nuevo edificio: ";
     cin >> nombreNuevoEdificio;
     entradaValida = validarEdificio(nombreNuevoEdificio, edificios);
-    while (!entradaValida)
+    while (entradaValida == -1)
     {
         cout << "Ingrese el nombre del nuevo edificio: ";
         cin >> nombreNuevoEdificio;
         entradaValida = validarEdificio(nombreNuevoEdificio, edificios);
 
         if (nombreNuevoEdificio == "0")
-            entradaValida = true;
+            entradaValida = 0;
+    }
+    materialesValidos = validarMateriales(entradaValida, edificios,materiales);
+    if (materialesValidos) {
+        cout << "Ingrese la primer coordenada: ";
+        cin >> coord1;
+        cout << endl
+             << "Ingrese la segunda coordenada: ";
+        cin >> coord2;
+        punteroMatriz->construirEdificio(coord1 - 1, coord2 - 1, nombreNuevoEdificio);
+    }
+    else
+    {
+        cout << "xdn´t" << endl;
     }
 
-    cout << "Ingrese la primer coordenada: ";
-    cin >> coord1;
-    cout << endl
-         << "Ingrese la segunda coordenada: ";
-    cin >> coord2;
-    punteroMatriz->construirEdificio(coord1 - 1, coord2 - 1, nombreNuevoEdificio);
 }
 
 void procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales &materiales, Edificios &edificios)
@@ -85,7 +117,7 @@ void procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales &mate
     {
     case CONSTRUIR_EDIFICIOS:
         edificios.mostrarContenido();
-        correrFuncion(Matriz * &punteroMatriz, int opcion_elegida, Materiales &materiales, Edificios &edificios); //chequar
+        correrFuncion(punteroMatriz,opcion_elegida, materiales,edificios); //chequar
         break;
     case MOSTRAR_EDIFICIOS_CONSTRUIDOS:
         cout << "Soy la opcion 2" << endl;
@@ -108,7 +140,7 @@ void procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales &mate
         punteroMatriz->mostrarCoordenada(coord1 - 1, coord2 - 1);
         break;
     case MOSTRAR_INVENTARIO:
-        materiales.mostrarContenido();
+        materiales.mostrarMateriales();
         break;
     case RECOLECTAR:
         cout << "Soy la opcion 8" << endl;
