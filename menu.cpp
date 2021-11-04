@@ -72,6 +72,18 @@ bool validarMateriales(int posicion, Edificios &edificios, Materiales &materiale
     return (maderaOk && piedraOk && metalOk);
 }
 
+bool confirmar(int posicion,Edificios &edificios, Materiales &materiales)
+{
+    string confirmacion;
+    cout<< "Los materiales después de la onstruccion seran: " << endl;
+    cout<< "Piedra: " << materiales.devolverPiedra()- atoi(edificios.devolverElemento(posicion+1).c_str());
+    cout<< "Madera: " << materiales.devolverMadera() - atoi(edificios.devolverElemento(posicion+2).c_str());
+    cout<< "Metal: " << materiales.devolverMetal() - atoi(edificios.devolverElemento(posicion+3).c_str());
+    cout << endl << "¿Construir? [s/n]";
+    cin >>  confirmacion;
+    return confirmacion == "s";
+}
+
 void correrFuncion(Matriz *&punteroMatriz, int opcion_elegida, Materiales &materiales, Edificios &edificios)
 {
     string nombreNuevoEdificio;
@@ -93,12 +105,14 @@ void correrFuncion(Matriz *&punteroMatriz, int opcion_elegida, Materiales &mater
     }
     materialesValidos = validarMateriales(entradaValida, edificios,materiales);
     if (materialesValidos) {
-        cout << "Ingrese la primer coordenada: ";
-        cin >> coord1;
-        cout << endl
-             << "Ingrese la segunda coordenada: ";
-        cin >> coord2;
-        punteroMatriz->construirEdificio(coord1 - 1, coord2 - 1, nombreNuevoEdificio);
+        bool confirmacion = confirmar(entradaValida,edificios, materiales);
+        if(confirmacion) {
+            cout << "Ingrese la primer coordenada: ";
+            cin >> coord1;
+            cout << endl << "Ingrese la segunda coordenada: ";
+            cin >> coord2;
+            punteroMatriz->construirEdificio(coord1 - 1, coord2 - 1, nombreNuevoEdificio);
+        }
     }
     else
     {
