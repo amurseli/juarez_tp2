@@ -4,12 +4,10 @@
 
 using namespace std;
 
-Materiales::Materiales(string nombre):Archivo(nombre){
-
-    crearContenido();
-    leerArchivo(nombre);
-
-
+Materiales::Materiales(string nombre) : Archivo(nombre)
+{
+    if (getArchivoValido())
+        leerArchivo(nombre);
 }
 void Materiales::leerArchivo(string nombre)
 {
@@ -21,7 +19,7 @@ void Materiales::leerArchivo(string nombre)
     while (documento >> nombreMaterial)
     {
         documento >> cantidad;
-        guardarDatos(nombreMaterial,cantidad);
+        guardarDatos(nombreMaterial, cantidad);
     }
     documento.close();
 }
@@ -40,21 +38,22 @@ int Materiales::devolverMetal()
 
 void Materiales::guardarDatos(string nombreMaterial, string cantidad)
 {
-    if( nombreMaterial == "piedra")
+    if (nombreMaterial == "piedra")
     {
         piedra = atoi(cantidad.c_str());
     }
     else if (nombreMaterial == "madera")
     {
-        madera =  atoi(cantidad.c_str());
+        madera = atoi(cantidad.c_str());
     }
     else if (nombreMaterial == "metal")
     {
-        metal =  atoi(cantidad.c_str());
+        metal = atoi(cantidad.c_str());
     }
 }
 
-void Materiales::mostrarMateriales() {
+void Materiales::mostrarMateriales()
+{
     cout << "Piedra disponible: " << piedra << endl;
     cout << "Madera disponible: " << madera << endl;
     cout << "Metal disponible: " << metal << endl;

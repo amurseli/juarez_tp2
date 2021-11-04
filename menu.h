@@ -6,6 +6,7 @@
 #include <string>
 #include "materiales.h"
 #include "edificios.h"
+#include "ubicaciones.h"
 
 const int OPCION_MINIMA = 1;
 const int OPCION_MAXIMA = 10;
@@ -19,6 +20,7 @@ const int MOSTRAR_INVENTARIO = 7;
 const int RECOLECTAR = 8;
 const int LLUVIA_DE_RECUROS = 9;
 const int SALIR = 10;
+const int ENTRAR = -1;
 
 //pre: -
 //post: Imprime por pantalla el menu
@@ -31,6 +33,8 @@ int elegirOpcion();
 //pre: -
 //post: Imprime por pantalla que fue invalido la opcion elegida.
 void mostrarMensajeError();
+
+int validarArranque(Ubicaciones &mapaTxt,Materiales &materialesTxt,Edificios &edificiosTxt);
 
 //pre: -
 //post: Realiza la opcion pedida

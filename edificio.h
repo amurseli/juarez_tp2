@@ -22,8 +22,6 @@ public:
     //POST:Va a sumar a la lista de materiales lo que el edificio que este custruido otorgue.
     void recolectar();
 
-    void crearEdificio();
-
     //virtual ~Edificio();
 
 };

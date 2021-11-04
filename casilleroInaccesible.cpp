@@ -13,4 +13,6 @@ void CasilleroInaccesible::agregarEdificio(string edificio){}
 
 void CasilleroInaccesible::agregarAlTerreno(string elemento){}
 
+void CasilleroInaccesible::recolectar(){}
+
 CasilleroInaccesible::~CasilleroInaccesible(){}

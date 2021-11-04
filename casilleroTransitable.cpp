@@ -31,12 +31,12 @@ void CasilleroTransitable::inicializarMaterial(){
 }
 void CasilleroTransitable::agregarEdificio(string edificio){}
 
+void CasilleroTransitable::recolectar(){}
 
 CasilleroTransitable::~CasilleroTransitable(){
 
     if (materialEnCasilla != NULL)
     {
-      //  delete materialEnCasilla;
+      delete materialEnCasilla;
     }    
-
 }

@@ -37,6 +37,8 @@ public:
 
     void mostrarCoordenada(int coordenadaX, int CoordenadaY);
 
+    void recoletarMateriales();
+
     void construirEdificio(int coordX, int coordY, string nombreNuevoEdificio);
 
     void mostrarMatriz();

@@ -5,7 +5,10 @@ using namespace std;
 
 Ubicaciones::Ubicaciones(string nombre, Matriz* &matriz):Archivo(nombre){
     punteroMatriz = matriz;
-    leerArchivo(nombre);
+
+    if(getArchivoValido())
+        leerArchivo(nombre);
+
 }
 void Ubicaciones::leerArchivo(string nombre)
 {

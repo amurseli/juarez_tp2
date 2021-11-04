@@ -28,6 +28,10 @@ void CasilleroConstruible::crearEdificio(string nombreEdificio){
     }
 }
 
+void CasilleroConstruible::recolectar(){
+    cout << "ENTRO" << endl;
+}
+
 void CasilleroConstruible::agregarAlTerreno(string elemento){}
 
 CasilleroConstruible::~CasilleroConstruible(){

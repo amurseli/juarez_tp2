@@ -5,6 +5,7 @@
 #include "casillero.h"
 #include "obelisco.h"
 #include "mina.h"
+#include "edificios.h"
 
 using namespace std;
 
@@ -41,6 +42,8 @@ public:
     //void demoler();
 
     void crearEdificio(string nombreEdificio);
+
+    void recolectar();
 
     //PRE:
     //POST:Borra la direccion de memoria solicitada en ubicaciones.cpp.

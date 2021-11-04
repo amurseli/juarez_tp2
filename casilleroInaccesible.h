@@ -21,6 +21,8 @@ public:
     void agregarAlTerreno(string elemento);
 
     void agregarEdificio(string nombreEdificio);
+
+    void recolectar();
     
     virtual ~CasilleroInaccesible();
 };

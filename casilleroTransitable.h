@@ -27,6 +27,8 @@ public:
 
     void agregarEdificio(string nombreEdificio);
 
+    void recolectar();
+
     virtual ~CasilleroTransitable();
 };
 

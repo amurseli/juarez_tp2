@@ -11,7 +11,7 @@ class Mapa : public Archivo
 private:
     int filas;
     int columnas;
-    Matriz* matrizMapa;
+    Matriz* matrizMapa = NULL;
 
 
 public:

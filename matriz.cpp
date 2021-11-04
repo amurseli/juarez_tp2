@@ -67,6 +67,19 @@ void Matriz::mostrarMatriz()
     }
 }
 
+void Matriz::recoletarMateriales(){
+    string tipoTerreno;
+
+    for (int i = 0; i < filas; i++)
+    {
+        for (int j = 0; j < columnas; j++)
+        {
+            tipoTerreno = punteroMatriz[i][j]->obtenerTipoTerreno();
+            validarTipoTerreno(tipoTerreno,i,j);
+        }
+    }
+}
+
 void Matriz::generarLluviaMateriales(){
 
     string tipoTerreno;
@@ -85,10 +98,15 @@ void Matriz::generarLluviaMateriales(){
 void Matriz::validarTipoTerreno(string tipoTerreno, int coordenadaX, int coordenadaY){
 
     string materialCayendo;
+    
     if (tipoTerreno == TRANSITABLE)
     {
         materialCayendo = "PIEDRA"; //generar random de material en otro metodo
         punteroMatriz[coordenadaX][coordenadaY]->agregarAlTerreno(materialCayendo);
+    }
+    else if (tipoTerreno == CONSTRUIBLE)
+    {
+        punteroMatriz[coordenadaX][coordenadaY]->recolectar();
     }
 }
 

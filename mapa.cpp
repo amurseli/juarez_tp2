@@ -6,7 +6,8 @@ using namespace std;
 
 Mapa::Mapa(string nombre):Archivo(nombre){
 
-    leerArchivo(nombre);
+    if(getArchivoValido())
+        leerArchivo(nombre);
 
 }
 
@@ -48,5 +49,6 @@ Matriz* Mapa::retornarPunteroMatriz(){
 }
 
 Mapa::~Mapa() {
-    delete matrizMapa;
+    if(matrizMapa != NULL)
+        delete matrizMapa;
 }

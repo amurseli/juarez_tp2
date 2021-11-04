@@ -4,6 +4,16 @@
 
 using namespace std;
 
+int validarArranque(Ubicaciones &ubicacionesTxt,Materiales &materialesTxt,Edificios &edificiosTxt){
+
+    int valor = SALIR;
+
+    if(ubicacionesTxt.getArchivoValido() && materialesTxt.getArchivoValido() && edificiosTxt.getArchivoValido()){
+        valor = ENTRAR;
+    }
+    return valor;
+}
+
 void mostrarMenu()
 {
     cout << "\n1. Construir edificios por nombre" << endl;
@@ -81,7 +91,7 @@ bool confirmar(int posicion,Edificios &edificios, Materiales &materiales)
     cout<< "Metal: " << materiales.devolverMetal() - atoi(edificios.devolverElemento(posicion+3).c_str());
     cout << endl << "¿Construir? [s/n]";
     cin >>  confirmacion;
-    return confirmacion == "s";
+    return (confirmacion == "s");
 }
 
 void correrFuncion(Matriz *&punteroMatriz, int opcion_elegida, Materiales &materiales, Edificios &edificios)
@@ -125,8 +135,8 @@ void procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales &mate
 {
     string aux;
     string nombreNuevoEdificio;
-    bool entradaValida = false;
     int coord1, coord2;
+    
     switch (opcion_elegida)
     {
     case CONSTRUIR_EDIFICIOS:
@@ -157,7 +167,7 @@ void procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales &mate
         materiales.mostrarMateriales();
         break;
     case RECOLECTAR:
-        cout << "Soy la opcion 8" << endl;
+        punteroMatriz->recoletarMateriales();
         break;
     case LLUVIA_DE_RECUROS:
         punteroMatriz->generarLluviaMateriales();

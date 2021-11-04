@@ -4,18 +4,20 @@
 
 using namespace std;
 
-Edificios::Edificios(string nombre):Archivo(nombre){
+Edificios::Edificios(string nombre) : Archivo(nombre)
+{
 
-    crearContenido();
-    leerArchivo(nombre);
-
-
+    if (getArchivoValido())
+    {
+        crearContenido();
+        leerArchivo(nombre);
+    }
 }
 
 void Edificios::leerArchivo(string nombre)
 {
 
-   fstream documento(nombre, ios::in);
+    fstream documento(nombre, ios::in);
 
     string nombreEdificio, piedra, madera, metal, maximaCantidadPermitidos;
 
@@ -30,7 +32,6 @@ void Edificios::leerArchivo(string nombre)
         agregarElementoArray(madera);
         agregarElementoArray(metal);
         agregarElementoArray(maximaCantidadPermitidos);
-
     }
 
     documento.close();
