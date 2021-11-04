@@ -12,16 +12,26 @@ void CasilleroConstruible::queSoy(){
 
 }
 
-void CasilleroConstruible::agregarEdificio(string edificio, Edificio* &edificioNuevo){
+void CasilleroConstruible::agregarEdificio(string edificio){
 
     tipoEdificio = edificio;
-    punteroEdificio = edificioNuevo;
+    crearEdificio(edificio);
+}
+
+void CasilleroConstruible::crearEdificio(string nombreEdificio){
+
+    if(nombreEdificio == OBELISCO){
+        punteroEdificio = new Obelisco(nombreEdificio);
+    }
+    else if(nombreEdificio == MINA){
+        punteroEdificio = new Mina(nombreEdificio);
+    }
 }
 
 void CasilleroConstruible::agregarAlTerreno(string elemento){}
 
 CasilleroConstruible::~CasilleroConstruible(){
 
- //   if (punteroEdificio != NULL)
-   //     delete punteroEdificio;
+    if (punteroEdificio != NULL)
+        delete punteroEdificio;
 }

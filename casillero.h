@@ -34,7 +34,7 @@ public:
 
     virtual ~Casillero()=0;
 
-    virtual void agregarEdificio(string nombreEdificio, Edificio* &edificio) = 0;
+    virtual void agregarEdificio(string nombreEdificio) = 0;
 };
 
 #endif

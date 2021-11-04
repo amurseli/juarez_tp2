@@ -29,9 +29,7 @@ void CasilleroTransitable::inicializarMaterial(){
     
    // materialEnCasilla = new Material();
 }
-void CasilleroTransitable::agregarEdificio(string edificio, Edificio* &edificioNuevo) {
-
-}
+void CasilleroTransitable::agregarEdificio(string edificio){}
 
 
 CasilleroTransitable::~CasilleroTransitable(){

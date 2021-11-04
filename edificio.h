@@ -1,5 +1,6 @@
 #ifndef EDIFICIO_H
 #define EDIFICIO_H
+#include <iostream>
 
 #include <string>
 
@@ -20,6 +21,8 @@ public:
     //PRE:
     //POST:Va a sumar a la lista de materiales lo que el edificio que este custruido otorgue.
     void recolectar();
+
+    void crearEdificio();
 
     //virtual ~Edificio();
 

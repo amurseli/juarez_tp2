@@ -1,17 +1,17 @@
-#ifndef OBELISCO_H
-#define OBELISCO_H
+#ifndef MINA_H
+#define MINA_H
 #include "edificio.h"
 
-class Obelisco : public Edificio
+class Mina : public Edificio
 {
 private:
 
-    const int CANTIDADMATERIAL = 0;
-    const string MATERIAL = "NO BRINDA";
+    const int CANTIDADMATERIAL = 15;
+    const string MATERIAL = "PIEDRA";
 
 public:
 
-    Obelisco(string nombre);
+    Mina(string nombre);
 
     //PRE:
     //POST:Va a sumar a la lista de materiales lo que el edificio que este custruido otorgue.
@@ -21,7 +21,7 @@ public:
     //POST:Va a sumar a la lista de materiales lo que el edificio que este custruido otorgue.
     string materialProducido();
 
-    ~Obelisco();
+    ~Mina();
 };
 
-#endif //OBELISCO_H
+#endif //MINA_H

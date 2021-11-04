@@ -25,7 +25,7 @@ public:
 
     void inicializarMaterial();
 
-    void agregarEdificio(string nombreEdificio, Edificio* &edificio);
+    void agregarEdificio(string nombreEdificio);
 
     virtual ~CasilleroTransitable();
 };

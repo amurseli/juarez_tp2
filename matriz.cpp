@@ -49,12 +49,9 @@ void Matriz::mostrarCoordenada(int coordenadaX, int CoordenadaY){
 
 void Matriz::construirEdificio(int coordX, int coordY, string nombreNuevoEdificio)
 {
-    Edificio* punteroEdificio = NULL;
-
     if (punteroMatriz[coordX][coordY]->obtenerTipoTerreno() == CONSTRUIBLE)
     {
-        //punteroEdificio = new Edificio(nombreNuevoEdificio);
-        punteroMatriz[coordX][coordY]->agregarEdificio(nombreNuevoEdificio,punteroEdificio);
+        punteroMatriz[coordX][coordY]->agregarEdificio(nombreNuevoEdificio);
     }
 }
 

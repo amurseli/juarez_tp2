@@ -20,7 +20,7 @@ public:
     //POST: Al ser hijo de casillero debe estar definido.
     void agregarAlTerreno(string elemento);
 
-    void agregarEdificio(string nombreEdificio, Edificio* &edificio);
+    void agregarEdificio(string nombreEdificio);
     
     virtual ~CasilleroInaccesible();
 };

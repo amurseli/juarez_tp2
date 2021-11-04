@@ -63,7 +63,7 @@ string Archivo::devolverElemento(int posicion)
 
 int Archivo::devolverTamanio()
 {
-    contenido->devolverTamanio();
+    return (contenido->devolverTamanio());
 }
 
 Archivo::~Archivo()
