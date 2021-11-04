@@ -3,6 +3,7 @@
 
 #include "edificios.h"
 #include "matriz.h"
+#include <string>
 #include "materiales.h"
 #include "edificios.h"
 

@@ -26,7 +26,7 @@ void Ubicaciones::leerArchivo(string nombre)
         coordY.pop_back();
         cleanCoordY = atoi(coordY.c_str());        
 
-        punteroMatriz->construirEdificio(cleanCoordX,cleanCoordY,nombreEdificio);
+        punteroMatriz->construirEdificio(cleanCoordX-1,cleanCoordY-1,nombreEdificio);
     }
 
     documento.close();

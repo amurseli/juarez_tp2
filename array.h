@@ -43,6 +43,7 @@ public:
     //Pre:-
     //Post:Muestra la informacion almacenada
     void mostrarArray();
+    void mostrarArray(int posicion);
 
     ~Array();    
 };
@@ -115,6 +116,12 @@ void Array<T>::mostrarArray(){
     {
         cout<<lista[i]<<endl;
     }
+}
+template<typename T>
+void Array<T>::mostrarArray(int posicion){
+
+    cout<<lista[posicion]<<endl;
+
 }
 
 template<typename T>

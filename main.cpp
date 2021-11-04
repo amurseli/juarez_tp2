@@ -6,6 +6,7 @@
 #include"edificios.h"
 #include"mapa.h"
 #include"matriz.h"
+#include "menu.h"
 #include"menu.h"
 #include "ubicaciones.h"
 
@@ -14,7 +15,7 @@ using namespace std;
 const string PATH_MATERIALES = "../materiales.txt";
 const string PATH_EDIFICIOS = "../edificios.txt";
 const string PATH_MAPA = "../mapa.txt";
-const string PATH_UBICACIONES = "ubicaciones.txt";
+const string PATH_UBICACIONES = "../ubicaciones.txt";
 
 int main()
 {
@@ -26,7 +27,7 @@ int main()
 
     punteroOriginal = mapaTxt.retornarPunteroMatriz();
 
-    //Ubicaciones ubicacionesTxt(PATH_UBICACIONES,punteroOriginal);
+    Ubicaciones ubicacionesTxt(PATH_UBICACIONES,punteroOriginal);
 
     cout << "Bienvenido a Andypolis!" << endl;
 

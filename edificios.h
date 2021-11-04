@@ -7,9 +7,13 @@ using namespace std;
 
 class Edificios : public Archivo
 {
+
 public:
     Edificios(string nombre);
     void leerArchivo(string nombre);
+    void validarEdificio(string edificio);
+
+
 };
 
 

@@ -10,8 +10,8 @@
 #include "edificio.h"
 
 const string LAGO = "L";
-const string TRANSITABLE = "T";
-const string CONSTRUIBLE = "C";
+const string TRANSITABLE = "C";
+const string CONSTRUIBLE = "T";
 
 
 using namespace std;

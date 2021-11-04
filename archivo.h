@@ -39,6 +39,12 @@ class Archivo
         //Post:Muestra el array
         void mostrarContenido();
 
+        void mostrarContenido(int posicion);
+
+        string devolverElemento(int posicion);
+
+        int devolverTamanio();
+
         ~Archivo();
         
 

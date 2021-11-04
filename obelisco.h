@@ -7,8 +7,7 @@
 const int MINA = 15; // brinda piedras.  
 const int ASERRADERO = 25; // brinda maderas. 
 const int FABRICA = 40; // brinda metales. 
-const int ESCUELA = 0; // no brinda materiales.  
-const int ; // no brinda materiales.  
+const int ESCUELA = 0; // no brinda materiales.
 const int PLANTAELECTRICA = 0; // no brinda materiales. 
 
 class Obelisco : public Edificio
@@ -33,4 +32,4 @@ public:
     ~Obelisco();
 };
 
-#endif OBELISCO_H
+#endif //OBELISCO_H

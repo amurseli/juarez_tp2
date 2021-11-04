@@ -48,6 +48,23 @@ void Archivo::mostrarContenido(){
     contenido->mostrarArray();
 
 }
+void Archivo::mostrarContenido(int posicion){
+
+    contenido->mostrarArray(posicion);
+
+}
+
+string Archivo::devolverElemento(int posicion)
+{
+
+    return contenido->devolverElemento(posicion);
+}
+
+
+int Archivo::devolverTamanio()
+{
+    contenido->devolverTamanio();
+}
 
 Archivo::~Archivo()
 {
