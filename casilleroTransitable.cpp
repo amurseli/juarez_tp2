@@ -14,6 +14,9 @@ void CasilleroTransitable::queSoy(){
     else
     {   cout << "Y ME ENCUENTRO VACIO" << endl;}
 }
+string CasilleroTransitable::mostrarEdificio(){
+    return "-";
+}
 
 void CasilleroTransitable::agregarAlTerreno(string elemento){
 

@@ -43,6 +43,8 @@ public:
 
     void mostrarMatriz();
 
+    void mostrarEdificiosConstruidos();
+
     //PRE:
     //POST:Recorre toda la matriz y agrega el material a las casillas transitables
     void generarLluviaMateriales();

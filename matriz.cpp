@@ -47,6 +47,46 @@ void Matriz::mostrarCoordenada(int coordenadaX, int CoordenadaY){
 
 }
 
+void Matriz::mostrarEdificiosConstruidos(){
+    string nombreEdificio;
+    int contMina=0,contObelisco=0,contYacimiento=0,contEscuela=0,contFabrica=0,contPlanta=0;
+    for (int i = 0; i < filas; i++){
+        for (int j = 0; j < columnas; j++){
+             nombreEdificio = punteroMatriz[i][j]->mostrarEdificio(); // Aca esta las coords.
+            if (nombreEdificio == "mina"){
+                contMina++;
+            }
+            else if (nombreEdificio == "obelisco"){
+                contObelisco++;
+            }
+            else if (nombreEdificio == "yacimiento"){
+                contYacimiento++;
+            }
+            else if (nombreEdificio == "escuela"){
+                contEscuela++;
+            }
+            else if (nombreEdificio == "fabrica"){
+                contFabrica++;
+            }
+            else if (nombreEdificio == "plata_electrica"){
+                contPlanta++;
+            }
+        }
+    }
+    if(contMina > 0)
+        cout << "- Minas = " << contMina << endl;
+    if(contObelisco > 0)
+        cout << "- Obeliscos = " << contObelisco << endl;
+    if(contYacimiento > 0)
+        cout << "- Yacumientos = " << contYacimiento << endl;
+    if(contEscuela > 0)
+        cout << "- Escuelas = " << contEscuela << endl;
+    if(contFabrica > 0)
+        cout << "- Fabricas = " << contFabrica << endl;
+    if(contPlanta > 0)
+        cout << "- Plantas Electricas = " << contPlanta << endl;
+}
+
 void Matriz::construirEdificio(int coordX, int coordY, string nombreNuevoEdificio)
 {
     if (punteroMatriz[coordX][coordY]->obtenerTipoTerreno() == CONSTRUIBLE)

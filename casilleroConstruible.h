@@ -18,7 +18,7 @@ const string PLANTA_ELECTRICA = "planta electrica";
 class CasilleroConstruible : public Casillero //debe heredar de casillero.h
 {
 private:
-    
+
     Edificio* punteroEdificio = NULL;
 
 public:
@@ -36,6 +36,8 @@ public:
     //void demoler();
 
     void recolectar(Materiales &materiales);
+
+    string mostrarEdificio();
 
     //PRE:
     //POST:Borra la direccion de memoria solicitada en ubicaciones.cpp.

@@ -19,6 +19,7 @@ public:
     
     void queSoy();
 
+    string mostrarEdificio();
 
     //PRE:Recibe el material a agregar en el terreno
     //POST:Coloca el material.

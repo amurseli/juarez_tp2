@@ -30,6 +30,8 @@ public:
     //POST:Llama al metodo del hijo para que pueda decir que tiene.
     virtual void queSoy() = 0;
 
+    virtual string mostrarEdificio() = 0;
+
     //PRE:Recibe lo que va agregar
     //POST:Llama al hijo respectivo.
     virtual void agregarAlTerreno(string elemento) = 0;

@@ -10,6 +10,10 @@ void CasilleroInaccesible::queSoy(){
 
 }
 
+string CasilleroInaccesible::mostrarEdificio(){
+    return "-";
+}
+
 void CasilleroInaccesible::agregarAlTerreno(string elemento){}
 
 void CasilleroInaccesible::recolectar(Materiales &materiales){}

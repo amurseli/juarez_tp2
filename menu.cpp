@@ -57,7 +57,7 @@ void procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales &mate
         prueba.construirEdificio();
         break;
     case MOSTRAR_EDIFICIOS_CONSTRUIDOS:
-        cout << "Soy la opcion 2" << endl;
+        punteroMatriz->mostrarEdificiosConstruidos();
         break;
     case MOSTRAR_EDIFICIOS:
         edificios.mostrarContenido();

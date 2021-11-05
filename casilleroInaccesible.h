@@ -15,12 +15,13 @@ public:
 
     void queSoy();
 
-
     //PRE:
     //POST: Al ser hijo de casillero debe estar definido.
     void agregarAlTerreno(string elemento);
 
     void recolectar(Materiales &materiales);
+
+    string mostrarEdificio();
     
     virtual ~CasilleroInaccesible();
 };

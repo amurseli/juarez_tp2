@@ -25,6 +25,16 @@ void CasilleroConstruible::recolectar(Materiales &materiales){
     }
 }
 
+string CasilleroConstruible::mostrarEdificio()
+{
+    string name;
+    if(punteroEdificio != NULL)
+    {
+        name = punteroEdificio->devolverNombre();
+    }
+    return name;
+}
+
 void CasilleroConstruible::agregarAlTerreno(string nombreEdificio){
 
     if(nombreEdificio == OBELISCO){
