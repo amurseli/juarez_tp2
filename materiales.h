@@ -5,6 +5,10 @@
 
 using namespace std;
 
+const string MADERA = "madera";
+const string PIEDRA = "piedra";
+const string METAL = "metal";
+
 class Materiales : public Archivo
 {
 private:
@@ -19,7 +23,13 @@ public:
     int devolverPiedra();
     int devolverMadera();
     int devolverMetal();
+    void agregarMaterial(string material, int cantidad);
+    void sumarPiedra(int cantidad);
+    void sumarMadera(int cantidad);
+    void sumarMetal(int cantidad);
     void mostrarMateriales();
+    bool validarMateriales(int piedraNecesaria, int maderaNecesaria, int metalNecesario);
+    Materiales* devolverDireccionMemoria();
 };
 
 #endif

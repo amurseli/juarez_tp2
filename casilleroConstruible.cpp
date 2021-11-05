@@ -1,24 +1,31 @@
 #include "casilleroConstruible.h"
 
-CasilleroConstruible::CasilleroConstruible(string elemento) : Casillero(elemento) {
-
-    tipoEdificio = "AUN NO TENGO NADA";
-
-}
+CasilleroConstruible::CasilleroConstruible(string elemento) : Casillero(elemento){}
 
 void CasilleroConstruible::queSoy(){
 
-    cout << "\nHOLA... SOY UN CASILLERO CONSTRUIBLE Y EL EDIFICIO QUE TENGO ES: " + tipoEdificio << endl;
+    if(punteroEdificio == NULL)
+        cout << "\nHOLA... SOY UN CASILLERO CONSTRUIBLE Y ESTOY VACIO :(" << endl;
+    else{
+        cout << "\nHOLA... SOY UN CASILLERO CONSTRUIBLE Y NO ESTOY VACIO" << endl;
+        punteroEdificio->hablarSobreMi();
+    }
 
 }
 
-void CasilleroConstruible::agregarEdificio(string edificio){
+void CasilleroConstruible::recolectar(Materiales &materiales){
 
-    tipoEdificio = edificio;
-    crearEdificio(edificio);
+    string material;
+    int cantidad;
+    
+    if(punteroEdificio != NULL){
+        cantidad = punteroEdificio->cantidadMaterial();
+        material = punteroEdificio->materialProducido();
+        materiales.agregarMaterial(material,cantidad);
+    }
 }
 
-void CasilleroConstruible::crearEdificio(string nombreEdificio){
+void CasilleroConstruible::agregarAlTerreno(string nombreEdificio){
 
     if(nombreEdificio == OBELISCO){
         punteroEdificio = new Obelisco(nombreEdificio);
@@ -27,12 +34,6 @@ void CasilleroConstruible::crearEdificio(string nombreEdificio){
         punteroEdificio = new Mina(nombreEdificio);
     }
 }
-
-void CasilleroConstruible::recolectar(){
-    cout << "ENTRO" << endl;
-}
-
-void CasilleroConstruible::agregarAlTerreno(string elemento){}
 
 CasilleroConstruible::~CasilleroConstruible(){
 

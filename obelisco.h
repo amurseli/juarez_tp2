@@ -7,7 +7,7 @@ class Obelisco : public Edificio
 private:
 
     const int CANTIDADMATERIAL = 0;
-    const string MATERIAL = "NO BRINDA";
+    const string MATERIAL = "no brinda";
 
 public:
 
@@ -21,7 +21,11 @@ public:
     //POST:Va a sumar a la lista de materiales lo que el edificio que este custruido otorgue.
     string materialProducido();
 
-    ~Obelisco();
+    //PRE:
+    //POST:Va a decir el tipo de edificio que tiene.
+    void hablarSobreMi();
+
+    virtual ~Obelisco();
 };
 
-#endif //OBELISCO_H
+#endif 

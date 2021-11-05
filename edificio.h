@@ -20,9 +20,17 @@ public:
 
     //PRE:
     //POST:Va a sumar a la lista de materiales lo que el edificio que este custruido otorgue.
-    void recolectar();
+    virtual int cantidadMaterial() = 0;
 
-    //virtual ~Edificio();
+    //PRE:
+    //POST:Va a sumar a la lista de materiales lo que el edificio que este custruido otorgue.
+    virtual string materialProducido() = 0;
+
+    //PRE:
+    //POST:Va a decir el tipo de edificio que tiene.
+    virtual void hablarSobreMi() = 0;
+
+    virtual ~Edificio() = 0;
 
 };
 

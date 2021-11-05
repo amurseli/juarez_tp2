@@ -7,7 +7,7 @@ class Mina : public Edificio
 private:
 
     const int CANTIDADMATERIAL = 15;
-    const string MATERIAL = "PIEDRA";
+    const string MATERIAL = "piedra";
 
 public:
 
@@ -21,7 +21,11 @@ public:
     //POST:Va a sumar a la lista de materiales lo que el edificio que este custruido otorgue.
     string materialProducido();
 
-    ~Mina();
+    //PRE:
+    //POST:Va a decir el tipo de edificio que tiene.
+    void hablarSobreMi();
+
+    virtual ~Mina();
 };
 
 #endif //MINA_H

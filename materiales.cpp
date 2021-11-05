@@ -58,3 +58,53 @@ void Materiales::mostrarMateriales()
     cout << "Madera disponible: " << madera << endl;
     cout << "Metal disponible: " << metal << endl;
 }
+
+void Materiales::agregarMaterial(string material, int cantidad){
+    if(material == PIEDRA){
+        sumarPiedra(cantidad);
+        cout << "Se agregò piedra" << endl;
+    }
+    else if(material == MADERA){
+        sumarMadera(cantidad);
+        cout << "Se agregò madera" << endl;
+    }
+    else if(material == METAL){
+        sumarMetal(cantidad);
+        cout << "Se agregò metal" << endl;
+    }
+}
+
+void Materiales::sumarPiedra(int cantidad) {
+    piedra = piedra + cantidad;
+}
+void Materiales::sumarMadera(int cantidad) {
+    madera = madera + cantidad;
+}
+void Materiales::sumarMetal(int cantidad) {
+
+    metal = metal + cantidad;
+}
+
+bool Materiales::validarMateriales(int piedraNecesaria, int maderaNecesaria, int metalNecesario)
+{
+    bool piedraOk = false ,maderaOk = false,metalOk = false;
+
+    if(piedraNecesaria <= devolverPiedra())
+    {
+        piedraOk = true;
+    }
+    if( maderaNecesaria <= devolverMadera())
+    {
+        maderaOk = true;
+    }
+    if(metalNecesario <= devolverMetal())
+    {
+        metalOk = true;
+    }
+    return (maderaOk && piedraOk && metalOk);
+}
+
+Materiales* Materiales::devolverDireccionMemoria(){
+
+    return (this);
+}

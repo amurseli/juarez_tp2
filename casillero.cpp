@@ -14,6 +14,4 @@ string Casillero::obtenerTipoTerreno(){
     return (tipoTerreno);
 }
 
-Casillero::~Casillero(){
-
-}
+Casillero::~Casillero(){}

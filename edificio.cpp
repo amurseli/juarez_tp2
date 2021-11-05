@@ -6,7 +6,9 @@ Edificio::Edificio(string tipoEdificio)
     nombre = tipoEdificio;
 }
 
-string Edificio::devolverNombre(){ return (nombre);}
+string Edificio::devolverNombre(){ 
+    
+    return (nombre);
+}
 
-
-//Edificio::~Edificio(){}
+Edificio::~Edificio(){}

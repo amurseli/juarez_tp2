@@ -3,6 +3,7 @@
 #include<string>
 #include<fstream>
 #include"array.h"
+#include "inventario.h"
 
 using namespace std;
 

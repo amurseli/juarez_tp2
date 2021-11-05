@@ -38,9 +38,9 @@ bool Archivo::getArchivoValido()
     return existenciaArchivo;
 }
 
-void Archivo::agregarElementoArray(string elemento)
+void Archivo::agregarElementoArray(string nombre)
 {
-    contenido->agregarElemento(elemento);
+    contenido->agregarElemento(nombre);
 }
 
 void Archivo::mostrarContenido(){

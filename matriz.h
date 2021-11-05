@@ -7,7 +7,7 @@
 #include"casilleroInaccesible.h"
 #include "casilleroTransitable.h"
 #include "casilleroConstruible.h"
-#include "edificio.h"
+#include "materiales.h"
 
 const string LAGO = "L";
 const string TRANSITABLE = "C";
@@ -37,7 +37,7 @@ public:
 
     void mostrarCoordenada(int coordenadaX, int CoordenadaY);
 
-    void recoletarMateriales();
+    void recoletarMateriales(Materiales &materiales);
 
     void construirEdificio(int coordX, int coordY, string nombreNuevoEdificio);
 

@@ -1,2 +1,2 @@
-obelisco (2, 3)
-escuela (1, 6)
+obelisco (1, 2)
+mina (0, 2)

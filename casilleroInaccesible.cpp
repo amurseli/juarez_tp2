@@ -9,10 +9,9 @@ void CasilleroInaccesible::queSoy(){
     cout << "HOLA... SOY UN LAGO" << endl;
 
 }
-void CasilleroInaccesible::agregarEdificio(string edificio){}
 
 void CasilleroInaccesible::agregarAlTerreno(string elemento){}
 
-void CasilleroInaccesible::recolectar(){}
+void CasilleroInaccesible::recolectar(Materiales &materiales){}
 
 CasilleroInaccesible::~CasilleroInaccesible(){}

@@ -51,7 +51,7 @@ void Matriz::construirEdificio(int coordX, int coordY, string nombreNuevoEdifici
 {
     if (punteroMatriz[coordX][coordY]->obtenerTipoTerreno() == CONSTRUIBLE)
     {
-        punteroMatriz[coordX][coordY]->agregarEdificio(nombreNuevoEdificio);
+        punteroMatriz[coordX][coordY]->agregarAlTerreno(nombreNuevoEdificio);
     }
 }
 
@@ -67,7 +67,7 @@ void Matriz::mostrarMatriz()
     }
 }
 
-void Matriz::recoletarMateriales(){
+void Matriz::recoletarMateriales(Materiales &materiales){
     string tipoTerreno;
 
     for (int i = 0; i < filas; i++)
@@ -75,7 +75,9 @@ void Matriz::recoletarMateriales(){
         for (int j = 0; j < columnas; j++)
         {
             tipoTerreno = punteroMatriz[i][j]->obtenerTipoTerreno();
-            validarTipoTerreno(tipoTerreno,i,j);
+            if(tipoTerreno == CONSTRUIBLE)
+                punteroMatriz[i][j]->recolectar(materiales);
+
         }
     }
 }
@@ -104,11 +106,8 @@ void Matriz::validarTipoTerreno(string tipoTerreno, int coordenadaX, int coorden
         materialCayendo = "PIEDRA"; //generar random de material en otro metodo
         punteroMatriz[coordenadaX][coordenadaY]->agregarAlTerreno(materialCayendo);
     }
-    else if (tipoTerreno == CONSTRUIBLE)
-    {
-        punteroMatriz[coordenadaX][coordenadaY]->recolectar();
-    }
 }
+
 
 Matriz::~Matriz()
 {

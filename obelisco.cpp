@@ -15,4 +15,9 @@ string Obelisco::materialProducido(){
     return (MATERIAL);
 }
 
+void Obelisco::hablarSobreMi(){
+
+    cout << "SOY UN " + devolverNombre() + " Y ME ENCUENTRO EN EL CASILLERO CONSULTADO" << endl;
+}
+
 Obelisco::~Obelisco(){}

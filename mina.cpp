@@ -15,4 +15,9 @@ string Mina::materialProducido(){
     return (MATERIAL);
 }
 
+void Mina::hablarSobreMi(){
+
+    cout << "SOY UN " + devolverNombre() + " Y ME ENCUENTRO EN EL CASILLERO CONSULTADO" << endl;
+}
+
 Mina::~Mina(){}

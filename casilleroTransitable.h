@@ -14,6 +14,7 @@ private:
     Material* materialEnCasilla = NULL;
 
 public:
+
     CasilleroTransitable(string elemento);
     
     void queSoy();
@@ -25,9 +26,7 @@ public:
 
     void inicializarMaterial();
 
-    void agregarEdificio(string nombreEdificio);
-
-    void recolectar();
+    void recolectar(Materiales &materiales);
 
     virtual ~CasilleroTransitable();
 };

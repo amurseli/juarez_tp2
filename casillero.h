@@ -2,6 +2,8 @@
 #define CASILLERO_H
 #include <iostream>
 #include "edificio.h"
+#include "edificios.h"
+#include "materiales.h"
 #include <string>
 
 using namespace std;
@@ -32,11 +34,9 @@ public:
     //POST:Llama al hijo respectivo.
     virtual void agregarAlTerreno(string elemento) = 0;
 
-    virtual void agregarEdificio(string nombreEdificio) = 0;
+    virtual void recolectar(Materiales &materiales) = 0;
 
-    virtual void recolectar() = 0;
-
-    virtual ~Casillero()=0;
+    virtual ~Casillero() = 0;
 };
 
 #endif
