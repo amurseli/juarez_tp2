@@ -27,6 +27,9 @@ public:
     void sumarPiedra(int cantidad);
     void sumarMadera(int cantidad);
     void sumarMetal(int cantidad);
+    void restarPiedra(int cantidad);
+    void restarMadera(int cantidad);
+    void restarMetal(int cantidad);
     void mostrarMateriales();
     bool validarMateriales(int piedraNecesaria, int maderaNecesaria, int metalNecesario);
     Materiales* devolverDireccionMemoria();

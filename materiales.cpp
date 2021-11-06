@@ -85,6 +85,17 @@ void Materiales::sumarMetal(int cantidad) {
     metal = metal + cantidad;
 }
 
+void Materiales::restarPiedra(int cantidad) {
+    piedra = piedra - cantidad;
+}
+void Materiales::restarMadera(int cantidad) {
+    madera = madera - cantidad;
+}
+void Materiales::restarMetal(int cantidad) {
+
+    metal = metal - cantidad;
+}
+
 bool Materiales::validarMateriales(int piedraNecesaria, int maderaNecesaria, int metalNecesario)
 {
     bool piedraOk = false ,maderaOk = false,metalOk = false;

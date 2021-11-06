@@ -45,6 +45,9 @@ void Constructora::validarMateriales(string nombreNuevoEdificio)
     }
     if (materialesValidos && confirmacion)
     {
+        materiales->restarPiedra(inventarioDeEdificio->devolverPiedra());
+        materiales->restarMadera(inventarioDeEdificio->devolverMadera());
+        materiales->restarMetal(inventarioDeEdificio->devolverMetal());
         ingresoDeCoordenadas(nombreNuevoEdificio);
     }      
 }
@@ -72,7 +75,7 @@ void Constructora::ingresoDeCoordenadas(string nombreNuevoEdificio)
     cout << endl
          << "Ingrese la segunda coordenada: ";
     cin >> coord2;
-    validarCoordenadas(coord1,coord2); //hacer el validador de coordenadas en matriz y que sea efectivamente construible
+    validarCoordenadas(coord1,coord2);
     matriz->construirEdificio(coord1, coord2, nombreNuevoEdificio);
 }
 

@@ -45,14 +45,13 @@ void mostrarMensajeError()
     cout << "\nIngrese una opcion valida: " << endl;
 }
 
-void procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales &materiales, Edificios &edificios, Constructora &prueba)
+void procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales &materiales, Edificios &edificios, Constructora &prueba) //cambiarle el nombre al puntero constructora xd
 {
     string aux;
     string nombreNuevoEdificio;
     int coord1, coord2;
     
-    switch (opcion_elegida)
-    {
+    switch (opcion_elegida){
     case CONSTRUIR_EDIFICIOS:
         prueba.construirEdificio();
         break;
