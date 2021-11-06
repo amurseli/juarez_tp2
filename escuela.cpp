@@ -2,7 +2,7 @@
 
 Escuela::Escuela(string nombre) : Edificio (nombre){
 
-    cout << "\nPlanta creada" << endl;
+    cout << "\nEscuela creada" << endl;
 }
 
 int Escuela::cantidadMaterial(){

@@ -9,6 +9,7 @@ private:
     const int CANTIDADMATERIAL = 15;
     const string MATERIAL = "piedra";
 
+
 public:
 
     Mina(string nombre);
@@ -16,6 +17,8 @@ public:
     //PRE:
     //POST:Va a sumar a la lista de materiales lo que el edificio que este custruido otorgue.
     int cantidadMaterial();
+
+    void devolverPosicion();
 
     //PRE:
     //POST:Va a sumar a la lista de materiales lo que el edificio que este custruido otorgue.

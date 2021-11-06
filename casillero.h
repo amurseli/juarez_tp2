@@ -26,6 +26,8 @@ public:
     //POST:Devuelve el tipo de terreno.
     string obtenerTipoTerreno();
 
+    virtual void devolverPosicion() = 0;
+
     //PRE:
     //POST:Llama al metodo del hijo para que pueda decir que tiene.
     virtual void queSoy() = 0;

@@ -2,7 +2,7 @@
 
 Fabrica::Fabrica(string nombre) : Edificio (nombre){
 
-    cout << "\nPlanta creada" << endl;
+    cout << "\nFabrica creada" << endl;
 }
 
 int Fabrica::cantidadMaterial(){

@@ -21,6 +21,8 @@ public:
 
     string mostrarEdificio();
 
+    void devolverPosicion();
+
     //PRE:Recibe el material a agregar en el terreno
     //POST:Coloca el material.
     void agregarAlTerreno(string elemento);

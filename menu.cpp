@@ -69,12 +69,21 @@ void procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales &mate
         cout << "Soy la opcion 5" << endl;
         break;
     case CONSULTAR_COORDENADA:
-        cout << "Ingrese la primer coordenada: ";
+        cout << "Ingrese fila: ";
         cin >> coord1;
         cout << endl
-             << "Ingrese la segunda coordenada: ";
+             << "Ingrese la columna: ";
         cin >> coord2;
-        punteroMatriz->mostrarCoordenada(coord1 - 1, coord2 - 1);
+        while(coord1 > punteroMatriz->devolverMaxFil()-1 || coord2 > punteroMatriz->devolverMaxCol()-1 || coord1 < 0 || coord2 < 0)
+        {
+            cout << "Fila -> (0, " <<  punteroMatriz->devolverMaxFil() -1 <<") Columna -> (0, " << punteroMatriz->devolverMaxCol() -1 << ")" << endl;
+            cout << "Ingrese fila: ";
+            cin >> coord1;
+            cout << endl
+                 << "Ingrese la columna: ";
+            cin >> coord2;
+        }
+        punteroMatriz->mostrarCoordenada(coord1, coord2);
         break;
     case MOSTRAR_INVENTARIO:
         materiales.mostrarMateriales();

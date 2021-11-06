@@ -65,20 +65,31 @@ bool Constructora::confirmar(int piedraNecesaria, int maderaNecesaria, int metal
 
 void Constructora::ingresoDeCoordenadas(string nombreNuevoEdificio)
 {
-
     int coord1, coord2;
-    bool validarCoordenadas = false;
-
+    bool coordsOk = false;
     cout << "Ingrese la primer coordenada: ";
     cin >> coord1;
     cout << endl
          << "Ingrese la segunda coordenada: ";
     cin >> coord2;
+    validarCoordenadas(coord1,coord2); //hacer el validador de coordenadas en matriz y que sea efectivamente construible
+    matriz->construirEdificio(coord1, coord2, nombreNuevoEdificio);
+}
 
-    validarCoordenadas = true; //hacer el validador de coordenadas en matriz y que sea efectivamente construible
-
-    if (validarCoordenadas)
-        matriz->construirEdificio(coord1-1, coord2-1, nombreNuevoEdificio);
+void Constructora::validarCoordenadas(int coord1, int coord2)
+{
+    while(coord1 > matriz->devolverMaxFil()-1 || coord2 > matriz->devolverMaxCol()-1 || coord1 < 0 || coord2 < 0 || matriz->devolverTipoTerreno(coord1,coord2) != "T"){
+        if (matriz->devolverTipoTerreno(coord1,coord2) != "T")
+        {
+            cout << "Ese no es un casillero construible" << endl;
+        }
+        cout << "Fila -> (0, " <<  matriz->devolverMaxFil() -1 <<") Columna -> (0, " << matriz->devolverMaxCol() -1 << ")" << endl;
+        cout << "Ingrese fila: ";
+        cin >> coord1;
+        cout << endl
+             << "Ingrese la columna: ";
+        cin >> coord2;
+    }
 }
 
 void Constructora::mostrarAviso()

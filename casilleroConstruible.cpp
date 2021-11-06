@@ -1,6 +1,13 @@
 #include "casilleroConstruible.h"
+#include "fabrica.h"
+#include "escuela.h"
+#include "planta.h"
+#include "aserradero.h"
 
-CasilleroConstruible::CasilleroConstruible(string elemento) : Casillero(elemento){}
+CasilleroConstruible::CasilleroConstruible(string elemento, int posx, int posy) : Casillero(elemento){
+    posicionX = posx;
+    posicionY = posy;
+}
 
 void CasilleroConstruible::queSoy(){
 
@@ -10,7 +17,11 @@ void CasilleroConstruible::queSoy(){
         cout << "\nHOLA... SOY UN CASILLERO CONSTRUIBLE Y NO ESTOY VACIO" << endl;
         punteroEdificio->hablarSobreMi();
     }
+}
 
+void CasilleroConstruible::devolverPosicion()
+{
+    cout << "(" << posicionX <<", "<< posicionY <<")";
 }
 
 void CasilleroConstruible::recolectar(Materiales &materiales){
@@ -43,6 +54,19 @@ void CasilleroConstruible::agregarAlTerreno(string nombreEdificio){
     else if(nombreEdificio == MINA){
         punteroEdificio = new Mina(nombreEdificio);
     }
+    else if(nombreEdificio == PLANTA_ELECTRICA){
+        punteroEdificio = new Planta(nombreEdificio);
+    }
+    else if(nombreEdificio == ESCUELA){
+        punteroEdificio = new Escuela(nombreEdificio);
+    }
+    else if(nombreEdificio == FABRICA){
+        punteroEdificio = new Fabrica(nombreEdificio);
+    }
+    else if(nombreEdificio == ASERRADERO){
+        punteroEdificio = new Aserradero(nombreEdificio);
+    }
+
 }
 
 CasilleroConstruible::~CasilleroConstruible(){

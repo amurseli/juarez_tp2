@@ -1,9 +1,8 @@
-#ifndef YACIMIENTO_H
-#define YACIMIENTO_H
+#ifndef ASERRADERO_H
+#define ASERRADERO_H
 #include "edificio.h"
-#include "yacimiento.h"
 
-class Yacimiento : public Edificio
+class Aserradero : public Edificio
 {
 private:
 
@@ -12,7 +11,7 @@ private:
 
 public:
 
-    Yacimiento(string nombre);
+    Aserradero(string nombre);
 
     //PRE:
     //POST:Va a sumar a la lista de materiales lo que el edificio que este custruido otorgue.
@@ -26,7 +25,7 @@ public:
     //POST:Va a decir el tipo de edificio que tiene.
     void hablarSobreMi();
 
-    virtual ~Yacimiento();
+    virtual ~Aserradero();
 };
 
 #endif 

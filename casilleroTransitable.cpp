@@ -18,6 +18,12 @@ string CasilleroTransitable::mostrarEdificio(){
     return "-";
 }
 
+void CasilleroTransitable::devolverPosicion()
+{
+   // cout << "(" << posicionX <<", "<< posicionY <<")";
+}
+
+
 void CasilleroTransitable::agregarAlTerreno(string elemento){
 
     if (materialEnCasilla == NULL)

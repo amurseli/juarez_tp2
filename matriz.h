@@ -45,13 +45,19 @@ public:
 
     void mostrarEdificiosConstruidos();
 
+    int devolverMaxCol();
+
+    int devolverMaxFil();
+
     //PRE:
     //POST:Recorre toda la matriz y agrega el material a las casillas transitables
     void generarLluviaMateriales();
 
+    string devolverTipoTerreno(int coord1,int coord2);
+
     //PRE:necesita el tipo de terreno
     //POST:Valida el tipo de terreno sea un transitable y ejecuta el posible material en el random.
-    void validarTipoTerreno(string elemento,int coordenadaX, int coordenadaY);
+    void validarParaAgregar(string elemento,int coordenadaX, int coordenadaY);
 
     ~Matriz();
 };

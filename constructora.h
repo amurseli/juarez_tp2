@@ -29,6 +29,8 @@ public:
 
     bool confirmar(int piedraNecesaria, int maderaNecesaria, int metalNecesario);
 
+    void validarCoordenadas(int coord1, int coord2);
+
     void ingresoDeCoordenadas(string nombreNuevoEdificio);
 
     void mostrarAviso();

@@ -30,7 +30,7 @@ void Matriz::agregarCasillero(string elemento, int coordenadaX, int coordenadaY)
     }
     else if (elemento == CONSTRUIBLE)
     {
-        crearCasillero = new CasilleroConstruible(elemento);
+        crearCasillero = new CasilleroConstruible(elemento,coordenadaX,coordenadaY);
     }
     else if (elemento == TRANSITABLE)
     {
@@ -55,6 +55,7 @@ void Matriz::mostrarEdificiosConstruidos(){
              nombreEdificio = punteroMatriz[i][j]->mostrarEdificio(); // Aca esta las coords.
             if (nombreEdificio == "mina"){
                 contMina++;
+                punteroMatriz[i][j]->devolverPosicion();
             }
             else if (nombreEdificio == "obelisco"){
                 contObelisco++;
@@ -131,13 +132,13 @@ void Matriz::generarLluviaMateriales(){
         for (int j = 0; j < columnas; j++)
         {
             tipoTerreno = punteroMatriz[i][j]->obtenerTipoTerreno();
-            validarTipoTerreno(tipoTerreno,i,j);
+            validarParaAgregar(tipoTerreno,i,j);
         }
     }
 
 }
 
-void Matriz::validarTipoTerreno(string tipoTerreno, int coordenadaX, int coordenadaY){
+void Matriz::validarParaAgregar(string tipoTerreno, int coordenadaX, int coordenadaY){
 
     string materialCayendo;
     
@@ -146,6 +147,20 @@ void Matriz::validarTipoTerreno(string tipoTerreno, int coordenadaX, int coorden
         materialCayendo = "PIEDRA"; //generar random de material en otro metodo
         punteroMatriz[coordenadaX][coordenadaY]->agregarAlTerreno(materialCayendo);
     }
+}
+
+string Matriz::devolverTipoTerreno(int coord1,int coord2)
+{
+    return  punteroMatriz[coord1][coord2]->obtenerTipoTerreno();
+}
+
+
+int Matriz::devolverMaxCol() {
+    return columnas;
+}
+
+int Matriz::devolverMaxFil() {
+    return filas;
 }
 
 

@@ -20,16 +20,19 @@ class CasilleroConstruible : public Casillero //debe heredar de casillero.h
 private:
 
     Edificio* punteroEdificio = NULL;
+    int posicionX,posicionY;
 
 public:
 
-    CasilleroConstruible(string elemento);
+    CasilleroConstruible(string elemento,int posicionX, int posicionY);
     
     void queSoy();
 
     //PRE:Recibe el edificio a agregar
     //Post:Agrega el edificio a la casilla correspondiente.
     void agregarAlTerreno(string nombreEdificio);
+
+    void devolverPosicion();
 
     //PRE:Recibe las coordenadas
     //POST:Recolecta los materiales/2 los suma a materiales (llamando a edificio), eliminar la memoria y apunta a NULL.
