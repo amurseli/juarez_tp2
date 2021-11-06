@@ -1,8 +1,31 @@
-//
-// Created by agust on 5/11/2021.
-//
+#ifndef ESCUELA_H
+#define ESCUELA_H
+#include "edificio.h"
 
-#ifndef JUAREZ_TP2_ESCUELA_H
-#define JUAREZ_TP2_ESCUELA_H
+class Escuela : public Edificio
+{
+private:
 
-#endif //JUAREZ_TP2_ESCUELA_H
+    const int CANTIDADMATERIAL = 0;
+    const string MATERIAL = "no brinda";
+
+public:
+
+    Escuela(string nombre);
+
+    //PRE:
+    //POST:Va a sumar a la lista de materiales lo que el edificio que este custruido otorgue.
+    int cantidadMaterial();
+
+    //PRE:
+    //POST:Va a sumar a la lista de materiales lo que el edificio que este custruido otorgue.
+    string materialProducido();
+
+    //PRE:
+    //POST:Va a decir el tipo de edificio que tiene.
+    void hablarSobreMi();
+
+    virtual ~Escuela();
+};
+
+#endif 
