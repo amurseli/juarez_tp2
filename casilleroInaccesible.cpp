@@ -9,10 +9,7 @@ void CasilleroInaccesible::queSoy(){
     cout << "HOLA... SOY UN LAGO" << endl;
 
 }
-void CasilleroInaccesible::devolverPosicion()
-{
-    //cout << "(" << posicionX <<", "<< posicionY <<")";
-}
+void CasilleroInaccesible::devolverPosicion(){}
 
 void CasilleroInaccesible::mostrarContenido() {
     cout << "I" ;

@@ -6,7 +6,7 @@ void CasilleroTransitable::queSoy(){
 
     cout << "\nHOLA SOY UN CASILLERO TRANSITABLE ";
 
-    if (materialEnCasilla != NULL)
+    if (materialEnCasilla != nullptr)
     {   
         cout << "Y NO ME ENCUENTRO VACIO" << endl;
         materialEnCasilla->hablar();
@@ -30,7 +30,7 @@ void CasilleroTransitable::mostrarContenido() {
 
 void CasilleroTransitable::modificarTerreno(string elemento, int opcion){
 
-    if (materialEnCasilla == NULL)
+    if (materialEnCasilla == nullptr)
     {
         inicializarMaterial();
     }
@@ -47,7 +47,7 @@ void CasilleroTransitable::recolectar(Materiales &materiales){}
 
 CasilleroTransitable::~CasilleroTransitable(){
 
-    if (materialEnCasilla != NULL)
+    if (materialEnCasilla != nullptr)
     {
       delete materialEnCasilla;
     }    

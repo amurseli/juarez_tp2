@@ -13,7 +13,7 @@ class CasilleroTransitable : public Casillero
 {
 private:
     
-    Material* materialEnCasilla = NULL;
+    Material* materialEnCasilla = nullptr;
 
 public:
 

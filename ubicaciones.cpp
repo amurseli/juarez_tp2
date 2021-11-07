@@ -39,7 +39,7 @@ void Ubicaciones::leerArchivo(string nombre)
 void Ubicaciones::escribirArchivo()
 {
 
-    fstream documento("pruebaUbicaciones.txt", ios::out);
+    fstream documento("../pruebaUbicaciones.txt", ios::out);
 
     string nombreEdificio;
     string coordX, coordY;

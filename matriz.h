@@ -30,10 +30,6 @@ public:
 
     Matriz(int ancho,int alto);
 
-    void construirMatriz();
-
-    void agregarElementoArrayMatriz(string elemento);
-
     void crearMemoriaPunteros();
 
     void agregarCasillero(string tipoTerreno, int coordenadaX, int coordenadaY);

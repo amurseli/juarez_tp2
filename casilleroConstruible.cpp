@@ -11,7 +11,7 @@ CasilleroConstruible::CasilleroConstruible(string elemento, int posx, int posy) 
 
 void CasilleroConstruible::queSoy(){
 
-    if(punteroEdificio == NULL)
+    if(punteroEdificio == nullptr)
         cout << "\nHOLA... SOY UN CASILLERO CONSTRUIBLE Y ESTOY VACIO :(" << endl;
     else{
         cout << "\nHOLA... SOY UN CASILLERO CONSTRUIBLE Y NO ESTOY VACIO" << endl;
@@ -21,12 +21,12 @@ void CasilleroConstruible::queSoy(){
 
 void CasilleroConstruible::devolverPosicion()
 {
-    cout << "(" << posicionY <<", "<< posicionX <<")";
+    cout << "(" << posicionY + 1 <<", "<< posicionX + 1 <<")";
 }
 
 void CasilleroConstruible::mostrarContenido() {
     string nombreEdificio;
-    if(punteroEdificio != NULL)
+    if(punteroEdificio != nullptr)
     {
         nombreEdificio = punteroEdificio->devolverNombre();
         if(nombreEdificio == OBELISCO){
@@ -57,7 +57,7 @@ void CasilleroConstruible::recolectar(Materiales &materiales){
     string material;
     int cantidad;
     
-    if(punteroEdificio != NULL){
+    if(punteroEdificio != nullptr){
         cantidad = punteroEdificio->cantidadMaterial();
         material = punteroEdificio->materialProducido();
         materiales.agregarMaterial(material,cantidad);
@@ -68,7 +68,7 @@ string CasilleroConstruible::mostrarEdificio()
 {
     string nombre = VACIO;
 
-    if(punteroEdificio != NULL)
+    if(punteroEdificio != nullptr)
         nombre = punteroEdificio->devolverNombre();
 
     return nombre;
@@ -110,13 +110,10 @@ void CasilleroConstruible::crearEdificio(string nombreEdificio){
 }
 
 void CasilleroConstruible::removerEdificio(){
-
     delete punteroEdificio;
-    punteroEdificio = NULL;
+    punteroEdificio = nullptr;
 }
 
 CasilleroConstruible::~CasilleroConstruible(){
-
-    if (punteroEdificio != NULL)
-        delete punteroEdificio;
+    delete punteroEdificio;
 }

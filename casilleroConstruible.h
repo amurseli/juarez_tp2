@@ -13,7 +13,6 @@ const string ASERRADERO = "aserradero";
 const string FABRICA = "fabrica";
 const string ESCUELA = "escuela";
 const string OBELISCO = "obelisco";
-const string YACIMIENTO = "yacimiento";
 const string PLANTA_ELECTRICA = "planta electrica";  
 const int CONSTRUIR = 1;
 const int DEMOLER = 2;
@@ -22,7 +21,7 @@ class CasilleroConstruible : public Casillero //debe heredar de casillero.h
 {
 private:
 
-    Edificio* punteroEdificio = NULL;
+    Edificio* punteroEdificio = nullptr;
     int posicionX,posicionY;
 
 public:

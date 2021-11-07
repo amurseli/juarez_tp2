@@ -1,15 +1,9 @@
 #include <iostream>
-#include <fstream>
 #include <string>
 #include "materiales.h"
-#include "array.h"
 #include "edificios.h"
 #include "mapa.h"
-#include "matriz.h"
 #include "menu.h"
-#include "menu.h"
-#include "ubicaciones.h"
-#include "constructora.h"
 
 using namespace std;
 

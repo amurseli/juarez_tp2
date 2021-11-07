@@ -29,11 +29,6 @@ int Inventario::devolverMetal(){
     return metalNecesario;
 }
 
-int Inventario::devolvermaximaCantidadPermitidos(){
-
-    return maximaCantidadPermitidos;
-}
-
 Inventario* Inventario::devolverMemoria(){
 
     return(this);

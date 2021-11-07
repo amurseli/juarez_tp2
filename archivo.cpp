@@ -73,8 +73,8 @@ string Archivo::devolverNombre(){
 
 Archivo::~Archivo()
 {
-    if (contenido != NULL){
+    if (contenido != nullptr){
         delete contenido;
-        contenido = NULL;
+        contenido = nullptr;
     }    
 }

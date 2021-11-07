@@ -18,21 +18,37 @@ private:
     int metal;
 public:
     Materiales(string nombre);
+
     void leerArchivo(string nombre);
+
     void guardarDatos(string nombreMaterial, string cantidad);
+
     int devolverPiedra();
+
     int devolverMadera();
+
     int devolverMetal();
+
     void agregarMaterial(string material, int cantidad);
+
     void sumarPiedra(int cantidad);
+
     void sumarMadera(int cantidad);
+
     void sumarMetal(int cantidad);
+
     void restarPiedra(int cantidad);
+
     void restarMadera(int cantidad);
+
     void restarMetal(int cantidad);
+
     void mostrarMateriales();
+
     void escribirArchivo();
+
     bool validarMateriales(int piedraNecesaria, int maderaNecesaria, int metalNecesario);
+
     Materiales* devolverDireccionMemoria();
 };
 

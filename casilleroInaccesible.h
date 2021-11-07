@@ -8,8 +8,6 @@ using namespace std;
 
 class CasilleroInaccesible : public Casillero
 {
-private:
-    string prueba;
 public:
     CasilleroInaccesible(string elemento);
 

@@ -18,8 +18,6 @@ public:
 
     Material();
 
-    Material(string elemento);
-
     void agregarMaterial(string elemento);
 
     void hablar();

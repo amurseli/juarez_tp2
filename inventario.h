@@ -20,8 +20,6 @@ public:
 
     int devolverMetal();
 
-    int devolvermaximaCantidadPermitidos();
-
     Inventario* devolverMemoria();
 
     ~Inventario();
