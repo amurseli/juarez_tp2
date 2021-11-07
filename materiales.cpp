@@ -27,11 +27,11 @@ void Materiales::leerArchivo(string nombre)
 void Materiales::escribirArchivo()
 {
 
-    fstream documento("pruebaMateriales.txt", ios::out);
+    fstream documento("../pruebaMateriales.txt", ios::out);
 
-    documento << "piedra " + devolverPiedra() << endl;
-    documento << "madera " + devolverMadera() << endl;
-    documento << "metal " + devolverMetal() << endl;
+    documento << "piedra " + to_string(devolverPiedra()) << endl;
+    documento << "madera " + to_string(devolverMadera()) << endl;
+    documento << "metal " + to_string(devolverMetal()) << endl;
 
     documento.close();
 }
