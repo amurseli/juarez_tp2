@@ -53,6 +53,8 @@ void procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales &mate
     
     switch (opcion_elegida){
     case CONSTRUIR_EDIFICIOS:
+        punteroMatriz->mostrarMatriz();
+        cout << endl;
         prueba->construirEdificio();
         break;
     case MOSTRAR_EDIFICIOS_CONSTRUIDOS:
@@ -82,7 +84,7 @@ void procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales &mate
                  << "Ingrese la columna: ";
             cin >> coord2;
         }
-        punteroMatriz->mostrarCoordenada(coord1, coord2);
+        punteroMatriz->mostrarCoordenada(coord1-1, coord2-1);
         break;
     case MOSTRAR_INVENTARIO:
         materiales.mostrarMateriales();

@@ -119,9 +119,10 @@ void Matriz::mostrarMatriz()
 
     for (int i = 0; i < filas; i++)
     {
-        for (int j = 0; j < columnas; j++)
-
+        for (int j = 0; j < columnas; j++) {
             punteroMatriz[i][j]->mostrarContenido();
+            cout << " ";
+        }
         cout << " " << endl;
     }
 }
