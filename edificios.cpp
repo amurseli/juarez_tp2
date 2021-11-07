@@ -19,10 +19,17 @@ void Edificios::leerArchivo(string nombre)
 
     fstream documento(nombre, ios::in);
 
-    string nombreEdificio, piedra, madera, metal, maximaCantidadPermitidos, construidos;
+    string nombreEdificio, segundoNombre, piedra, madera, metal, maximaCantidadPermitidos, construidos;
 
     while (documento >> nombreEdificio)
     {
+        if(nombreEdificio == "planta"){
+            documento >> segundoNombre;
+            nombreEdificio = nombreEdificio + " " + segundoNombre;
+        }
+
+        cout << nombreEdificio << endl;
+
         documento >> piedra;
         documento >> madera;
         documento >> metal;

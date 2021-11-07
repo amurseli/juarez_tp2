@@ -174,6 +174,8 @@ string Matriz::generarRandom(){
 
     srand ((unsigned int)time(NULL));
 
+    numeroAleatorio = 1+rand()%(3-1);
+
     cout << numeroAleatorio << endl;
 
     if(numeroAleatorio == 1){

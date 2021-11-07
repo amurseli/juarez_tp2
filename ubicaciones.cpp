@@ -36,6 +36,35 @@ void Ubicaciones::leerArchivo(string nombre)
     documento.close();
 }
 
+void Ubicaciones::escribirArchivo()
+{
+    string name ="materiales" ;
+
+    ofstream documento(name, ios::out);
+
+    string nombreEdificio, segundoNombre;
+    string coordX, coordY;
+    int cleanCoordX, cleanCoordY;
+
+    while (documento >> nombreEdificio)
+    {   
+        if(nombreEdificio == "planta"){
+            documento >> segundoNombre;
+            nombreEdificio = nombreEdificio + " " + segundoNombre;
+        }
+
+        documento >> coordX;
+        documento >> coordY;
+
+        cleanCoordX = arreglarCoordenadaX(coordX);
+        cleanCoordY = arreglarCoordenadaY(coordY);
+
+        punteroMatriz->construirEdificio(cleanCoordX,cleanCoordY,nombreEdificio);
+    }
+
+    documento.close();
+}
+
 int Ubicaciones::arreglarCoordenadaX(string coordX){
 
         coordX = coordX.substr(1);

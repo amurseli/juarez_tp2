@@ -44,6 +44,8 @@ class Archivo
 
         string devolverElemento(int posicion);
 
+        string devolverNombre();
+
         int devolverTamanio();
 
         ~Archivo();

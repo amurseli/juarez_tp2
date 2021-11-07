@@ -66,6 +66,11 @@ int Archivo::devolverTamanio()
     return (contenido->devolverTamanio());
 }
 
+string Archivo::devolverNombre(){
+
+    return nombre;
+}
+
 Archivo::~Archivo()
 {
     if (contenido != NULL){

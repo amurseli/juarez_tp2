@@ -24,6 +24,8 @@ public:
     int arreglarCoordenadaX(string coordX);
 
     int arreglarCoordenadaY(string coordY);
+
+    void escribirArchivo();
 };
 
 #endif //JUAREZ_TP2_UBICACIONES_H
