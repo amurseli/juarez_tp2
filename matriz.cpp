@@ -49,7 +49,7 @@ void Matriz::mostrarCoordenada(int coordenadaX, int CoordenadaY){
 
 void Matriz::mostrarEdificiosConstruidos(){
     string nombreEdificio;
-    int contMina=0,contObelisco=0,contYacimiento=0,contEscuela=0,contFabrica=0,contPlanta=0;
+    int contMina=0,contObelisco=0,contAserradero=0,contEscuela=0,contFabrica=0,contPlanta=0;
     
     for (int i = 0; i < filas; i++){
         for (int j = 0; j < columnas; j++){
@@ -57,30 +57,42 @@ void Matriz::mostrarEdificiosConstruidos(){
             if (nombreEdificio == MINA){
                 contMina++;
                 punteroMatriz[i][j]->devolverPosicion();
+                cout<< "-> Mina" << endl;
             }
             else if (nombreEdificio == OBELISCO){
                 contObelisco++;
+                punteroMatriz[i][j]->devolverPosicion();
+                cout<< "-> Obelisco" << endl;
             }
-            else if (nombreEdificio == YACIMIENTO){
-                contYacimiento++;
+            else if (nombreEdificio == ASERRADERO){
+                contAserradero++;
+                punteroMatriz[i][j]->devolverPosicion();
+                cout<< "-> Aserradero" << endl;
             }
             else if (nombreEdificio == ESCUELA){
                 contEscuela++;
+                punteroMatriz[i][j]->devolverPosicion();
+                cout<< "-> Escuela" << endl;
             }
             else if (nombreEdificio == FABRICA){
                 contFabrica++;
+                punteroMatriz[i][j]->devolverPosicion();
+                cout<< "-> Fabrica" << endl;
             }
             else if (nombreEdificio == PLANTA_ELECTRICA){
                 contPlanta++;
+                punteroMatriz[i][j]->devolverPosicion();
+                cout<< "-> Planta Electrica" << endl;
             }
         }
     }
+    cout << endl;
     if(contMina > 0)
         cout << "- Minas = " << contMina << endl;
     if(contObelisco > 0)
         cout << "- Obeliscos = " << contObelisco << endl;
-    if(contYacimiento > 0)
-        cout << "- Yacumientos = " << contYacimiento << endl;
+    if(contAserradero > 0)
+        cout << "- Aserraderos = " << contAserradero << endl;
     if(contEscuela > 0)
         cout << "- Escuelas = " << contEscuela << endl;
     if(contFabrica > 0)

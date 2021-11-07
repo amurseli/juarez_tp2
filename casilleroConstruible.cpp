@@ -21,7 +21,7 @@ void CasilleroConstruible::queSoy(){
 
 void CasilleroConstruible::devolverPosicion()
 {
-    cout << "(" << posicionX <<", "<< posicionY <<")";
+    cout << "(" << posicionY <<", "<< posicionX <<")";
 }
 
 void CasilleroConstruible::recolectar(Materiales &materiales){
