@@ -24,6 +24,18 @@ void Materiales::leerArchivo(string nombre)
     documento.close();
 }
 
+void Materiales::escribirArchivo()
+{
+
+    fstream documento("pruebaMateriales.txt", ios::out);
+
+    documento << "piedra " + devolverPiedra() << endl;
+    documento << "madera " + devolverMadera() << endl;
+    documento << "metal " + devolverMetal() << endl;
+
+    documento.close();
+}
+
 void Materiales::guardarDatos(string nombreMaterial, string cantidad)
 {
     if (nombreMaterial == "piedra")

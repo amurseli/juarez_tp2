@@ -31,6 +31,7 @@ public:
     void restarMadera(int cantidad);
     void restarMetal(int cantidad);
     void mostrarMateriales();
+    void escribirArchivo();
     bool validarMateriales(int piedraNecesaria, int maderaNecesaria, int metalNecesario);
     Materiales* devolverDireccionMemoria();
 };
