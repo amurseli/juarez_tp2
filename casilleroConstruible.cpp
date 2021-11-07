@@ -114,6 +114,10 @@ void CasilleroConstruible::removerEdificio(){
     punteroEdificio = nullptr;
 }
 
+string CasilleroConstruible::mostrarMaterial(){
+    return nullptr;
+}
+
 CasilleroConstruible::~CasilleroConstruible(){
     delete punteroEdificio;
 }

@@ -11,20 +11,17 @@ class Material
 {
 private:
     
-    int cantidadMateriales;
-    string materialUno = VACIO, materialDos = VACIO;
+    string tipoMaterial;
 
 public:
 
-    Material();
+    Material(string material);
 
-    void agregarMaterial(string elemento);
+    string devolverTipoMaterial();
 
-    void hablar();
+    virtual void hablar() = 0;
 
-    bool validarExistenciaDato();
-
-    ~Material();
+    virtual ~Material() = 0;
     
 };
 

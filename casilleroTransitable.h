@@ -3,7 +3,9 @@
 #include <string>
 #include <iostream>
 #include "casillero.h"
-#include "material.h"
+#include "piedra.h"
+#include "metal.h"
+#include "madera.h"
 
 using namespace std;
 
@@ -31,9 +33,9 @@ public:
     //POST:Coloca el material.
     void modificarTerreno(string elemento, int opcion);
 
-    void inicializarMaterial();
-
     void recolectar(Materiales &materiales);
+
+    string mostrarMaterial();
 
     virtual ~CasilleroTransitable();
 };

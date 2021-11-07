@@ -48,6 +48,8 @@ public:
 
     void recolectar(Materiales &materiales);
 
+    string mostrarMaterial();
+
     string mostrarEdificio();
 
     //PRE:

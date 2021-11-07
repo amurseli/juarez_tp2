@@ -24,6 +24,8 @@ public:
     void recolectar(Materiales &materiales);
 
     string mostrarEdificio();
+
+    string mostrarMaterial();
     
     virtual ~CasilleroInaccesible();
 };

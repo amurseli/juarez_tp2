@@ -30,17 +30,30 @@ void CasilleroTransitable::mostrarContenido() {
 
 void CasilleroTransitable::modificarTerreno(string elemento, int opcion){
 
-    if (materialEnCasilla == nullptr)
+    if(elemento == PIEDRA)
     {
-        inicializarMaterial();
+        materialEnCasilla = new Piedra(elemento);
     }
-  
-    materialEnCasilla->agregarMaterial(elemento);
+    else if(elemento == MADERA){
+        materialEnCasilla = new Madera(elemento);
+    }
+    else if(elemento == METAL){
+        materialEnCasilla = new Metal(elemento);
+    }
 }
 
-void CasilleroTransitable::inicializarMaterial(){
-    
-    materialEnCasilla = new Material();
+
+string CasilleroTransitable::mostrarMaterial(){
+
+    string tipoMaterial;
+
+    if(materialEnCasilla != nullptr)
+        tipoMaterial = materialEnCasilla->devolverTipoMaterial();
+    else{
+        tipoMaterial = VACIO;
+    }
+
+    return tipoMaterial;
 }
 
 void CasilleroTransitable::recolectar(Materiales &materiales){}

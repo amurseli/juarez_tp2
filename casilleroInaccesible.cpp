@@ -23,4 +23,8 @@ void CasilleroInaccesible::modificarTerreno(string elemento, int opcion){}
 
 void CasilleroInaccesible::recolectar(Materiales &materiales){}
 
+string CasilleroInaccesible::mostrarMaterial(){
+    return nullptr;
+}
+
 CasilleroInaccesible::~CasilleroInaccesible(){}

@@ -38,6 +38,8 @@ public:
 
     virtual string mostrarEdificio() = 0;
 
+    virtual string mostrarMaterial() = 0;
+
     //PRE:Recibe lo que va agregar
     //POST:Llama al hijo respectivo.
     virtual void modificarTerreno(string elemento, int opcion) = 0;

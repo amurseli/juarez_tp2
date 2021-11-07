@@ -1,36 +1,13 @@
 #include "material.h"
 
-Material::Material(){
+Material::Material(string material){
 
-    cantidadMateriales = 0;
+    tipoMaterial = material;
 }
 
-void Material::agregarMaterial(string elemento){
-    
-    if(materialUno == VACIO){
-        materialUno = elemento;
-        cantidadMateriales++;
-    }
-    else if (materialDos == VACIO){
-        materialDos = elemento;
-        cantidadMateriales++;
-    }
+string Material::devolverTipoMaterial(){
 
-}
-void Material::hablar(){
-
-    if(!validarExistenciaDato()){
-        cout << "SOY UNA " + materialUno + " Y ME ENCUENTRO EN EL CASILLERO CONSULTADO"<< endl;
-        cout << "SOY UNA " + materialDos + " Y ME ENCUENTRO EN EL CASILLERO CONSULTADO"<< endl;
-    }
-    else{
-        cout << "SOY UNA " + materialUno + " Y ME ENCUENTRO EN EL CASILLERO CONSULTADO"<< endl;
-    }
-}
-
-bool Material::validarExistenciaDato(){
-
-    return (cantidadMateriales == 1);
+    return tipoMaterial;
 }
 
 Material::~Material(){}

@@ -144,53 +144,62 @@ void Matriz::recoletarMateriales(Materiales &materiales){
 
 void Matriz::generarLluviaMateriales(){
 
-    string tipoTerreno;
+    int numeroAleatorioPiedra, numeroAleatorioMadera, numeroAleatorioMetales;
+    string material;
 
-    for (int i = 0; i < filas; i++)
+    srand ((unsigned int)time(NULL));
+
+    numeroAleatorioPiedra = 1+rand()%(2);
+    numeroAleatorioMadera = rand()%(2);
+    numeroAleatorioMetales = 2+rand()%(5-2);
+
+    agregarMaterial(numeroAleatorioPiedra,PIEDRA);
+    agregarMaterial(numeroAleatorioMadera,MADERA);
+    agregarMaterial(numeroAleatorioMetales,METAL);
+
+    cout << "\n Parece que la lluvia no ha llegado a todos los lugares, son tiempos dificiles" << endl;
+
+}
+
+void Matriz::agregarMaterial(int cantidad, string material){
+
+    for (int i = 0; i < cantidad; i++)
+    {   
+        agregarAcoordenada(cantidad,material);
+    }
+    
+}
+
+void Matriz::agregarAcoordenada(int cantidad, string material){
+
+    int coordeX, coordeY, cantidadIntentos=0, cantidadExitoso=0;
+    bool terrenoTransitableValido = false;
+    string terreno;
+
+    srand ((unsigned int)time(NULL));
+
+    while (!terrenoTransitableValido && cantidadIntentos!=cantidad)
     {
-        for (int j = 0; j < columnas; j++)
+        coordeX = rand()%(filas);
+        coordeY = rand()%(columnas);
+        terreno = devolverTipoTerreno(coordeX,coordeY);
+        if (terreno == TRANSITABLE)
+        {   terrenoTransitableValido = validarExistenciaMaterial(coordeX,coordeY);
+            cantidadIntentos++;
+        }
+        if (terrenoTransitableValido)
         {
-            tipoTerreno = punteroMatriz[i][j]->obtenerTipoTerreno();
-            validarParaAgregar(tipoTerreno,i,j);
+            punteroMatriz[coordeX][coordeY]->modificarTerreno(material,SIN_ACCION);
+            cantidadExitoso++;
+            cout << "Ha llovido en la coordenada: fila:" + to_string(coordeX+1) + " columna" + to_string(coordeY+1) << endl;
         }
     }
 
 }
 
-void Matriz::validarParaAgregar(string tipoTerreno, int coordenadaX, int coordenadaY){
+bool Matriz::validarExistenciaMaterial(int coordeX,int coordeY){
 
-    string materialCayendo;
-    
-    if (tipoTerreno == TRANSITABLE)
-    {
-        materialCayendo = generarRandom();
-        punteroMatriz[coordenadaX][coordenadaY]->modificarTerreno(materialCayendo,SIN_ACCION);
-    }
-}
-
-string Matriz::generarRandom(){
-
-    int numeroAleatorio;
-    string material;
-
-    srand ((unsigned int)time(NULL));
-
-    numeroAleatorio = 1+rand()%(3-1);
-
-    cout << numeroAleatorio << endl;
-
-    if(numeroAleatorio == 1){
-        material = "PIEDRA";
-    }
-    else if(numeroAleatorio == 2){
-        material = "MADERA";
-    }
-    else if(numeroAleatorio == 3){
-        material = "METAL";
-    }
-
-    return material;
-
+    return(punteroMatriz[coordeX][coordeY]->mostrarMaterial() == VACIO);
 }
 
 bool Matriz::validarTipoConstruible(int coord1, int coord2){
