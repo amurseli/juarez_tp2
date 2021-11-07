@@ -9,6 +9,7 @@ void Casillero::mostrarTipoTerreno (){
     cout << tipoTerreno;
 }
 
+
 string Casillero::obtenerTipoTerreno(){
 
     return (tipoTerreno);

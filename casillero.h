@@ -30,6 +30,8 @@ public:
 
     virtual void devolverPosicion() = 0;
 
+    virtual void mostrarContenido() = 0;
+
     //PRE:
     //POST:Llama al metodo del hijo para que pueda decir que tiene.
     virtual void queSoy() = 0;

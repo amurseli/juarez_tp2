@@ -121,7 +121,7 @@ void Matriz::mostrarMatriz()
     {
         for (int j = 0; j < columnas; j++)
 
-            punteroMatriz[i][j]->mostrarTipoTerreno();
+            punteroMatriz[i][j]->mostrarContenido();
         cout << " " << endl;
     }
 }

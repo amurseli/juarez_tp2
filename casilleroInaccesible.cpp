@@ -14,6 +14,10 @@ void CasilleroInaccesible::devolverPosicion()
     //cout << "(" << posicionX <<", "<< posicionY <<")";
 }
 
+void CasilleroInaccesible::mostrarContenido() {
+    cout << "I" ;
+}
+
 string CasilleroInaccesible::mostrarEdificio(){
     return VACIO;
 }

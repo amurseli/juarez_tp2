@@ -23,6 +23,10 @@ void CasilleroTransitable::devolverPosicion()
    // cout << "(" << posicionX <<", "<< posicionY <<")";
 }
 
+void CasilleroTransitable::mostrarContenido() {
+    cout << "T" ;
+}
+
 
 void CasilleroTransitable::modificarTerreno(string elemento, int opcion){
 

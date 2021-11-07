@@ -65,7 +65,7 @@ void procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales &mate
         prueba->demolerEdificio();
         break;
     case MOSTRAR_MAPA:
-        cout << "Soy la opcion 5" << endl;
+        punteroMatriz->mostrarMatriz();
         break;
     case CONSULTAR_COORDENADA:
         cout << "Ingrese fila: ";

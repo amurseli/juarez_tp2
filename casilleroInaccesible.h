@@ -21,6 +21,8 @@ public:
 
     void devolverPosicion();
 
+    void mostrarContenido();
+
     void recolectar(Materiales &materiales);
 
     string mostrarEdificio();

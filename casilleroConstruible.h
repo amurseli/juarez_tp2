@@ -31,6 +31,8 @@ public:
     
     void queSoy();
 
+    void mostrarContenido();
+
     //PRE:Recibe el edificio a agregar
     //Post:Agrega el edificio a la casilla correspondiente.
     void modificarTerreno(string nombreEdificio, int opcion);

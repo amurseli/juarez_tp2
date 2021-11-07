@@ -24,6 +24,34 @@ void CasilleroConstruible::devolverPosicion()
     cout << "(" << posicionY <<", "<< posicionX <<")";
 }
 
+void CasilleroConstruible::mostrarContenido() {
+    string nombreEdificio;
+    if(punteroEdificio != NULL)
+    {
+        nombreEdificio = punteroEdificio->devolverNombre();
+        if(nombreEdificio == OBELISCO){
+            cout << "O";
+        }
+        else if(nombreEdificio == MINA){
+            cout << "M";
+        }
+        else if(nombreEdificio == PLANTA_ELECTRICA){
+            cout << "P";
+        }
+        else if(nombreEdificio == ESCUELA){
+            cout << "E";
+        }
+        else if(nombreEdificio == FABRICA){
+            cout << "F";
+        }
+        else if(nombreEdificio == ASERRADERO){
+            cout << "A";
+        }
+    }
+    else
+        cout << "-";
+}
+
 void CasilleroConstruible::recolectar(Materiales &materiales){
 
     string material;

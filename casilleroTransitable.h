@@ -23,6 +23,8 @@ public:
 
     string mostrarEdificio();
 
+    void mostrarContenido();
+
     void devolverPosicion();
 
     //PRE:Recibe el material a agregar en el terreno
