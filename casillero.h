@@ -6,6 +6,8 @@
 #include "materiales.h"
 #include <string>
 
+const string VACIO = "-";
+
 using namespace std;
 
 class Casillero
@@ -36,7 +38,7 @@ public:
 
     //PRE:Recibe lo que va agregar
     //POST:Llama al hijo respectivo.
-    virtual void agregarAlTerreno(string elemento) = 0;
+    virtual void modificarTerreno(string elemento, int opcion) = 0;
 
     virtual void recolectar(Materiales &materiales) = 0;
 

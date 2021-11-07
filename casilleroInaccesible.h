@@ -17,7 +17,7 @@ public:
 
     //PRE:
     //POST: Al ser hijo de casillero debe estar definido.
-    void agregarAlTerreno(string elemento);
+    void modificarTerreno(string elemento, int opcion);
 
     void devolverPosicion();
 

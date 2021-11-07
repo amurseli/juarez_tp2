@@ -7,6 +7,8 @@
 
 using namespace std;
 
+const int SIN_ACCION = 0;
+
 class CasilleroTransitable : public Casillero
 {
 private:
@@ -25,7 +27,7 @@ public:
 
     //PRE:Recibe el material a agregar en el terreno
     //POST:Coloca el material.
-    void agregarAlTerreno(string elemento);
+    void modificarTerreno(string elemento, int opcion);
 
     void inicializarMaterial();
 

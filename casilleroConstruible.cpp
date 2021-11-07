@@ -38,15 +38,27 @@ void CasilleroConstruible::recolectar(Materiales &materiales){
 
 string CasilleroConstruible::mostrarEdificio()
 {
-    string name;
+    string nombre = VACIO;
+
     if(punteroEdificio != NULL)
-    {
-        name = punteroEdificio->devolverNombre();
-    }
-    return name;
+        nombre = punteroEdificio->devolverNombre();
+
+    return nombre;
 }
 
-void CasilleroConstruible::agregarAlTerreno(string nombreEdificio){
+void CasilleroConstruible::modificarTerreno(string nombreEdificio,int opcion){
+
+    if(opcion == CONSTRUIR)
+    {
+        crearEdificio(nombreEdificio);
+    }
+    else if (opcion == DEMOLER)
+    {
+        removerEdificio();
+    }
+}
+
+void CasilleroConstruible::crearEdificio(string nombreEdificio){
 
     if(nombreEdificio == OBELISCO){
         punteroEdificio = new Obelisco(nombreEdificio);
@@ -67,6 +79,12 @@ void CasilleroConstruible::agregarAlTerreno(string nombreEdificio){
         punteroEdificio = new Aserradero(nombreEdificio);
     }
 
+}
+
+void CasilleroConstruible::removerEdificio(){
+
+    delete punteroEdificio;
+    punteroEdificio = NULL;
 }
 
 CasilleroConstruible::~CasilleroConstruible(){

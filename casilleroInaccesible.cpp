@@ -15,10 +15,10 @@ void CasilleroInaccesible::devolverPosicion()
 }
 
 string CasilleroInaccesible::mostrarEdificio(){
-    return "-";
+    return VACIO;
 }
 
-void CasilleroInaccesible::agregarAlTerreno(string elemento){}
+void CasilleroInaccesible::modificarTerreno(string elemento, int opcion){}
 
 void CasilleroInaccesible::recolectar(Materiales &materiales){}
 

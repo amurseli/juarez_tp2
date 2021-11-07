@@ -15,7 +15,7 @@ void CasilleroTransitable::queSoy(){
     {   cout << "Y ME ENCUENTRO VACIO" << endl;}
 }
 string CasilleroTransitable::mostrarEdificio(){
-    return "-";
+    return VACIO;
 }
 
 void CasilleroTransitable::devolverPosicion()
@@ -24,7 +24,7 @@ void CasilleroTransitable::devolverPosicion()
 }
 
 
-void CasilleroTransitable::agregarAlTerreno(string elemento){
+void CasilleroTransitable::modificarTerreno(string elemento, int opcion){
 
     if (materialEnCasilla == NULL)
     {

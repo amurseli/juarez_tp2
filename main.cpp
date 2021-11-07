@@ -13,10 +13,10 @@
 
 using namespace std;
 
-const string PATH_MATERIALES = "../materiales.txt";
-const string PATH_EDIFICIOS = "../edificios.txt";
-const string PATH_MAPA = "../mapa.txt";
-const string PATH_UBICACIONES = "../ubicaciones.txt";
+const string PATH_MATERIALES = "materiales.txt";
+const string PATH_EDIFICIOS = "edificios.txt";
+const string PATH_MAPA = "mapa.txt";
+const string PATH_UBICACIONES = "ubicaciones.txt";
 
 int main()
 {
@@ -27,6 +27,7 @@ int main()
     Edificios* direccionMemoria;
     Materiales* direccionMemoriaMateriales;
     Matriz *punteroOriginal; // Para trabajar con la matriz desde el main
+    Constructora* punteroConstructora = NULL;
 
     direccionMemoria = edificiosTxt.retornarPunteroEdificios();
     punteroOriginal = mapaTxt.retornarPunteroMatriz();
@@ -34,11 +35,13 @@ int main()
 
     Ubicaciones ubicacionesTxt(PATH_UBICACIONES, punteroOriginal);
 
-    cout << "Bienvenido a Andypolis!" << endl;
-
     int opcionElegida = validarArranque(ubicacionesTxt, materialesTxt, edificiosTxt);
 
-    Constructora prueba(direccionMemoria,direccionMemoriaMateriales,punteroOriginal); //crear cuando se haya validado
+    if(opcionElegida){
+        punteroConstructora = new Constructora(direccionMemoria,direccionMemoriaMateriales,punteroOriginal); 
+        cout << "Bienvenido a Andypolis!" << endl;
+    }
+    
 
     while (opcionElegida != SALIR)
     {
@@ -48,10 +51,14 @@ int main()
         if (!esOpcionValida(opcionElegida))
             mostrarMensajeError();
         else
-        {
-            procesarOpcion(punteroOriginal, opcionElegida, materialesTxt, edificiosTxt, prueba);
+        {   
+            
+            procesarOpcion(punteroOriginal, opcionElegida, materialesTxt, edificiosTxt, punteroConstructora);
         }
     }
+
+    if(punteroConstructora !=NULL)
+        delete punteroConstructora;
 
     return 0;
 }

@@ -9,6 +9,9 @@
 
 using namespace std;
 
+const string CONFIRMADO = "s";
+const string NO_CONFIRMADO = "n";
+
 class Constructora
 {
 private:
@@ -17,21 +20,36 @@ private:
     Materiales* materiales = NULL;
     Matriz* matriz = NULL;
 
+    int filaParaTrabajar;
+    int columnaParaTrabajar;
+
 public:
     
     Constructora(Edificios* &edificioTxt,Materiales* &MaterialesTxt,Matriz* &matrizOriginal);
 
     void construirEdificio();
 
+    void demolerEdificio();
+
+    void avanzarConConstruccion(string nombreNuevoEdificio);
+
     void preguntarCoordenadas();
 
-    void validarMateriales(string nombreNuevoEdificio);
+    bool validarMateriales(string nombreNuevoEdificio);
 
     bool confirmar(int piedraNecesaria, int maderaNecesaria, int metalNecesario);
 
-    void validarCoordenadas(int coord1, int coord2);
+    bool validarCoordenadas(int coord1, int coord2);
 
-    void ingresoDeCoordenadas(string nombreNuevoEdificio);
+    bool ingresoDeCoordenadas();
+
+    void restarMateriales(string nombreNuevoEdificio);
+
+    void sumarMateriales(string nombreEdificio);
+
+    void mostrarAvisoTerreno(bool aviso);
+
+    bool terrenoVacio(string nombreEdificio);
 
     void mostrarAviso();
 

@@ -20,16 +20,70 @@ void Constructora::construirEdificio()
         cin >> nombreNuevoEdificio;
         entradaValida = edificios->validarEdificios(nombreNuevoEdificio);
 
-        if (!entradaValida)
+        if (!entradaValida && (nombreNuevoEdificio!="1"))
             mostrarAviso();
 
     } while (!entradaValida && nombreNuevoEdificio != "1");
 
-    if (entradaValida)
-        validarMateriales(nombreNuevoEdificio);
+    if(entradaValida)
+        avanzarConConstruccion(nombreNuevoEdificio);
+    else{
+        cout << "\n Oh, no construyes nada?, bueno, vuelve pronto la constructora de Andypolis necesita trabajar\n" << endl;
+    }
 }
 
-void Constructora::validarMateriales(string nombreNuevoEdificio)
+void Constructora::avanzarConConstruccion(string nombreNuevoEdificio){
+
+    bool coordenadasValidas = false, materialesValidos = false, validarTerrenoVacio = false;
+    string edificio;
+
+    materialesValidos = validarMateriales(nombreNuevoEdificio);
+
+    if(materialesValidos)
+        coordenadasValidas = ingresoDeCoordenadas();
+
+    if(coordenadasValidas){
+        edificio = matriz->devolverTipoEdificio(filaParaTrabajar,columnaParaTrabajar);
+        validarTerrenoVacio = terrenoVacio(edificio);
+    }
+    
+    if (validarTerrenoVacio){
+        matriz->construirEdificio(filaParaTrabajar,columnaParaTrabajar,nombreNuevoEdificio);
+        restarMateriales(nombreNuevoEdificio);
+        cout << "\n EL EDIFICIO SE HA CONSTRUIDO\n" << endl;
+    }
+    else if (materialesValidos && (!validarTerrenoVacio)){
+        cout << "\nAcaso has perdido la cabeza?, aqui ya hay un edificio: ";
+    }
+}
+
+void Constructora::demolerEdificio(){
+
+    bool coordenadaConfirmada = false;
+    string nombreEdificio = VACIO, confirmacion = NO_CONFIRMADO;
+
+    coordenadaConfirmada = ingresoDeCoordenadas();
+
+    if(coordenadaConfirmada)
+        nombreEdificio = (matriz->devolverTipoEdificio(filaParaTrabajar,columnaParaTrabajar));
+
+    if(!terrenoVacio(nombreEdificio) && coordenadaConfirmada){
+        cout << "\n el edificio en las coordenada es: " + nombreEdificio + " desea demolerlo?: " << endl;
+        cout << "\n¿Desea construir? [s/n]: ";
+        cin >> confirmacion;
+    }
+    else{
+        cout << "\nEstas demente?, aqui no hay nada para demoler: \n";
+    }
+
+    if(confirmacion == CONFIRMADO){
+        sumarMateriales(nombreEdificio);
+        matriz->demolerEdificio(filaParaTrabajar,columnaParaTrabajar);
+        cout << "\n EL EDIFICIO SE HA DEMOLIDO\n" << endl;
+    }
+}
+
+bool Constructora::validarMateriales(string nombreNuevoEdificio)
 {
 
     bool materialesValidos = false, confirmacion = false;
@@ -39,17 +93,14 @@ void Constructora::validarMateriales(string nombreNuevoEdificio)
     materialesValidos = materiales->validarMateriales(inventarioDeEdificio->devolverPiedra(), inventarioDeEdificio->devolverMadera(), inventarioDeEdificio->devolverMetal());
 
     if(materialesValidos)
+    {
         confirmacion = confirmar(inventarioDeEdificio->devolverPiedra(), inventarioDeEdificio->devolverMadera(), inventarioDeEdificio->devolverMetal());
+    }
     else{
         cout << "\n No tienes suficientes materiales" << endl;
     }
-    if (materialesValidos && confirmacion)
-    {
-        materiales->restarPiedra(inventarioDeEdificio->devolverPiedra());
-        materiales->restarMadera(inventarioDeEdificio->devolverMadera());
-        materiales->restarMetal(inventarioDeEdificio->devolverMetal());
-        ingresoDeCoordenadas(nombreNuevoEdificio);
-    }      
+
+    return (confirmacion);
 }
 
 bool Constructora::confirmar(int piedraNecesaria, int maderaNecesaria, int metalNecesario)
@@ -63,42 +114,87 @@ bool Constructora::confirmar(int piedraNecesaria, int maderaNecesaria, int metal
     cout << "\n¿Desea construir? [s/n]: ";
     cin >> confirmacion;
 
-    return (confirmacion == "s");
+    return (confirmacion == CONFIRMADO);
 }
 
-void Constructora::ingresoDeCoordenadas(string nombreNuevoEdificio)
+bool Constructora::ingresoDeCoordenadas()
 {
-    int coord1, coord2;
-    bool coordsOk = false;
-    cout << "Ingrese la primer coordenada: ";
-    cin >> coord1;
-    cout << endl
-         << "Ingrese la segunda coordenada: ";
-    cin >> coord2;
-    validarCoordenadas(coord1,coord2);
-    matriz->construirEdificio(coord1, coord2, nombreNuevoEdificio);
-}
+    bool salidaSinCoordenada = false, coordOk = false;
 
-void Constructora::validarCoordenadas(int coord1, int coord2)
-{
-    while(coord1 > matriz->devolverMaxFil()-1 || coord2 > matriz->devolverMaxCol()-1 || coord1 < 0 || coord2 < 0 || matriz->devolverTipoTerreno(coord1,coord2) != "T"){
-        if (matriz->devolverTipoTerreno(coord1,coord2) != "T")
-        {
-            cout << "Ese no es un casillero construible" << endl;
+    do
+    {
+        cout << "Ingrese la coordenada fila: ";
+        cin >> filaParaTrabajar;
+
+        if(filaParaTrabajar == -1){
+            salidaSinCoordenada =  true;
+            cout << "\nUsted ha salido" << endl;
         }
-        cout << "Fila -> (0, " <<  matriz->devolverMaxFil() -1 <<") Columna -> (0, " << matriz->devolverMaxCol() -1 << ")" << endl;
-        cout << "Ingrese fila: ";
-        cin >> coord1;
-        cout << endl
-             << "Ingrese la columna: ";
-        cin >> coord2;
+        else{
+            cout << "Ingrese la coordenada columna: ";
+            cin >> columnaParaTrabajar;
+            coordOk = validarCoordenadas(filaParaTrabajar,columnaParaTrabajar);
+        }
+
+        if(coordOk){
+            coordOk = matriz->validarTipoConstruible(filaParaTrabajar,columnaParaTrabajar);
+            mostrarAvisoTerreno(coordOk);}
+
+    } while (!coordOk && salidaSinCoordenada!= true);
+
+    return (coordOk);
+}
+
+bool Constructora::validarCoordenadas(int coord1, int coord2)
+{
+    bool coordsOk = false;
+
+    if(coord1 < matriz->devolverMaxFil() && coord2 < matriz->devolverMaxCol() && coord1 > 0 && coord2 > 0)
+    {   
+        coordsOk = true;
     }
+    else{
+        cout << "\nEsa no es una coordenada valida - Intentalo de nuevo o sal con un -1 :)" << endl;
+        cout << "Filas disponibles: -> (1, " <<  matriz->devolverMaxFil() << ") \nColumnas disponibles: -> (1, " << matriz->devolverMaxCol() << ")" << endl;
+    }
+
+    return coordsOk;
+}
+
+void Constructora::restarMateriales(string nombreNuevoEdificio){
+
+    Inventario *inventarioDeEdificio = edificios->devolverInventario(nombreNuevoEdificio);
+    
+    materiales->restarPiedra(inventarioDeEdificio->devolverPiedra());
+    materiales->restarMadera(inventarioDeEdificio->devolverMadera());
+    materiales->restarMetal(inventarioDeEdificio->devolverMetal());
+}
+
+void Constructora::sumarMateriales(string nombreEdificio){
+
+    Inventario *inventarioDeEdificio = edificios->devolverInventario(nombreEdificio);
+    
+    materiales->sumarPiedra(inventarioDeEdificio->devolverPiedra()/2);
+    materiales->sumarMadera(inventarioDeEdificio->devolverMadera()/2);
+    materiales->sumarMetal(inventarioDeEdificio->devolverMetal()/2);
+
+}
+
+void Constructora::mostrarAvisoTerreno(bool aviso){
+
+    if(!aviso)
+        cout << "\nEste no es un casillero construible,  para salir presione -1" << endl;
 }
 
 void Constructora::mostrarAviso()
 {
 
     cout << "\n EL edificio que intenta crear no existe, para salir presione 1" << endl;
+}
+
+bool Constructora::terrenoVacio(string nombreEdificio){
+
+    return (nombreEdificio == VACIO);
 }
 
 void Constructora::preguntarCoordenadas() {}

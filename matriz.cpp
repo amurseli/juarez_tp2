@@ -50,26 +50,27 @@ void Matriz::mostrarCoordenada(int coordenadaX, int CoordenadaY){
 void Matriz::mostrarEdificiosConstruidos(){
     string nombreEdificio;
     int contMina=0,contObelisco=0,contYacimiento=0,contEscuela=0,contFabrica=0,contPlanta=0;
+    
     for (int i = 0; i < filas; i++){
         for (int j = 0; j < columnas; j++){
              nombreEdificio = punteroMatriz[i][j]->mostrarEdificio(); // Aca esta las coords.
-            if (nombreEdificio == "mina"){
+            if (nombreEdificio == MINA){
                 contMina++;
                 punteroMatriz[i][j]->devolverPosicion();
             }
-            else if (nombreEdificio == "obelisco"){
+            else if (nombreEdificio == OBELISCO){
                 contObelisco++;
             }
-            else if (nombreEdificio == "yacimiento"){
+            else if (nombreEdificio == YACIMIENTO){
                 contYacimiento++;
             }
-            else if (nombreEdificio == "escuela"){
+            else if (nombreEdificio == ESCUELA){
                 contEscuela++;
             }
-            else if (nombreEdificio == "fabrica"){
+            else if (nombreEdificio == FABRICA){
                 contFabrica++;
             }
-            else if (nombreEdificio == "plata_electrica"){
+            else if (nombreEdificio == PLANTA_ELECTRICA){
                 contPlanta++;
             }
         }
@@ -90,10 +91,15 @@ void Matriz::mostrarEdificiosConstruidos(){
 
 void Matriz::construirEdificio(int coordX, int coordY, string nombreNuevoEdificio)
 {
-    if (punteroMatriz[coordX][coordY]->obtenerTipoTerreno() == CONSTRUIBLE)
+    if (validarTipoConstruible(coordX,coordY))
     {
-        punteroMatriz[coordX][coordY]->agregarAlTerreno(nombreNuevoEdificio);
+        punteroMatriz[coordX][coordY]->modificarTerreno(nombreNuevoEdificio,CONSTRUIR);
     }
+}
+
+void Matriz::demolerEdificio(int coordX, int coordY)
+{
+    punteroMatriz[coordX][coordY]->modificarTerreno(VACIO,DEMOLER);
 }
 
 void Matriz::mostrarMatriz()
@@ -144,9 +150,39 @@ void Matriz::validarParaAgregar(string tipoTerreno, int coordenadaX, int coorden
     
     if (tipoTerreno == TRANSITABLE)
     {
-        materialCayendo = "PIEDRA"; //generar random de material en otro metodo
-        punteroMatriz[coordenadaX][coordenadaY]->agregarAlTerreno(materialCayendo);
+        materialCayendo = generarRandom();
+        punteroMatriz[coordenadaX][coordenadaY]->modificarTerreno(materialCayendo,SIN_ACCION);
     }
+}
+
+string Matriz::generarRandom(){
+
+    int numeroAleatorio;
+    string material;
+
+    srand ((unsigned int)time(NULL));
+
+    cout << numeroAleatorio << endl;
+
+    if(numeroAleatorio == 1){
+        material = "PIEDRA";
+    }
+    else if(numeroAleatorio == 2){
+        material = "MADERA";
+    }
+    else if(numeroAleatorio == 3){
+        material = "METAL";
+    }
+
+    return material;
+
+}
+
+bool Matriz::validarTipoConstruible(int coord1, int coord2){
+
+    bool terrenoValido = (devolverTipoTerreno(coord1,coord2) == CONSTRUIBLE);
+
+    return (terrenoValido);
 }
 
 string Matriz::devolverTipoTerreno(int coord1,int coord2)
@@ -154,6 +190,11 @@ string Matriz::devolverTipoTerreno(int coord1,int coord2)
     return  punteroMatriz[coord1][coord2]->obtenerTipoTerreno();
 }
 
+string Matriz::devolverTipoEdificio(int coord1,int coord2)
+{
+    
+    return punteroMatriz[coord1][coord2]->mostrarEdificio();
+}
 
 int Matriz::devolverMaxCol() {
     return columnas;
@@ -162,7 +203,6 @@ int Matriz::devolverMaxCol() {
 int Matriz::devolverMaxFil() {
     return filas;
 }
-
 
 Matriz::~Matriz()
 {

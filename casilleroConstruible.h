@@ -13,7 +13,10 @@ const string ASERRADERO = "aserradero";
 const string FABRICA = "fabrica";
 const string ESCUELA = "escuela";
 const string OBELISCO = "obelisco";
+const string YACIMIENTO = "yacimiento";
 const string PLANTA_ELECTRICA = "planta electrica";  
+const int CONSTRUIR = 1;
+const int DEMOLER = 2;
 
 class CasilleroConstruible : public Casillero //debe heredar de casillero.h
 {
@@ -30,7 +33,11 @@ public:
 
     //PRE:Recibe el edificio a agregar
     //Post:Agrega el edificio a la casilla correspondiente.
-    void agregarAlTerreno(string nombreEdificio);
+    void modificarTerreno(string nombreEdificio, int opcion);
+
+    void crearEdificio(string nombreEdificio);
+
+    void removerEdificio();
 
     void devolverPosicion();
 

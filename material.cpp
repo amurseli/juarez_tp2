@@ -2,51 +2,36 @@
 
 Material::Material(){
 
-    cantidadMateriales = -1;
-}
-
-void Material::inicializar(){
-    tipoMaterial = new Array<string>();
+    cantidadMateriales = 0;
 }
 
 void Material::agregarMaterial(string elemento){
-
-    if (validarExistenciaDato())
-    {
-        inicializar();
-    }
     
-    if(validarEspacioDisponible()){
-        tipoMaterial->agregarElemento(elemento);
+    if(materialUno == VACIO){
+        materialUno = elemento;
         cantidadMateriales++;
     }
-}
+    else if (materialDos == VACIO){
+        materialDos = elemento;
+        cantidadMateriales++;
+    }
 
-bool Material::validarEspacioDisponible(){
-
-    return (cantidadMateriales<1);
 }
 void Material::hablar(){
 
-    if (!validarExistenciaDato())
-    {
-        for (int i = 0; i < cantidadMateriales+1; i++)
-        {
-            cout << "SOY UNA " + tipoMaterial->devolverElemento(i) + " Y ME ENCUENTRO EN EL CASILLERO CONSULTADO"<< endl;
-        }  
-    } 
+    if(!validarExistenciaDato()){
+        cout << "SOY UNA " + materialUno + " Y ME ENCUENTRO EN EL CASILLERO CONSULTADO"<< endl;
+        cout << "SOY UNA " + materialDos + " Y ME ENCUENTRO EN EL CASILLERO CONSULTADO"<< endl;
+    }
+    else{
+        cout << "SOY UNA " + materialUno + " Y ME ENCUENTRO EN EL CASILLERO CONSULTADO"<< endl;
+    }
 }
 
 bool Material::validarExistenciaDato(){
 
-    return (cantidadMateriales == -1);
+    return (cantidadMateriales == 1);
 }
 
-Material::~Material(){
-
-    if (tipoMaterial != NULL)
-    {
-        delete tipoMaterial;
-    }
-}
+Material::~Material(){}
 

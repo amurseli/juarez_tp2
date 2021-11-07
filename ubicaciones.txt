@@ -1,2 +1,2 @@
-obelisco (1, 2)
-mina (0, 2)
+planta electrica (1, 2)
+escuela (0, 2)

@@ -11,8 +11,8 @@ class Material
 {
 private:
     
-    Array<string>* tipoMaterial = NULL;
     int cantidadMateriales;
+    string materialUno = VACIO, materialDos = VACIO;
 
 public:
 
@@ -20,11 +20,7 @@ public:
 
     Material(string elemento);
 
-    void inicializar();
-
     void agregarMaterial(string elemento);
-
-    bool validarEspacioDisponible();
 
     void hablar();
 

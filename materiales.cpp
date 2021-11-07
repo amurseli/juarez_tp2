@@ -23,18 +23,6 @@ void Materiales::leerArchivo(string nombre)
     }
     documento.close();
 }
-int Materiales::devolverPiedra()
-{
-    return piedra;
-}
-int Materiales::devolverMadera()
-{
-    return madera;
-}
-int Materiales::devolverMetal()
-{
-    return metal;
-}
 
 void Materiales::guardarDatos(string nombreMaterial, string cantidad)
 {
@@ -60,6 +48,7 @@ void Materiales::mostrarMateriales()
 }
 
 void Materiales::agregarMaterial(string material, int cantidad){
+
     if(material == PIEDRA){
         sumarPiedra(cantidad);
         cout << "Se agregò piedra" << endl;
@@ -72,6 +61,38 @@ void Materiales::agregarMaterial(string material, int cantidad){
         sumarMetal(cantidad);
         cout << "Se agregò metal" << endl;
     }
+}
+
+bool Materiales::validarMateriales(int piedraNecesaria, int maderaNecesaria, int metalNecesario)
+{
+    bool piedraOk = false ,maderaOk = false,metalOk = false;
+
+    if(piedraNecesaria <= devolverPiedra())
+    {
+        piedraOk = true;
+    }
+    if( maderaNecesaria <= devolverMadera())
+    {
+        maderaOk = true;
+    }
+    if(metalNecesario <= devolverMetal())
+    {
+        metalOk = true;
+    }
+    return (maderaOk && piedraOk && metalOk);
+}
+
+int Materiales::devolverPiedra()
+{
+    return piedra;
+}
+int Materiales::devolverMadera()
+{
+    return madera;
+}
+int Materiales::devolverMetal()
+{
+    return metal;
 }
 
 void Materiales::sumarPiedra(int cantidad) {
@@ -94,25 +115,6 @@ void Materiales::restarMadera(int cantidad) {
 void Materiales::restarMetal(int cantidad) {
 
     metal = metal - cantidad;
-}
-
-bool Materiales::validarMateriales(int piedraNecesaria, int maderaNecesaria, int metalNecesario)
-{
-    bool piedraOk = false ,maderaOk = false,metalOk = false;
-
-    if(piedraNecesaria <= devolverPiedra())
-    {
-        piedraOk = true;
-    }
-    if( maderaNecesaria <= devolverMadera())
-    {
-        maderaOk = true;
-    }
-    if(metalNecesario <= devolverMetal())
-    {
-        metalOk = true;
-    }
-    return (maderaOk && piedraOk && metalOk);
 }
 
 Materiales* Materiales::devolverDireccionMemoria(){

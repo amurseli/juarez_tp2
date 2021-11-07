@@ -39,7 +39,7 @@ int validarArranque(Ubicaciones &mapaTxt,Materiales &materialesTxt,Edificios &ed
 
 //pre: -
 //post: Realiza la opcion pedida
-void procesarOpcion(Matriz* &punteroMatriz, int opcion_elegida, Materiales &materiales, Edificios &edificios,Constructora &prueba);
+void procesarOpcion(Matriz* &punteroMatriz, int opcion_elegida, Materiales &materiales, Edificios &edificios,Constructora* &prueba);
 
 //pre:-
 //post: Frena el programa hasta recibir un input

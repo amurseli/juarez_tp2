@@ -20,6 +20,10 @@ public:
 
     
     void leerArchivo(string nombre);
+
+    int arreglarCoordenadaX(string coordX);
+
+    int arreglarCoordenadaY(string coordY);
 };
 
 #endif //JUAREZ_TP2_UBICACIONES_H

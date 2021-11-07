@@ -11,7 +11,7 @@ class Edificios : public Archivo
 
 private:
 
-    Inventario** inventarioTotal;
+    Inventario** inventarioTotal = NULL;
     int tamanio = 0;
 
 public:
