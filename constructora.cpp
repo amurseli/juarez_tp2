@@ -125,14 +125,16 @@ bool Constructora::ingresoDeCoordenadas()
     {
         cout << "Ingrese la coordenada fila: ";
         cin >> filaParaTrabajar;
+        filaParaTrabajar--;
 
-        if(filaParaTrabajar == -1){
+        if(filaParaTrabajar == -2){
             salidaSinCoordenada =  true;
             cout << "\nUsted ha salido" << endl;
         }
         else{
             cout << "Ingrese la coordenada columna: ";
             cin >> columnaParaTrabajar;
+            columnaParaTrabajar--;
             coordOk = validarCoordenadas(filaParaTrabajar,columnaParaTrabajar);
         }
 
@@ -140,7 +142,7 @@ bool Constructora::ingresoDeCoordenadas()
             coordOk = matriz->validarTipoConstruible(filaParaTrabajar,columnaParaTrabajar);
             mostrarAvisoTerreno(coordOk);}
 
-    } while (!coordOk && salidaSinCoordenada!= true);
+    } while (!coordOk && salidaSinCoordenada!= true);    
 
     return (coordOk);
 }
@@ -149,7 +151,7 @@ bool Constructora::validarCoordenadas(int coord1, int coord2)
 {
     bool coordsOk = false;
 
-    if(coord1 < matriz->devolverMaxFil() && coord2 < matriz->devolverMaxCol() && coord1 > 0 && coord2 > 0)
+    if(coord1 < matriz->devolverMaxFil() && coord2 < matriz->devolverMaxCol() && coord1 >= 0 && coord2 >= 0)
     {   
         coordsOk = true;
     }

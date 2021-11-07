@@ -94,7 +94,7 @@ void procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales &mate
         punteroMatriz->generarLluviaMateriales();
         break;
     case SALIR:
-
+        
         cout << "Adios!" << endl;
         break;
     default:

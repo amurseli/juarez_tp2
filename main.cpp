@@ -60,5 +60,11 @@ int main()
     if(punteroConstructora !=NULL)
         delete punteroConstructora;
 
+    if(opcionElegida == SALIR && opcionElegida)
+    {
+        ubicacionesTxt.escribirArchivo();
+        materialesTxt.escribirArchivo();
+    }
+
     return 0;
 }
