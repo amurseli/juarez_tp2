@@ -1,5 +1,5 @@
-#ifndef MENU_H
-#define MENU_H
+#ifndef TP1_MENU_H
+#define TP1_MENU_H
 
 #include "edificios.h"
 #include "matriz.h"
@@ -9,10 +9,6 @@
 #include "ubicaciones.h"
 #include "constructora.h"
 
-const string PATH_MATERIALES = "../materiales.txt";
-const string PATH_EDIFICIOS = "../edificios.txt";
-const string PATH_MAPA = "../mapa.txt";
-const string PATH_UBICACIONES = "../ubicaciones.txt";
 const int OPCION_MINIMA = 1;
 const int OPCION_MAXIMA = 10;
 const int CONSTRUIR_EDIFICIOS = 1;
@@ -27,46 +23,30 @@ const int LLUVIA_DE_RECUROS = 9;
 const int SALIR = 10;
 const int ENTRAR = -1;
 
-using namespace std;
-
-class Menu
-{
-public:
-
-    Menu();
-
 //pre: -
 //post: Imprime por pantalla el menu
-    void mostrarMenu();
+void mostrarMenu();
 
 //pre: -
 //post: Guarda la opcion del usuario
-    int elegirOpcion();
+int elegirOpcion();
 
 //pre: -
 //post: Imprime por pantalla que fue invalido la opcion elegida.
-    void mostrarMensajeError();
+void mostrarMensajeError();
 
-    int validarArranque(Ubicaciones &mapaTxt,Materiales &materialesTxt,Edificios &edificiosTxt);
+int validarArranque(Ubicaciones &mapaTxt,Materiales &materialesTxt,Edificios &edificiosTxt);
 
 //pre: -
 //post: Realiza la opcion pedida
-    void procesarOpcion(Matriz* &punteroMatriz, int opcion_elegida, Materiales &materiales, Edificios &edificios,Constructora* &prueba);
+void procesarOpcion(Matriz* &punteroMatriz, int opcion_elegida, Materiales &materiales, Edificios &edificios,Constructora* &prueba);
 
 //pre:-
 //post: Frena el programa hasta recibir un input
-    void presioneEnter();
+void presioneEnter();
 
 //pre: -
 //post: devuelve true si la opcion recibida esta en el rango valido y sino devuelve false.
-    bool esOpcionValida(int elegida);
+bool esOpcionValida(int elegida);
 
-private:
-    Edificios* direccionMemoria;
-    Materiales* direccionMemoriaMateriales;
-    Matriz *punteroOriginal;
-    Constructora* punteroConstructora = nullptr;
-
-};
-
-#endif //MENU_H
+#endif //TP1_MENU_H
