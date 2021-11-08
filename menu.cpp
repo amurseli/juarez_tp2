@@ -53,7 +53,6 @@ void procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales &mate
     
     switch (opcion_elegida){
     case CONSTRUIR_EDIFICIOS:
-        punteroMatriz->mostrarMatriz();
         cout << endl;
         prueba->construirEdificio();
         break;
@@ -70,6 +69,7 @@ void procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales &mate
         punteroMatriz->mostrarMatriz();
         break;
     case CONSULTAR_COORDENADA:
+        
         cout << "Ingrese fila: ";
         cin >> coord1;
         cout << endl

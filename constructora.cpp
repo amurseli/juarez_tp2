@@ -120,7 +120,7 @@ bool Constructora::confirmar(int piedraNecesaria, int maderaNecesaria, int metal
 bool Constructora::ingresoDeCoordenadas()
 {
     bool salidaSinCoordenada = false, coordOk = false;
-
+    matriz->mostrarMatriz();
     do
     {
         cout << "Ingrese la coordenada fila: ";
@@ -151,7 +151,7 @@ bool Constructora::validarCoordenadas(int coord1, int coord2)
 {
     bool coordsOk = false;
 
-    if(coord1 < matriz->devolverMaxFil() && coord2 < matriz->devolverMaxCol() && coord1 >= 0 && coord2 >= 0)
+    if(coord1 < matriz->devolverMaxFil() && coord2 < matriz->devolverMaxCol() && coord1 > 0 && coord2 > 0)
     {   
         coordsOk = true;
     }

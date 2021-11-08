@@ -32,7 +32,7 @@ void Matriz::agregarCasillero(string elemento, int coordenadaX, int coordenadaY)
     {
         crearCasillero = new CasilleroConstruible(elemento,coordenadaX,coordenadaY);
     }
-    else if (elemento == TRANSITABLE)
+    else
     {
         crearCasillero = new CasilleroTransitable(elemento);
     }
@@ -47,45 +47,45 @@ void Matriz::mostrarCoordenada(int coordenadaX, int CoordenadaY){
 
 }
 
-void Matriz::mostrarEdificiosConstruidos(){
+void Matriz::mostrarEdificiosConstruidos() {
     string nombreEdificio;
-    int contMina=0,contObelisco=0,contAserradero=0,contEscuela=0,contFabrica=0,contPlanta=0;
-    
-    for (int i = 0; i < filas; i++){
-        for (int j = 0; j < columnas; j++){
-             nombreEdificio = punteroMatriz[i][j]->mostrarEdificio(); // Aca esta las coords.
-            if (nombreEdificio == MINA){
+    int contMina = 0, contObelisco = 0, contAserradero = 0, contEscuela = 0, contFabrica = 0, contPlanta = 0;
+
+    for (int i = 0; i < filas; i++) {
+        for (int j = 0; j < columnas; j++) {
+            nombreEdificio = punteroMatriz[i][j]->mostrarEdificio(); // Aca esta las coords.
+            if (nombreEdificio == MINA) {
                 contMina++;
                 punteroMatriz[i][j]->devolverPosicion();
-                cout<< "-> Mina" << endl;
-            }
-            else if (nombreEdificio == OBELISCO){
+                cout << "-> Mina" << endl;
+            } else if (nombreEdificio == OBELISCO) {
                 contObelisco++;
                 punteroMatriz[i][j]->devolverPosicion();
-                cout<< "-> Obelisco" << endl;
-            }
-            else if (nombreEdificio == ASERRADERO){
+                cout << "-> Obelisco" << endl;
+            } else if (nombreEdificio == ASERRADERO) {
                 contAserradero++;
                 punteroMatriz[i][j]->devolverPosicion();
-                cout<< "-> Aserradero" << endl;
-            }
-            else if (nombreEdificio == ESCUELA){
+                cout << "-> Aserradero" << endl;
+            } else if (nombreEdificio == ESCUELA) {
                 contEscuela++;
                 punteroMatriz[i][j]->devolverPosicion();
-                cout<< "-> Escuela" << endl;
-            }
-            else if (nombreEdificio == FABRICA){
+                cout << "-> Escuela" << endl;
+            } else if (nombreEdificio == FABRICA) {
                 contFabrica++;
                 punteroMatriz[i][j]->devolverPosicion();
-                cout<< "-> Fabrica" << endl;
-            }
-            else if (nombreEdificio == PLANTA_ELECTRICA){
+                cout << "-> Fabrica" << endl;
+            } else if (nombreEdificio == PLANTA_ELECTRICA) {
                 contPlanta++;
                 punteroMatriz[i][j]->devolverPosicion();
-                cout<< "-> Planta Electrica" << endl;
+                cout << "-> Planta Electrica" << endl;
             }
         }
     }
+    imprimirCantidades(contMina, contObelisco, contAserradero , contEscuela , contFabrica , contPlanta );
+
+}
+void Matriz::imprimirCantidades(int contMina,int contObelisco, int contAserradero, int contEscuela, int contFabrica, int contPlanta)
+{
     cout << endl;
     if(contMina > 0)
         cout << "- Minas = " << contMina << endl;
@@ -100,6 +100,7 @@ void Matriz::mostrarEdificiosConstruidos(){
     if(contPlanta > 0)
         cout << "- Plantas Electricas = " << contPlanta << endl;
 }
+
 
 void Matriz::construirEdificio(int coordX, int coordY, string nombreNuevoEdificio)
 {
@@ -116,15 +117,20 @@ void Matriz::demolerEdificio(int coordX, int coordY)
 
 void Matriz::mostrarMatriz()
 {
-
+    cout << endl;
+    for (int i = 0; i < columnas; ++i) {
+        cout << i + 1 << " ";
+    }
+    cout << endl;
     for (int i = 0; i < filas; i++)
     {
         for (int j = 0; j < columnas; j++) {
             punteroMatriz[i][j]->mostrarContenido();
             cout << " ";
         }
-        cout << " " << endl;
+        cout << i + 1 << endl;
     }
+    cout << endl;
 }
 
 void Matriz::recoletarMateriales(Materiales &materiales){

@@ -24,7 +24,7 @@ void CasilleroTransitable::devolverPosicion()
 }
 
 void CasilleroTransitable::mostrarContenido() {
-    cout << "T" ;
+    cout << "C" ;
 }
 
 
