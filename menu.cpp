@@ -1,10 +1,53 @@
 #include "menu.h"
 #include "matriz.h"
+#include "mapa.h"
 #include <iostream>
 
 using namespace std;
 
-int validarArranque(Ubicaciones &ubicacionesTxt,Materiales &materialesTxt,Edificios &edificiosTxt){
+Menu::Menu() {
+    Materiales materialesTxt(PATH_MATERIALES);
+    Edificios edificiosTxt(PATH_EDIFICIOS);
+    Mapa mapaTxt(PATH_MAPA);
+
+    Edificios* direccionMemoria;
+    Materiales* direccionMemoriaMateriales;
+    Matriz *punteroOriginal; // Para trabajar con la matriz desde el main
+    Constructora* punteroConstructora = NULL;
+
+    direccionMemoria = edificiosTxt.retornarPunteroEdificios();
+    punteroOriginal = mapaTxt.retornarPunteroMatriz();
+    direccionMemoriaMateriales= materialesTxt.devolverDireccionMemoria();
+
+    Ubicaciones ubicacionesTxt(PATH_UBICACIONES, punteroOriginal);
+
+    int opcionElegida = validarArranque(ubicacionesTxt, materialesTxt, edificiosTxt);
+
+    if(opcionElegida){
+        punteroConstructora = new Constructora(direccionMemoria,direccionMemoriaMateriales,punteroOriginal);
+        cout << "Bienvenido a Andypolis!" << endl;
+    }
+
+
+    while (opcionElegida != SALIR)
+    {
+        mostrarMenu();
+        opcionElegida = elegirOpcion();
+
+        if (!esOpcionValida(opcionElegida))
+            mostrarMensajeError();
+        else
+        {
+
+            procesarOpcion(punteroOriginal, opcionElegida, materialesTxt, edificiosTxt, punteroConstructora);
+        }
+    }
+
+    if(punteroConstructora !=NULL)
+        delete punteroConstructora;
+}
+
+int Menu::validarArranque(Ubicaciones &ubicacionesTxt,Materiales &materialesTxt,Edificios &edificiosTxt){
 
     int valor = SALIR;
 
@@ -14,7 +57,7 @@ int validarArranque(Ubicaciones &ubicacionesTxt,Materiales &materialesTxt,Edific
     return valor;
 }
 
-void mostrarMenu()
+void Menu::mostrarMenu()
 {
     cout << "\n1. Construir edificios por nombre" << endl;
     cout << "2. Listar los edificios construidos " << endl;
@@ -28,7 +71,7 @@ void mostrarMenu()
     cout << "10. Guardar y Salir" << endl;
 }
 
-int elegirOpcion()
+int Menu::elegirOpcion()
 {
 
     int opcion_elegida;
@@ -39,13 +82,13 @@ int elegirOpcion()
     return (opcion_elegida);
 }
 
-void mostrarMensajeError()
+void Menu::mostrarMensajeError()
 {
 
     cout << "\nIngrese una opcion valida: " << endl;
 }
 
-void procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales &materiales, Edificios &edificios, Constructora* &prueba) //cambiarle el nombre al puntero constructora xd
+void Menu::procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales &materiales, Edificios &edificios, Constructora* &prueba) //cambiarle el nombre al puntero constructora xd
 {
     string aux;
     string nombreNuevoEdificio;
@@ -104,7 +147,7 @@ void procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales &mate
     }
 }
 
-bool esOpcionValida(int elegida)
+bool Menu::esOpcionValida(int elegida)
 {
     return (elegida >= OPCION_MINIMA && elegida <= OPCION_MAXIMA);
 }

@@ -98,7 +98,7 @@ void Matriz::mostrarEdificiosConstruidos()
 }
 
 int Matriz::devolverCantidadEdificio(string edificio){
-    int cantidadEdificio;
+    int cantidadEdificio = 0;
     string nombreEdificio;
 
     for (int i = 0; i < filas; i++)

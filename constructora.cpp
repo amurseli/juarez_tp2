@@ -90,7 +90,7 @@ void Constructora::demolerEdificio(){
 }
 
 bool Constructora::validarMaximoEdificio(string nombreNuevoEdificio){
-    int maximaCantidadPermitida, cantidadActual;
+    int maximaCantidadPermitida = 0, cantidadActual = 0;
 
     Inventario *inventarioDeEdificio = edificios->devolverInventario(nombreNuevoEdificio);
 
@@ -160,7 +160,7 @@ bool Constructora::ingresoDeCoordenadas()
             coordOk = matriz->validarTipoConstruible(filaParaTrabajar,columnaParaTrabajar);
             mostrarAvisoTerreno(coordOk);}
 
-    } while (!coordOk && salidaSinCoordenada!= true);    
+    } while (!coordOk && !salidaSinCoordenada);
 
     return (coordOk);
 }
@@ -169,7 +169,7 @@ bool Constructora::validarCoordenadas(int coord1, int coord2)
 {
     bool coordsOk = false;
 
-    if(coord1 < matriz->devolverMaxFil() && coord2 < matriz->devolverMaxCol() && coord1 > 0 && coord2 > 0)
+    if(coord1 < matriz->devolverMaxFil() && coord2 < matriz->devolverMaxCol() && coord1 >= 0 && coord2 >= 0)
     {   
         coordsOk = true;
     }
