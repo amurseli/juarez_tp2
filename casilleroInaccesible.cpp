@@ -12,7 +12,7 @@ void CasilleroInaccesible::queSoy(){
 void CasilleroInaccesible::devolverPosicion(){}
 
 void CasilleroInaccesible::mostrarContenido() {
-    cout << "I" ;
+    cout << "L" ;
 }
 
 string CasilleroInaccesible::mostrarEdificio(){

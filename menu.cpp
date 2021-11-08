@@ -1,10 +1,56 @@
 #include "menu.h"
 #include "matriz.h"
+#include "mapa.h"
 #include <iostream>
 
 using namespace std;
 
-int validarArranque(Ubicaciones &ubicacionesTxt,Materiales &materialesTxt,Edificios &edificiosTxt){
+Menu::Menu()
+{
+    Materiales materialesTxt(PATH_MATERIALES);
+    Edificios edificiosTxt(PATH_EDIFICIOS);
+    Mapa mapaTxt(PATH_MAPA);
+
+    direccionMemoria = edificiosTxt.retornarPunteroEdificios();
+    punteroOriginal = mapaTxt.retornarPunteroMatriz();
+    direccionMemoriaMateriales= materialesTxt.devolverDireccionMemoria();
+
+    Ubicaciones ubicacionesTxt(PATH_UBICACIONES, punteroOriginal);
+
+
+    int opcionElegida = validarArranque(ubicacionesTxt, materialesTxt, edificiosTxt);
+
+    if(opcionElegida){
+        punteroConstructora = new Constructora(direccionMemoria,direccionMemoriaMateriales,punteroOriginal);
+        cout << "Bienvenido a Andypolis!" << endl;
+    }
+
+
+    while (opcionElegida != SALIR)
+    {
+        mostrarMenu();
+        opcionElegida = elegirOpcion();
+
+        if (!esOpcionValida(opcionElegida))
+            mostrarMensajeError();
+        else
+        {
+
+            procesarOpcion(punteroOriginal, opcionElegida, materialesTxt, edificiosTxt, punteroConstructora);
+        }
+    }
+
+    if(punteroConstructora !=nullptr)
+        delete punteroConstructora;
+
+    if(opcionElegida == SALIR && opcionElegida)
+    {
+        ubicacionesTxt.escribirArchivo();
+        materialesTxt.escribirArchivo();
+    }
+}
+
+int Menu::validarArranque(Ubicaciones &ubicacionesTxt,Materiales &materialesTxt,Edificios &edificiosTxt){
 
     int valor = SALIR;
 
@@ -14,7 +60,7 @@ int validarArranque(Ubicaciones &ubicacionesTxt,Materiales &materialesTxt,Edific
     return valor;
 }
 
-void mostrarMenu()
+void Menu::mostrarMenu()
 {
     cout << "\n1. Construir edificios por nombre" << endl;
     cout << "2. Listar los edificios construidos " << endl;
@@ -28,7 +74,7 @@ void mostrarMenu()
     cout << "10. Guardar y Salir" << endl;
 }
 
-int elegirOpcion()
+int Menu::elegirOpcion()
 {
 
     int opcion_elegida;
@@ -39,72 +85,72 @@ int elegirOpcion()
     return (opcion_elegida);
 }
 
-void mostrarMensajeError()
+void Menu::mostrarMensajeError()
 {
 
     cout << "\nIngrese una opcion valida: " << endl;
 }
 
-void procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales &materiales, Edificios &edificios, Constructora* &prueba) //cambiarle el nombre al puntero constructora xd
+void Menu::procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales &materiales, Edificios &edificios, Constructora* &prueba) //cambiarle el nombre al puntero constructora xd
 {
     string aux;
     string nombreNuevoEdificio;
     int coord1, coord2;
-    
+
     switch (opcion_elegida){
-    case CONSTRUIR_EDIFICIOS:
-        cout << endl;
-        prueba->construirEdificio();
-        break;
-    case MOSTRAR_EDIFICIOS_CONSTRUIDOS:
-        punteroMatriz->mostrarEdificiosConstruidos();
-        break;
-    case MOSTRAR_EDIFICIOS:
-        cout << "SOY LA OPCION 3" << endl;
-        break;
-    case DEMOLER_EDIFICIO:
-        prueba->demolerEdificio();
-        break;
-    case MOSTRAR_MAPA:
-        punteroMatriz->mostrarMatriz();
-        break;
-    case CONSULTAR_COORDENADA:
-        
-        cout << "Ingrese fila: ";
-        cin >> coord1;
-        cout << endl
-             << "Ingrese la columna: ";
-        cin >> coord2;
-        while(coord1 > punteroMatriz->devolverMaxFil()-1 || coord2 > punteroMatriz->devolverMaxCol()-1 || coord1 < 0 || coord2 < 0)
-        {
-            cout << "Fila -> (0, " <<  punteroMatriz->devolverMaxFil() -1 <<") Columna -> (0, " << punteroMatriz->devolverMaxCol() -1 << ")" << endl;
+        case CONSTRUIR_EDIFICIOS:
+            cout << endl;
+            prueba->construirEdificio();
+            break;
+        case MOSTRAR_EDIFICIOS_CONSTRUIDOS:
+            punteroMatriz->mostrarEdificiosConstruidos();
+            break;
+        case MOSTRAR_EDIFICIOS:
+            cout << "SOY LA OPCION 3" << endl;
+            break;
+        case DEMOLER_EDIFICIO:
+            prueba->demolerEdificio();
+            break;
+        case MOSTRAR_MAPA:
+            punteroMatriz->mostrarMatriz();
+            break;
+        case CONSULTAR_COORDENADA:
+
             cout << "Ingrese fila: ";
             cin >> coord1;
             cout << endl
                  << "Ingrese la columna: ";
             cin >> coord2;
-        }
-        punteroMatriz->mostrarCoordenada(coord1-1, coord2-1);
-        break;
-    case MOSTRAR_INVENTARIO:
-        materiales.mostrarMateriales();
-        break;
-    case RECOLECTAR:
-        punteroMatriz->recoletarMateriales(materiales);
-        break;
-    case LLUVIA_DE_RECUROS:
-        punteroMatriz->generarLluviaMateriales();
-        break;
-    case SALIR:
-        
-        cout << "Adios!" << endl;
-        break;
-    default:
-        cout << "Error: opcion invalida";
+            while(coord1 > punteroMatriz->devolverMaxFil()-1 || coord2 > punteroMatriz->devolverMaxCol()-1 || coord1 < 0 || coord2 < 0)
+            {
+                cout << "Fila -> (0, " <<  punteroMatriz->devolverMaxFil() -1 <<") Columna -> (0, " << punteroMatriz->devolverMaxCol() -1 << ")" << endl;
+                cout << "Ingrese fila: ";
+                cin >> coord1;
+                cout << endl
+                     << "Ingrese la columna: ";
+                cin >> coord2;
+            }
+            punteroMatriz->mostrarCoordenada(coord1-1, coord2-1);
+            break;
+        case MOSTRAR_INVENTARIO:
+            materiales.mostrarMateriales();
+            break;
+        case RECOLECTAR:
+            punteroMatriz->recoletarMateriales(materiales);
+            break;
+        case LLUVIA_DE_RECUROS:
+            punteroMatriz->generarLluviaMateriales();
+            break;
+        case SALIR:
+
+            cout << "Adios!" << endl;
+            break;
+        default:
+            cout << "Error: opcion invalida";
     }
 }
 
-bool esOpcionValida(int elegida)
+bool Menu::esOpcionValida(int elegida)
 {
     return (elegida >= OPCION_MINIMA && elegida <= OPCION_MAXIMA);
 }
