@@ -8,15 +8,11 @@
 
 using namespace std;
 
-/*const string PATH_MATERIALES = "../materiales.txt";
-const string PATH_EDIFICIOS = "../edificios.txt";
-const string PATH_MAPA = "../mapa.txt";
-const string PATH_UBICACIONES = "../ubicaciones.txt";*/
-
 int main()
 {
     Menu* menu = new Menu();
 
+    delete menu;
 
     return 0;
 }

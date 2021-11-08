@@ -34,10 +34,16 @@ void Constructora::construirEdificio()
 
 void Constructora::avanzarConConstruccion(string nombreNuevoEdificio){
 
-    bool coordenadasValidas = false, materialesValidos = false, validarTerrenoVacio = false;
+    bool coordenadasValidas = false, materialesValidos = false, validarTerrenoVacio = false, cantidadConstruida = false;
     string edificio;
 
-    materialesValidos = validarMateriales(nombreNuevoEdificio);
+    cantidadConstruida = validarMaximoEdificio(nombreNuevoEdificio);
+
+    if(cantidadConstruida)
+        materialesValidos = validarMateriales(nombreNuevoEdificio);
+    else{
+        cout << "\nOh, lamento traer malas noticias pero ya has alcanzo el maximo de construidos para este edificio: ";
+    }
 
     if(materialesValidos)
         coordenadasValidas = ingresoDeCoordenadas();
@@ -81,6 +87,18 @@ void Constructora::demolerEdificio(){
         matriz->demolerEdificio(filaParaTrabajar,columnaParaTrabajar);
         cout << "\n EL EDIFICIO SE HA DEMOLIDO\n" << endl;
     }
+}
+
+bool Constructora::validarMaximoEdificio(string nombreNuevoEdificio){
+    int maximaCantidadPermitida, cantidadActual;
+
+    Inventario *inventarioDeEdificio = edificios->devolverInventario(nombreNuevoEdificio);
+
+    maximaCantidadPermitida = inventarioDeEdificio->devolverMaximaCantidadPermitidos();
+
+    cantidadActual = matriz->devolverCantidadEdificio(nombreNuevoEdificio);
+
+    return(cantidadActual<maximaCantidadPermitida);    
 }
 
 bool Constructora::validarMateriales(string nombreNuevoEdificio)

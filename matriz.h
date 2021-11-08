@@ -46,6 +46,8 @@ public:
 
     void mostrarEdificiosConstruidos();
 
+    int devolverCantidadEdificio(string edificio);
+
     void imprimirCantidades(int contMina,int contObelisco, int contAserradero, int contEscuela, int contFabrica, int contPlanta);
 
     int devolverMaxCol();

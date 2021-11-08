@@ -35,6 +35,8 @@ public:
 
     void preguntarCoordenadas();
 
+    bool validarMaximoEdificio(string nombreNuevoEdificio);
+
     bool validarMateriales(string nombreNuevoEdificio);
 
     bool confirmar(int piedraNecesaria, int maderaNecesaria, int metalNecesario);

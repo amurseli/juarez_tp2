@@ -9,10 +9,10 @@
 #include "ubicaciones.h"
 #include "constructora.h"
 
-const string PATH_MATERIALES = "../materiales.txt";
-const string PATH_EDIFICIOS = "../edificios.txt";
-const string PATH_MAPA = "../mapa.txt";
-const string PATH_UBICACIONES = "../ubicaciones.txt";
+const string PATH_MATERIALES = "materiales.txt";
+const string PATH_EDIFICIOS = "edificios.txt";
+const string PATH_MAPA = "mapa.txt";
+const string PATH_UBICACIONES = "ubicaciones.txt";
 const int OPCION_MINIMA = 1;
 const int OPCION_MAXIMA = 10;
 const int CONSTRUIR_EDIFICIOS = 1;
@@ -31,6 +31,14 @@ using namespace std;
 
 class Menu
 {
+
+private:
+
+    Edificios* direccionMemoria = nullptr;
+    Materiales* direccionMemoriaMateriales = nullptr;
+    Matriz *punteroOriginal = nullptr;
+    Constructora* punteroConstructora = nullptr;
+
 public:
 
     Menu();
@@ -61,11 +69,7 @@ public:
 //post: devuelve true si la opcion recibida esta en el rango valido y sino devuelve false.
     bool esOpcionValida(int elegida);
 
-private:
-    Edificios* direccionMemoria;
-    Materiales* direccionMemoriaMateriales;
-    Matriz *punteroOriginal;
-    Constructora* punteroConstructora = nullptr;
+
 
 };
 
