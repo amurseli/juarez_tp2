@@ -12,6 +12,8 @@ public:
 
     Piedra(string material);
 
+    void imprimirLetra();
+
     void hablar();
 
     virtual ~Piedra();

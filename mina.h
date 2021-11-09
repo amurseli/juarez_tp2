@@ -20,6 +20,8 @@ public:
 
     void devolverPosicion();
 
+    void imprimirLetra();
+
     //PRE:
     //POST:Va a sumar a la lista de materiales lo que el edificio que este custruido otorgue.
     string materialProducido();

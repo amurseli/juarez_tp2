@@ -18,13 +18,16 @@ string CasilleroTransitable::mostrarEdificio(){
     return VACIO;
 }
 
-void CasilleroTransitable::devolverPosicion()
-{
-   // cout << "(" << posicionX <<", "<< posicionY <<")";
-}
+void CasilleroTransitable::devolverPosicion(){}
 
 void CasilleroTransitable::mostrarContenido() {
-    cout << "C" ;
+   if(materialEnCasilla != nullptr)
+   {
+       materialEnCasilla->imprimirLetra();
+   }
+   else{
+        cout << "C";
+   }
 }
 
 

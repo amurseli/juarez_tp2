@@ -5,6 +5,11 @@ Escuela::Escuela(string nombre) : Edificio (nombre){
     cout << "\nEscuela creada" << endl;
 }
 
+void Escuela::imprimirLetra()
+{
+    cout << "E";
+}
+
 int Escuela::cantidadMaterial(){
 
     return (CANTIDADMATERIAL);

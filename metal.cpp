@@ -3,6 +3,11 @@
 Metal::Metal(string material):Material(material){
     cantidad = 1;
 }
+void Metal::imprimirLetra()
+{
+    cout << "I";
+}
+
 
 void Metal::hablar(){
 

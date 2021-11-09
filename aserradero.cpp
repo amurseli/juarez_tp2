@@ -5,6 +5,11 @@ Aserradero::Aserradero(string nombre) : Edificio (nombre){
     cout << "\nAserradero creado" << endl;
 }
 
+void Aserradero::imprimirLetra()
+{
+    cout << "A";
+}
+
 int Aserradero::cantidadMaterial(){
 
     return (CANTIDADMATERIAL);

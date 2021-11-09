@@ -5,6 +5,12 @@ Obelisco::Obelisco(string nombre) : Edificio (nombre){
     cout << "\nObelisco creado" << endl;
 }
 
+
+void Obelisco::imprimirLetra()
+{
+    cout << "O";
+}
+
 int Obelisco::cantidadMaterial(){
 
     return (CANTIDADMATERIAL);

@@ -13,6 +13,8 @@ public:
 
     Aserradero(string nombre);
 
+    void imprimirLetra();
+
     //PRE:
     //POST:Va a sumar a la lista de materiales lo que el edificio que este custruido otorgue.
     int cantidadMaterial();

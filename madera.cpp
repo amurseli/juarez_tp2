@@ -3,6 +3,11 @@
 Madera::Madera(string material):Material(material){
     cantidad = 1;
 }
+void Madera::imprimirLetra()
+{
+    cout << "W";
+}
+
 
 void Madera::hablar(){
 

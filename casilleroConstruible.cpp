@@ -28,28 +28,10 @@ void CasilleroConstruible::mostrarContenido() {
     string nombreEdificio;
     if(punteroEdificio != nullptr)
     {
-        nombreEdificio = punteroEdificio->devolverNombre();
-        if(nombreEdificio == OBELISCO){
-            cout << "O";
-        }
-        else if(nombreEdificio == MINA){
-            cout << "M";
-        }
-        else if(nombreEdificio == PLANTA_ELECTRICA){
-            cout << "P";
-        }
-        else if(nombreEdificio == ESCUELA){
-            cout << "E";
-        }
-        else if(nombreEdificio == FABRICA){
-            cout << "F";
-        }
-        else if(nombreEdificio == ASERRADERO){
-            cout << "A";
-        }
+        punteroEdificio->imprimirLetra();
     }
     else
-        cout << "-";
+        cout << "T";
 }
 
 void CasilleroConstruible::recolectar(Materiales &materiales){

@@ -5,6 +5,11 @@ Planta::Planta(string nombre) : Edificio (nombre){
     cout << "\nPlanta creada" << endl;
 }
 
+void Planta::imprimirLetra()
+{
+    cout << "P";
+}
+
 int Planta::cantidadMaterial(){
 
     return (CANTIDADMATERIAL);

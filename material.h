@@ -17,6 +17,8 @@ public:
 
     Material(string material);
 
+    virtual void imprimirLetra() =0;
+
     string devolverTipoMaterial();
 
     virtual void hablar() = 0;

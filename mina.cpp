@@ -6,6 +6,12 @@ Mina::Mina(string nombre) : Edificio (nombre){
 
 }
 
+
+void Mina::imprimirLetra()
+{
+    cout << "M";
+}
+
 int Mina::cantidadMaterial(){
 
     return (CANTIDADMATERIAL);

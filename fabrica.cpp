@@ -5,6 +5,12 @@ Fabrica::Fabrica(string nombre) : Edificio (nombre){
     cout << "\nFabrica creada" << endl;
 }
 
+
+void Fabrica::imprimirLetra()
+{
+    cout << "F";
+}
+
 int Fabrica::cantidadMaterial(){
 
     return (CANTIDADMATERIAL);

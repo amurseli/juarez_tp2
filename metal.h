@@ -12,6 +12,8 @@ public:
 
     Metal(string material);
 
+    void imprimirLetra();
+
     void hablar();
 
     virtual ~Metal();
