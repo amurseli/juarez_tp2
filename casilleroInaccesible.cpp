@@ -9,7 +9,7 @@ void CasilleroInaccesible::queSoy(){
 
 void CasilleroInaccesible::mostrarContenido(){
 
-    cout << "L" ;
+    cout <<BGND_BLUE_12 << " " << END_COLOR;
 }
 
 string CasilleroInaccesible::mostrarEdificio(){return VACIO;}
