@@ -34,6 +34,14 @@ int Inventario::devolverMaximaCantidadPermitidos(){
     return (maximaCantidadPermitidos);
 }
 
+void Inventario::devolverEdificios(){
+
+    cout << "\n..::" + nombreEdificio <<endl;
+    cout << ">Cantidad de piedra necesaria: " + piedraNecesaria << endl;
+    cout << ">Cantidad de madera necesaria: " + maderaNecesaria << endl;
+    cout << ">Cantidad de metal necesaria: " + metalNecesario << endl;
+}
+
 Inventario* Inventario::devolverMemoria(){
 
     return(this);

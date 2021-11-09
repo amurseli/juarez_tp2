@@ -16,7 +16,6 @@ Edificios::Edificios(string nombre) : Archivo(nombre)
 
 void Edificios::leerArchivo(string nombre)
 {
-
     fstream documento(nombre, ios::in);
 
     string nombreEdificio, segundoNombre, piedra, madera, metal, maximaCantidadPermitidos, construidos;
@@ -58,6 +57,14 @@ void Edificios::agregarEnInventario(string nombreEdificio, string piedra, string
     maximaCantidadPermitidosReal = atoi(maximaCantidadPermitidos.c_str());
 
     inventarioTotal[tamanio] = new Inventario(nombreEdificio, piedraReal, maderaReal, metalReal, maximaCantidadPermitidosReal);
+}
+
+void Edificios::listarTodosLosEdificios(){
+
+    for (int i = 0; i < tamanio; i++)
+    {
+        inventarioTotal[i]->devolverEdificios();
+    }
 }
 
 string Edificios::devolverNombreEdificio(int edificio)

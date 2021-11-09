@@ -1,6 +1,7 @@
 #ifndef INVENTARIO_H
 #define INVENTARIO_H
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -19,6 +20,8 @@ public:
     int devolverMadera();
 
     int devolverMetal();
+
+    void devolverEdificios();
 
     int devolverMaximaCantidadPermitidos();
 

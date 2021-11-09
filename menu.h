@@ -9,10 +9,10 @@
 #include "ubicaciones.h"
 #include "constructora.h"
 
-const string PATH_MATERIALES = "../materiales.txt";
-const string PATH_EDIFICIOS = "../edificios.txt";
-const string PATH_MAPA = "../mapa.txt";
-const string PATH_UBICACIONES = "../ubicaciones.txt";
+const string PATH_MATERIALES = "materiales.txt";
+const string PATH_EDIFICIOS = "edificios.txt";
+const string PATH_MAPA = "mapa.txt";
+const string PATH_UBICACIONES = "ubicaciones.txt";
 const int OPCION_MINIMA = 1;
 const int OPCION_MAXIMA = 10;
 const int CONSTRUIR_EDIFICIOS = 1;
@@ -67,7 +67,7 @@ void presioneEnter();
 
 //pre: -
 //post: devuelve true si la opcion recibida esta en el rango valido y sino devuelve false.
-    bool esOpcionValida(int elegida);
+bool esOpcionValida(int elegida);
 
 
 

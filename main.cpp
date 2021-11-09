@@ -11,6 +11,9 @@ int main()
 {
     Menu* menu = new Menu();
 
+    menu->mostrarMensajeError();
+
+    delete menu;
 
     return 0;
 }

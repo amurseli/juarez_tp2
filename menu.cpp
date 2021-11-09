@@ -43,7 +43,7 @@ Menu::Menu() {
         }
     }
 
-    if(punteroConstructora !=NULL)
+    if(punteroConstructora != nullptr)
         delete punteroConstructora;
 }
 
@@ -103,7 +103,7 @@ void Menu::procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales
         punteroMatriz->mostrarEdificiosConstruidos();
         break;
     case MOSTRAR_EDIFICIOS:
-        cout << "SOY LA OPCION 3" << endl;
+        edificios.listarTodosLosEdificios();
         break;
     case DEMOLER_EDIFICIO:
         prueba->demolerEdificio();

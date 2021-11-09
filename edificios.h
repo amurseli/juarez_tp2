@@ -23,6 +23,8 @@ public:
 
     void crearContenidoInventario();
 
+    void listarTodosLosEdificios();
+
     void agregarEnInventario(string nombreEdificio, string piedra, string madera, string metal, string maximaCantidadPermitidos);
 
     //PRE:Recibe el nombre de un edificio
