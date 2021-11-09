@@ -14,6 +14,7 @@ Menu::Menu() {
     Materiales* direccionMemoriaMateriales;
     Matriz *punteroOriginal; // Para trabajar con la matriz desde el main
     Constructora* punteroConstructora = NULL;
+    Ubicaciones* punteroUbicaciones;
 
     direccionMemoria = edificiosTxt.retornarPunteroEdificios();
     punteroOriginal = mapaTxt.retornarPunteroMatriz();
@@ -21,13 +22,14 @@ Menu::Menu() {
 
     Ubicaciones ubicacionesTxt(PATH_UBICACIONES, punteroOriginal);
 
+    punteroUbicaciones = ubicacionesTxt.devolverPuntero();
+
     int opcionElegida = validarArranque(ubicacionesTxt, materialesTxt, edificiosTxt);
 
     if(opcionElegida){
         punteroConstructora = new Constructora(direccionMemoria,direccionMemoriaMateriales,punteroOriginal);
         cout << "Bienvenido a Andypolis!" << endl;
     }
-
 
     while (opcionElegida != SALIR)
     {
@@ -39,7 +41,7 @@ Menu::Menu() {
         else
         {
 
-            procesarOpcion(punteroOriginal, opcionElegida, materialesTxt, edificiosTxt, punteroConstructora);
+            procesarOpcion(punteroOriginal, opcionElegida, materialesTxt, edificiosTxt, punteroConstructora, punteroUbicaciones);
         }
     }
 
@@ -88,7 +90,7 @@ void Menu::mostrarMensajeError()
     cout << "\nIngrese una opcion valida: " << endl;
 }
 
-void Menu::procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales &materiales, Edificios &edificios, Constructora* &prueba) //cambiarle el nombre al puntero constructora xd
+void Menu::procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales &materiales, Edificios &edificios, Constructora* &prueba, Ubicaciones* &ubicaciones) //cambiarle el nombre al puntero constructora xd
 {
     string aux;
     string nombreNuevoEdificio;
@@ -140,6 +142,7 @@ void Menu::procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales
         break;
     case SALIR:
         materiales.escribirArchivo();
+        ubicaciones->escribirArchivo();
         cout << "Adios!" << endl;
         break;
     default:

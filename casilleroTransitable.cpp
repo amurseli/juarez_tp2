@@ -1,4 +1,5 @@
 #include "casilleroTransitable.h"
+#include "colors.h"
 
 CasilleroTransitable::CasilleroTransitable(string elemento):Casillero(elemento){}
 
@@ -26,7 +27,7 @@ void CasilleroTransitable::mostrarContenido() {
        materialEnCasilla->imprimirLetra();
    }
    else{
-        cout << "C";
+        cout <<BGND_GRAY_243 << " " << END_COLOR;
    }
 }
 

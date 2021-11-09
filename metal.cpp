@@ -5,7 +5,7 @@ Metal::Metal(string material):Material(material){
 }
 void Metal::imprimirLetra()
 {
-    cout << "I";
+    cout<< BGND_GRAY_243 <<TXT_BLACK_16<< "I" << END_COLOR;
 }
 
 

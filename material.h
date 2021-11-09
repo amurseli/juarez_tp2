@@ -4,6 +4,7 @@
 #include <iostream>
 #include "casillero.h"
 #include "array.h"
+#include "colors.h"
 
 using namespace std;
 

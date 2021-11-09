@@ -27,7 +27,7 @@ void Materiales::leerArchivo(string nombre)
 void Materiales::escribirArchivo()
 {
 
-    fstream documento("../pruebaMateriales.txt", ios::out);
+    fstream documento(devolverNombre(), ios::out);
 
     documento << "piedra " + to_string(devolverPiedra()) << endl;
     documento << "madera " + to_string(devolverMadera()) << endl;

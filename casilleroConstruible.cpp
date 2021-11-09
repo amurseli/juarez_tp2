@@ -3,6 +3,7 @@
 #include "escuela.h"
 #include "planta.h"
 #include "aserradero.h"
+#include "colors.h"
 
 CasilleroConstruible::CasilleroConstruible(string elemento, int posx, int posy) : Casillero(elemento){
     posicionX = posx;
@@ -31,7 +32,7 @@ void CasilleroConstruible::mostrarContenido() {
         punteroEdificio->imprimirLetra();
     }
     else
-        cout << "T";
+        cout <<BGND_LIGHT_GREEN_77<< TXT_BLACK_16<< " " <<END_COLOR;
 }
 
 void CasilleroConstruible::recolectar(Materiales &materiales){

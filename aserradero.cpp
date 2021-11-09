@@ -7,7 +7,7 @@ Aserradero::Aserradero(string nombre) : Edificio (nombre){
 
 void Aserradero::imprimirLetra()
 {
-    cout << "A";
+    cout<< BGND_LIGHT_GREEN_77 <<TXT_BLACK_16<< "A" << END_COLOR;
 }
 
 int Aserradero::cantidadMaterial(){

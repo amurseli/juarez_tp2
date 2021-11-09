@@ -6,7 +6,7 @@ Piedra::Piedra(string material):Material(material){
 
 void Piedra::imprimirLetra()
 {
-    cout << "S";
+    cout<< BGND_GRAY_243 <<TXT_BLACK_16<< "S" << END_COLOR;
 }
 
 

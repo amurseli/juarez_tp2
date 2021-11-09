@@ -7,7 +7,7 @@ Escuela::Escuela(string nombre) : Edificio (nombre){
 
 void Escuela::imprimirLetra()
 {
-    cout << "E";
+    cout<< BGND_LIGHT_GREEN_77 <<TXT_BLACK_16<< "E" << END_COLOR;
 }
 
 int Escuela::cantidadMaterial(){

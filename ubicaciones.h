@@ -29,6 +29,8 @@ public:
     //Post:Convierte el string leido del archivo en un int
     int arreglarCoordenadaY(string coordY);
 
+    Ubicaciones* devolverPuntero();
+
     //Pre:
     //Post:Escribe los cambios en un archivo
     void escribirArchivo();

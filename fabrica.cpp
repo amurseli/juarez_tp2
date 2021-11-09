@@ -8,7 +8,7 @@ Fabrica::Fabrica(string nombre) : Edificio (nombre){
 
 void Fabrica::imprimirLetra()
 {
-    cout << "F";
+    cout<< BGND_LIGHT_GREEN_77 <<TXT_BLACK_16<< "F" << END_COLOR;
 }
 
 int Fabrica::cantidadMaterial(){

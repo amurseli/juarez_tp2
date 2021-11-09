@@ -1,3 +1,3 @@
-piedra 955
-madera 175
-metal 800
+piedra 960
+madera 275
+metal 840

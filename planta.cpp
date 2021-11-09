@@ -7,7 +7,7 @@ Planta::Planta(string nombre) : Edificio (nombre){
 
 void Planta::imprimirLetra()
 {
-    cout << "P";
+    cout<< BGND_LIGHT_GREEN_77 <<TXT_BLACK_16<< "P" << END_COLOR;
 }
 
 int Planta::cantidadMaterial(){

@@ -1,5 +1,6 @@
 #include <iostream>
 #include "matriz.h"
+#include "colors.h"
 
 using namespace std;
 
@@ -156,7 +157,7 @@ void Matriz::mostrarMatriz()
         for (int j = 0; j < columnas; j++)
         {
             punteroMatriz[i][j]->mostrarContenido();
-            cout << " ";
+            cout<< " ";
         }
         cout << i + 1 << endl;
     }
@@ -232,6 +233,7 @@ void Matriz::agregarAcoordenada(int cantidad, string material)
             cout << "Ha llovido en la coordenada: fila:" + to_string(coordeX + 1) + " columna" + to_string(coordeY + 1) << endl;
         }
     }
+
 }
 
 bool Matriz::validarExistenciaMaterial(int coordeX, int coordeY)

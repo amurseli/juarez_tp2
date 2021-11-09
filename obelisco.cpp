@@ -8,7 +8,7 @@ Obelisco::Obelisco(string nombre) : Edificio (nombre){
 
 void Obelisco::imprimirLetra()
 {
-    cout << "O";
+    cout<< BGND_LIGHT_GREEN_77 <<TXT_BLACK_16<< "O" << END_COLOR;
 }
 
 int Obelisco::cantidadMaterial(){

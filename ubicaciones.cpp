@@ -36,10 +36,14 @@ void Ubicaciones::leerArchivo(string nombre)
     documento.close();
 }
 
+Ubicaciones* Ubicaciones::devolverPuntero() {
+    return (this);
+}
+
 void Ubicaciones::escribirArchivo()
 {
 
-    fstream documento("../pruebaUbicaciones.txt", ios::out);
+    fstream documento(devolverNombre(), ios::out);
 
     string nombreEdificio;
     string coordX, coordY;

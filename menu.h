@@ -41,33 +41,33 @@ private:
 
 public:
 
-Menu();
+    Menu();
 
-//pre: -
-//post: Imprime por pantalla el menu
-void mostrarMenu();
+    //pre: -
+    //post: Imprime por pantalla el menu
+    void mostrarMenu();
 
-//pre: -
-//post: Guarda la opcion del usuario
-int elegirOpcion();
+    //pre: -
+    //post: Guarda la opcion del usuario
+    int elegirOpcion();
 
-//pre: -
-//post: Imprime por pantalla que fue invalido la opcion elegida.
-void mostrarMensajeError();
+    //pre: -
+    //post: Imprime por pantalla que fue invalido la opcion elegida.
+    void mostrarMensajeError();
 
-int validarArranque(Ubicaciones &mapaTxt,Materiales &materialesTxt,Edificios &edificiosTxt);
+    int validarArranque(Ubicaciones &mapaTxt,Materiales &materialesTxt,Edificios &edificiosTxt);
 
-//pre: -
-//post: Realiza la opcion pedida
-void procesarOpcion(Matriz* &punteroMatriz, int opcion_elegida, Materiales &materiales, Edificios &edificios,Constructora* &prueba);
+    //pre: -
+    //post: Realiza la opcion pedida
+    void procesarOpcion(Matriz* &punteroMatriz, int opcion_elegida, Materiales &materiales, Edificios &edificios,Constructora* &prueba, Ubicaciones* &punteroUbicaciones);
 
-//pre:-
-//post: Frena el programa hasta recibir un input
-void presioneEnter();
+    //pre:-
+    //post: Frena el programa hasta recibir un input
+    void presioneEnter();
 
-//pre: -
-//post: devuelve true si la opcion recibida esta en el rango valido y sino devuelve false.
-bool esOpcionValida(int elegida);
+    //pre: -
+    //post: devuelve true si la opcion recibida esta en el rango valido y sino devuelve false.
+    bool esOpcionValida(int elegida);
 
 
 

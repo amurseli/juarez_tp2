@@ -5,7 +5,7 @@ Madera::Madera(string material):Material(material){
 }
 void Madera::imprimirLetra()
 {
-    cout << "W";
+    cout<< BGND_GRAY_243 << TXT_BLACK_16 << "W" << END_COLOR;
 }
 
 

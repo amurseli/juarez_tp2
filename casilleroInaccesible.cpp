@@ -1,4 +1,5 @@
 #include "casilleroInaccesible.h"
+#include "colors.h"
 
 CasilleroInaccesible::CasilleroInaccesible(string elemento):Casillero(elemento){
 
@@ -12,7 +13,7 @@ void CasilleroInaccesible::queSoy(){
 void CasilleroInaccesible::devolverPosicion(){}
 
 void CasilleroInaccesible::mostrarContenido() {
-    cout << "L" ;
+    cout << BGND_BLUE_12<< " " << END_COLOR ;
 }
 
 string CasilleroInaccesible::mostrarEdificio(){

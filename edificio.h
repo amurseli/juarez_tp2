@@ -1,6 +1,7 @@
 #ifndef EDIFICIO_H
 #define EDIFICIO_H
 #include <iostream>
+#include "colors.h"
 
 #include <string>
 
