@@ -19,13 +19,18 @@ public:
 
     Ubicaciones(string nombre,Matriz* &matriz);
 
-    
     void leerArchivo(string nombre);
 
+    //Pre:
+    //Post:Convierte el string leido del archivo en un int
     int arreglarCoordenadaX(string coordX);
 
+    //Pre:
+    //Post:Convierte el string leido del archivo en un int
     int arreglarCoordenadaY(string coordY);
 
+    //Pre:
+    //Post:Escribe los cambios en un archivo
     void escribirArchivo();
 };
 

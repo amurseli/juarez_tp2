@@ -236,7 +236,6 @@ void Matriz::agregarAcoordenada(int cantidad, string material)
 
 bool Matriz::validarExistenciaMaterial(int coordeX, int coordeY)
 {
-
     return (punteroMatriz[coordeX][coordeY]->mostrarMaterial() == VACIO);
 }
 

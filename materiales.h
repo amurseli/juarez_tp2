@@ -12,13 +12,14 @@ const string METAL = "metal";
 class Materiales : public Archivo
 {
 private:
-    int tamanio = 0;
     int piedra;
     int madera;
     int metal;
 public:
     Materiales(string nombre);
 
+    //Pre:
+    //Post:Lee el archivo y actualiza los atributos
     void leerArchivo(string nombre);
 
     void guardarDatos(string nombreMaterial, string cantidad);
@@ -29,22 +30,38 @@ public:
 
     int devolverMetal();
 
+    //Pre:
+    //Post:Llama a los metodos sumar dependiendo del tipo de materiañ
     void agregarMaterial(string material, int cantidad);
 
+    //Pre:
+    //Post:Actualuiza atributos
     void sumarPiedra(int cantidad);
 
+    //Pre:
+    //Post:Actualuiza atributos
     void sumarMadera(int cantidad);
 
+    //Pre:
+    //Post:Actualuiza atributos
     void sumarMetal(int cantidad);
 
+    //Pre:
+    //Post:Actualuiza atributos
     void restarPiedra(int cantidad);
 
+    //Pre:
+    //Post:Actualuiza atributos
     void restarMadera(int cantidad);
 
+    //Pre:
+    //Post:Actualuiza atributos
     void restarMetal(int cantidad);
 
     void mostrarMateriales();
 
+    //Pre:
+    //Post:Escribe los cambios en un archivo
     void escribirArchivo();
 
     bool validarMateriales(int piedraNecesaria, int maderaNecesaria, int metalNecesario);

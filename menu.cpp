@@ -139,7 +139,7 @@ void Menu::procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales
         punteroMatriz->generarLluviaMateriales();
         break;
     case SALIR:
-        
+        materiales.escribirArchivo();
         cout << "Adios!" << endl;
         break;
     default:

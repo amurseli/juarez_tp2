@@ -16,7 +16,13 @@ private:
 
 public:
     Mapa(string nombre);
+
+    //Pre:
+    //Post:Lee el archivo y actualiza los atributos
     void leerArchivo(string nombre);
+
+    //Pre:
+    //Post:LLama al constructor de la clase matriz
     void construirMatriz();
 
     //Pre:

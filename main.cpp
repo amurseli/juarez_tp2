@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include "materiales.h"
 #include "edificios.h"

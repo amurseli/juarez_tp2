@@ -21,6 +21,8 @@ public:
 
     string devolverTipoMaterial();
 
+    //Pre:
+    //Post:Imprime la info corresponiente a esta clase.
     virtual void hablar() = 0;
 
     virtual ~Material() = 0;
