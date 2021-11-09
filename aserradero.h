@@ -13,6 +13,8 @@ public:
 
     Aserradero(string nombre);
 
+    //PRE:
+    //POST:Imprime la letra "A"
     void imprimirLetra();
 
     //PRE:

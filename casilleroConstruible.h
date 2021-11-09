@@ -26,30 +26,44 @@ private:
 
 public:
 
+    //PRE:Recibe el elemento de la casilla y la posicion para guardarla.
+    //Post:guarda las posiciones en la variable correspondientes.
     CasilleroConstruible(string elemento,int posicionX, int posicionY);
     
+    //PRE:
+    //Post:Dice que tipo de casillero es y si hay algo llama a su edificio para que hable.
     void queSoy();
 
+    //PRE:
+    //Post:Dice que tipo de casillero es y si hay algo llama a su edificio para que hable.
     void mostrarContenido();
 
     //PRE:Recibe el edificio a agregar
     //Post:Agrega el edificio a la casilla correspondiente.
     void modificarTerreno(string nombreEdificio, int opcion);
 
+    //PRE:Recibe el nombre del edificio.
+    //Post:crear una instancia en el heap de un edificio y lo vincula al punteroEdificio.
     void crearEdificio(string nombreEdificio);
 
+    //PRE:
+    //Post:Elimina la direccion de memoria del edificio y apunta a nullptr el punteroEdificio.
     void removerEdificio();
 
+    //PRE:
+    //Post: imprime por pantalla sus coordenadas.
     void devolverPosicion();
 
-    //PRE:Recibe las coordenadas
-    //POST:Recolecta los materiales/2 los suma a materiales (llamando a edificio), eliminar la memoria y apunta a NULL.
-    //void demoler();
-
+    //PRE:Recibe una copia de materiales.  
+    //Post: Le suma lo recolectado por edificio construido.
     void recolectar(Materiales &materiales);
 
+    //PRE:
+    //Post:devuelve 0 porque no hay materiales en este casillero.
     string mostrarMaterial();
 
+    //PRE:
+    //Post:Si tiene un edificio, devuelve el nombre del edificio.
     string mostrarEdificio();
 
     //PRE:
