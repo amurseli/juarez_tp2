@@ -1,9 +1,6 @@
 #include "fabrica.h"
 
-Fabrica::Fabrica(string nombre) : Edificio (nombre){
-
-    cout << "\nFabrica creada" << endl;
-}
+Fabrica::Fabrica(string nombre) : Edificio (nombre){}
 
 
 void Fabrica::imprimirLetra()

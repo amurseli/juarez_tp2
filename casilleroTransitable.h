@@ -33,7 +33,7 @@ public:
     //POST:Coloca el material.
     void modificarTerreno(string elemento, int opcion);
 
-    void recolectar(Materiales &materiales);
+    void recolectar(Materiales* &materiales);
 
     string mostrarMaterial();
 

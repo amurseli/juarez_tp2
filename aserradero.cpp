@@ -1,9 +1,6 @@
 #include "aserradero.h"
 
-Aserradero::Aserradero(string nombre) : Edificio (nombre){
-
-    cout << "\nAserradero creado" << endl;
-}
+Aserradero::Aserradero(string nombre) : Edificio (nombre){}
 
 void Aserradero::imprimirLetra()
 {

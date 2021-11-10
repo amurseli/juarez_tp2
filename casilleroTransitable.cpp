@@ -60,7 +60,7 @@ string CasilleroTransitable::mostrarMaterial(){
     return tipoMaterial;
 }
 
-void CasilleroTransitable::recolectar(Materiales &materiales){}
+void CasilleroTransitable::recolectar(Materiales* &materiales){}
 
 CasilleroTransitable::~CasilleroTransitable(){
 

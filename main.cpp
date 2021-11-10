@@ -9,8 +9,24 @@ using namespace std;
 int main()
 {
     Menu* menu = new Menu();
+    menu->leerUbicaciones();
 
-    menu->mostrarMensajeError();
+    int opcionElegida = menu->validarArranque();
+
+    menu->crearConstructora(opcionElegida);
+
+    while (opcionElegida != SALIR)
+    {
+        menu->mostrarMenu();
+        opcionElegida = menu->elegirOpcion();
+
+        if (!menu->esOpcionValida(opcionElegida))
+            menu->mostrarMensajeError();
+        else
+        {
+           menu->procesarOpcion( opcionElegida);
+        }
+    }
 
     delete menu;
 

@@ -6,54 +6,37 @@
 using namespace std;
 
 Menu::Menu() {
-    Materiales materialesTxt(PATH_MATERIALES);
-    Edificios edificiosTxt(PATH_EDIFICIOS);
-    Mapa mapaTxt(PATH_MAPA);
 
-    Edificios* direccionMemoria;
-    Materiales* direccionMemoriaMateriales;
-    Matriz *punteroOriginal; // Para trabajar con la matriz desde el main
-    Constructora* punteroConstructora = NULL;
-    Ubicaciones* punteroUbicaciones;
 
-    direccionMemoria = edificiosTxt.retornarPunteroEdificios();
-    punteroOriginal = mapaTxt.retornarPunteroMatriz();
-    direccionMemoriaMateriales= materialesTxt.devolverDireccionMemoria();
+    punteroMateriales = new Materiales(PATH_MATERIALES);
+    punteroEdificios = new Edificios(PATH_EDIFICIOS);
+    punteroMapa= new Mapa(PATH_MAPA);
+    punteroMatriz = punteroMapa->retornarPunteroMatriz();
 
-    Ubicaciones ubicacionesTxt(PATH_UBICACIONES, punteroOriginal);
 
-    punteroUbicaciones = ubicacionesTxt.devolverPuntero();
-
-    int opcionElegida = validarArranque(ubicacionesTxt, materialesTxt, edificiosTxt);
-
-    if(opcionElegida){
-        punteroConstructora = new Constructora(direccionMemoria,direccionMemoriaMateriales,punteroOriginal);
-        cout << "Bienvenido a Andypolis!" << endl;
-    }
-
-    while (opcionElegida != SALIR)
-    {
-        mostrarMenu();
-        opcionElegida = elegirOpcion();
-
-        if (!esOpcionValida(opcionElegida))
-            mostrarMensajeError();
-        else
-        {
-
-            procesarOpcion(punteroOriginal, opcionElegida, materialesTxt, edificiosTxt, punteroConstructora, punteroUbicaciones);
-        }
-    }
-
-    if(punteroConstructora != nullptr)
-        delete punteroConstructora;
 }
 
-int Menu::validarArranque(Ubicaciones &ubicacionesTxt,Materiales &materialesTxt,Edificios &edificiosTxt){
+void Menu::leerUbicaciones() {
+    if(punteroMapa->getArchivoValido())
+    {
+        punteroUbicaciones = new Ubicaciones(PATH_UBICACIONES, punteroMatriz);
+    }
+}
+
+
+void Menu::crearConstructora(int opcionElegida)
+{
+    if(opcionElegida){
+        punteroConstructora = new Constructora(punteroEdificios,punteroMateriales,punteroMatriz);
+        cout << "Bienvenido a Andypolis!" << endl;
+    }
+}
+
+int Menu::validarArranque(){
 
     int valor = SALIR;
 
-    if(ubicacionesTxt.getArchivoValido() && materialesTxt.getArchivoValido() && edificiosTxt.getArchivoValido()){
+    if(punteroUbicaciones->getArchivoValido() && punteroEdificios->getArchivoValido() && punteroMateriales->getArchivoValido()){
         valor = ENTRAR;
     }
     return valor;
@@ -90,7 +73,7 @@ void Menu::mostrarMensajeError()
     cout << "\nIngrese una opcion valida: " << endl;
 }
 
-void Menu::procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales &materiales, Edificios &edificios, Constructora* &prueba, Ubicaciones* &ubicaciones) //cambiarle el nombre al puntero constructora xd
+void Menu::procesarOpcion(int opcion_elegida) //cambiarle el nombre al puntero constructora xd
 {
     string aux;
     string nombreNuevoEdificio;
@@ -99,16 +82,16 @@ void Menu::procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales
     switch (opcion_elegida){
     case CONSTRUIR_EDIFICIOS:
         cout << endl;
-        prueba->construirEdificio();
+        punteroConstructora->construirEdificio();
         break;
     case MOSTRAR_EDIFICIOS_CONSTRUIDOS:
         punteroMatriz->mostrarEdificiosConstruidos();
         break;
     case MOSTRAR_EDIFICIOS:
-        edificios.listarTodosLosEdificios();
+        punteroEdificios->listarTodosLosEdificios();
         break;
     case DEMOLER_EDIFICIO:
-        prueba->demolerEdificio();
+        punteroConstructora->demolerEdificio();
         break;
     case MOSTRAR_MAPA:
         punteroMatriz->mostrarMatriz();
@@ -132,17 +115,17 @@ void Menu::procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales
         punteroMatriz->mostrarCoordenada(coord1-1, coord2-1);
         break;
     case MOSTRAR_INVENTARIO:
-        materiales.mostrarMateriales();
+        punteroMateriales->mostrarMateriales();
         break;
     case RECOLECTAR:
-        punteroMatriz->recoletarMateriales(materiales);
+        punteroMatriz->recoletarMateriales(punteroMateriales);
         break;
     case LLUVIA_DE_RECUROS:
         punteroMatriz->generarLluviaMateriales();
         break;
     case SALIR:
-        materiales.escribirArchivo();
-        ubicaciones->escribirArchivo();
+        punteroMateriales->escribirArchivo();
+        punteroUbicaciones->escribirArchivo();
         cout << "Adios!" << endl;
         break;
     default:
@@ -153,4 +136,14 @@ void Menu::procesarOpcion(Matriz *&punteroMatriz, int opcion_elegida, Materiales
 bool Menu::esOpcionValida(int elegida)
 {
     return (elegida >= OPCION_MINIMA && elegida <= OPCION_MAXIMA);
+}
+
+Menu::~Menu()
+{
+    delete punteroConstructora;
+    delete punteroMapa;
+    delete punteroEdificios;
+    delete punteroMateriales;
+    delete punteroMatriz;
+    delete punteroUbicaciones;
 }

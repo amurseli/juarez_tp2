@@ -55,7 +55,7 @@ public:
 
     //PRE:
     //POST:Suma el material al inventario de materiales (de lo que dio el edificio en casilla).
-    virtual void recolectar(Materiales &materiales) = 0;
+    virtual void recolectar(Materiales* &materiales) = 0;
 
     virtual ~Casillero() = 0;
 };

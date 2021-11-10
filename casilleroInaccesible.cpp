@@ -14,7 +14,7 @@ void CasilleroInaccesible::mostrarContenido(){
 
 string CasilleroInaccesible::mostrarEdificio(){return VACIO;}
 
-void CasilleroInaccesible::recolectar(Materiales &materiales){}
+void CasilleroInaccesible::recolectar(Materiales* &materiales){}
 
 string CasilleroInaccesible::mostrarMaterial(){return nullptr;}
 

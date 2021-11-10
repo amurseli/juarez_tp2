@@ -1,10 +1,6 @@
 #include "mina.h"
 
-Mina::Mina(string nombre) : Edificio (nombre){
-
-    cout << "\nMina creada" << endl;
-
-}
+Mina::Mina(string nombre) : Edificio (nombre){}
 
 
 void Mina::imprimirLetra()

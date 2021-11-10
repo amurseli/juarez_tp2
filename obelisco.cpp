@@ -1,9 +1,6 @@
 #include "obelisco.h"    
     
-Obelisco::Obelisco(string nombre) : Edificio (nombre){
-
-    cout << "\nObelisco creado" << endl;
-}
+Obelisco::Obelisco(string nombre) : Edificio (nombre){}
 
 
 void Obelisco::imprimirLetra()

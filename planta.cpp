@@ -1,9 +1,6 @@
 #include "planta.h"
 
-Planta::Planta(string nombre) : Edificio (nombre){
-
-    cout << "\nPlanta creada" << endl;
-}
+Planta::Planta(string nombre) : Edificio (nombre){}
 
 void Planta::imprimirLetra()
 {

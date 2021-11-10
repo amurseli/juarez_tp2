@@ -35,7 +35,7 @@ void CasilleroConstruible::mostrarContenido() {
         cout <<BGND_LIGHT_GREEN_77<< TXT_BLACK_16<< " " <<END_COLOR;
 }
 
-void CasilleroConstruible::recolectar(Materiales &materiales){
+void CasilleroConstruible::recolectar(Materiales* &materiales){
 
     string material;
     int cantidad;
@@ -43,7 +43,7 @@ void CasilleroConstruible::recolectar(Materiales &materiales){
     if(punteroEdificio != nullptr){
         cantidad = punteroEdificio->cantidadMaterial();
         material = punteroEdificio->materialProducido();
-        materiales.agregarMaterial(material,cantidad);
+        materiales->agregarMaterial(material,cantidad);
     }
 }
 

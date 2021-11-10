@@ -164,7 +164,7 @@ void Matriz::mostrarMatriz()
     cout << endl;
 }
 
-void Matriz::recoletarMateriales(Materiales &materiales)
+void Matriz::recoletarMateriales(Materiales* &materiales)
 {
     string tipoTerreno;
 

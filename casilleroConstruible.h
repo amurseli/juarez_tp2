@@ -56,7 +56,7 @@ public:
 
     //PRE:Recibe una copia de materiales.  
     //Post: Le suma lo recolectado por edificio construido.
-    void recolectar(Materiales &materiales);
+    void recolectar(Materiales* &materiales);
 
     //PRE:
     //Post:devuelve 0 porque no hay materiales en este casillero.

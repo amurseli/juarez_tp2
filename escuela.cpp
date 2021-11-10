@@ -1,9 +1,6 @@
 #include "escuela.h"
 
-Escuela::Escuela(string nombre) : Edificio (nombre){
-
-    cout << "\nEscuela creada" << endl;
-}
+Escuela::Escuela(string nombre) : Edificio (nombre){}
 
 void Escuela::imprimirLetra()
 {

@@ -27,8 +27,6 @@ void Edificios::leerArchivo(string nombre)
             nombreEdificio = nombreEdificio + " " + segundoNombre;
         }
 
-        cout << nombreEdificio << endl;
-
         documento >> piedra;
         documento >> madera;
         documento >> metal;

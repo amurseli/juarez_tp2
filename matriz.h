@@ -40,7 +40,7 @@ public:
 
     void mostrarCoordenada(int coordenadaX, int CoordenadaY);
 
-    void recoletarMateriales(Materiales &materiales);
+    void recoletarMateriales(Materiales* &materiales);
 
     //Pre:
     //Post:Chequea si el terreno es construible, si lo es, crea un edificio

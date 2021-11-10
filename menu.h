@@ -8,6 +8,7 @@
 #include "edificios.h"
 #include "ubicaciones.h"
 #include "constructora.h"
+#include "mapa.h"
 
 const string PATH_MATERIALES = "../materiales.txt";
 const string PATH_EDIFICIOS = "../edificios.txt";
@@ -34,10 +35,12 @@ class Menu
 
 private:
 
-    Edificios* direccionMemoria = nullptr;
-    Materiales* direccionMemoriaMateriales = nullptr;
-    Matriz *punteroOriginal = nullptr;
+    Edificios* punteroEdificios = nullptr;
+    Materiales* punteroMateriales = nullptr;
+    Mapa* punteroMapa = nullptr;
+    Matriz *punteroMatriz = nullptr;
     Constructora* punteroConstructora = nullptr;
+    Ubicaciones* punteroUbicaciones = nullptr;
 
 public:
 
@@ -51,15 +54,19 @@ public:
     //post: Guarda la opcion del usuario
     int elegirOpcion();
 
+    void leerUbicaciones();
+
+    void crearConstructora(int opcionElegida);
+
     //pre: -
     //post: Imprime por pantalla que fue invalido la opcion elegida.
     void mostrarMensajeError();
 
-    int validarArranque(Ubicaciones &mapaTxt,Materiales &materialesTxt,Edificios &edificiosTxt);
+    int validarArranque();
 
     //pre: -
     //post: Realiza la opcion pedida
-    void procesarOpcion(Matriz* &punteroMatriz, int opcion_elegida, Materiales &materiales, Edificios &edificios,Constructora* &prueba, Ubicaciones* &punteroUbicaciones);
+    void procesarOpcion(int opcion_elegida);
 
     //pre:-
     //post: Frena el programa hasta recibir un input
@@ -69,7 +76,7 @@ public:
     //post: devuelve true si la opcion recibida esta en el rango valido y sino devuelve false.
     bool esOpcionValida(int elegida);
 
-
+    ~Menu();
 
 };
 
