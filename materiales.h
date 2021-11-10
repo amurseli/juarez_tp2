@@ -64,9 +64,15 @@ public:
     //Post:Escribe los cambios en un archivo
     void escribirArchivo();
 
+    //Pre:REcibe parametros de pmateriales necesarios
+    //Post:Devuelve verdadero si hay materiales suficientes
     bool validarMateriales(int piedraNecesaria, int maderaNecesaria, int metalNecesario);
 
+    //Pre:
+    //Post:Retorna la direccion de memoria del objeto
     Materiales* devolverDireccionMemoria();
+
+    virtual ~Materiales();
 };
 
 #endif

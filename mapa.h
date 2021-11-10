@@ -29,7 +29,7 @@ public:
     //Post:Devuelve la direccion de memoria de la matriz.
     Matriz* retornarPunteroMatriz();
     
-    ~Mapa();
+    virtual ~Mapa();
 };
 
 #endif

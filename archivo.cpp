@@ -40,3 +40,5 @@ string Archivo::devolverNombre(){
 }
 
 Archivo::~Archivo(){}
+
+

@@ -34,6 +34,8 @@ public:
     //Pre:
     //Post:Escribe los cambios en un archivo
     void escribirArchivo();
+
+    virtual ~Ubicaciones();
 };
 
 #endif //JUAREZ_TP2_UBICACIONES_H

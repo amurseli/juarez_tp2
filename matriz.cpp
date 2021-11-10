@@ -285,6 +285,6 @@ Matriz::~Matriz()
             delete[] punteroMatriz[i];
         }
 
-        delete punteroMatriz;
+        delete[] punteroMatriz;
     }
 }

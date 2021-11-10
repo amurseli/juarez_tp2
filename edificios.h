@@ -39,7 +39,7 @@ public:
 
     Edificios* retornarPunteroEdificios();
 
-    ~Edificios();
+    virtual ~Edificios();
 };
 
 #endif

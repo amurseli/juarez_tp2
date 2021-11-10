@@ -144,6 +144,6 @@ Menu::~Menu()
     delete punteroMapa;
     delete punteroEdificios;
     delete punteroMateriales;
-    delete punteroMatriz;
     delete punteroUbicaciones;
+
 }

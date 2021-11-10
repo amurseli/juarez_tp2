@@ -30,9 +30,8 @@ class Archivo
         //Post:retorna el nombre del archivo.
         string devolverNombre();
 
-        ~Archivo();
+        virtual ~Archivo() = 0;
         
-
     private:
         
         //Pre:Debe recibir el nombre del Archivo.

@@ -133,3 +133,5 @@ Materiales* Materiales::devolverDireccionMemoria(){
 
     return (this);
 }
+
+Materiales::~Materiales(){}

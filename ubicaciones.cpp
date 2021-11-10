@@ -78,3 +78,5 @@ int Ubicaciones::arreglarCoordenadaY(string coordY){
         coordY.pop_back();
         return (atoi(coordY.c_str()));       
 }
+
+Ubicaciones::~Ubicaciones(){}

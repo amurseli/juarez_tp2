@@ -1,6 +1,6 @@
 #ifndef MATRIZ_H
 #define MATRIZ_H
-
+#include<iostream>
 #include<string>
 #include<fstream>
 #include<stdlib.h>
