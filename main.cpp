@@ -13,7 +13,10 @@ int main()
 
     int opcionElegida = menu->validarArranque();
 
-    menu->crearConstructora(opcionElegida);
+    if(opcionElegida != SALIR) {
+        cout << "Bienvenido a Andypolis!" << endl;
+        menu->crearConstructora();
+    }
 
     while (opcionElegida != SALIR)
     {

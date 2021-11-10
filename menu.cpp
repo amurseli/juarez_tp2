@@ -6,14 +6,10 @@
 using namespace std;
 
 Menu::Menu() {
-
-
     punteroMateriales = new Materiales(PATH_MATERIALES);
     punteroEdificios = new Edificios(PATH_EDIFICIOS);
-    punteroMapa= new Mapa(PATH_MAPA);
+    punteroMapa = new Mapa(PATH_MAPA);
     punteroMatriz = punteroMapa->retornarPunteroMatriz();
-
-
 }
 
 void Menu::leerUbicaciones() {
@@ -24,19 +20,16 @@ void Menu::leerUbicaciones() {
 }
 
 
-void Menu::crearConstructora(int opcionElegida)
+void Menu::crearConstructora()
 {
-    if(opcionElegida){
-        punteroConstructora = new Constructora(punteroEdificios,punteroMateriales,punteroMatriz);
-        cout << "Bienvenido a Andypolis!" << endl;
-    }
+    punteroConstructora = new Constructora(punteroEdificios,punteroMateriales,punteroMatriz);
 }
 
 int Menu::validarArranque(){
 
     int valor = SALIR;
 
-    if(punteroUbicaciones->getArchivoValido() && punteroEdificios->getArchivoValido() && punteroMateriales->getArchivoValido()){
+    if(punteroMapa->getArchivoValido() && punteroEdificios->getArchivoValido() && punteroMateriales->getArchivoValido()){
         valor = ENTRAR;
     }
     return valor;
