@@ -4,37 +4,51 @@
 
 using namespace std;
 
-mapa::mapa(string nombre):archivo(nombre){
+Mapa::Mapa(string nombre):Archivo(nombre){
 
-    leerArchivo(nombre);
+    if(getArchivoValido())
+        leerArchivo(nombre);
 
 }
 
-void mapa::leerArchivo(string nombre)
+void Mapa::leerArchivo(string nombre)
 {
+    int i = 0;
+    int j = 0;
 
     fstream documento(nombre, ios::in);
 
-    int ancho,alto;
     string tipoTerreno;
 
-    documento >> ancho;
-    documento >> alto;
+    documento >> filas;
+    documento >> columnas;
 
-    while (documento >> tipoTerreno)
-    {
-        agregarElementoArray(tipoTerreno);
+    construirMatriz();
+
+    while (documento >> tipoTerreno) {
+        
+        matrizMapa->agregarCasillero(tipoTerreno, i, j);
+        i++;
+        if (i % columnas == 0)
+        {
+            j++;
+            i = 0;
+        }
     }
-
 
     documento.close();
 }
 
-int mapa::devolverAncho()
-{
-    return ancho;
+void Mapa::construirMatriz(){
+    matrizMapa = new Matriz(columnas,filas);
 }
-int mapa::devolverAlto()
-{
-    return alto;
+
+Matriz* Mapa::retornarPunteroMatriz(){
+
+    return matrizMapa;
+}
+
+Mapa::~Mapa() {
+    if(matrizMapa != NULL)
+        delete matrizMapa;
 }

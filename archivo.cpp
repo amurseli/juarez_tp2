@@ -4,50 +4,41 @@
 
 using namespace std;
 
-archivo::archivo(string nombreArchivo)
+Archivo::Archivo(string nombreArchivo)
 {
-    nombre = nombreArchivo;
-    contenido = new array<string>();
-
+    nombreTxt = nombreArchivo;
     validarArchivo();
 
 }
 
-void archivo::validarArchivo()
+void Archivo::validarArchivo()
 {
 
-    fstream documento(nombre, ios::in);
+    fstream documento(nombreTxt, ios::in);
 
     existenciaArchivo = documento.is_open();
 
     if (!existenciaArchivo)
     {
-        cout << "No se encontro un archivo con nombre \"" << nombre << endl;
+        cout << "No se encontro un Archivo con nombre \"" << nombreTxt << endl;
     }
 
     documento.close();
 
 }
 
-bool archivo::getArchivoValido()
+bool Archivo::getArchivoValido()
 {
 
     return existenciaArchivo;
 }
 
-void archivo::agregarElementoArray(string elemento)
-{
-    contenido->agregarElemento(elemento);
+
+string Archivo::devolverNombre(){
+
+    return nombreTxt;
 }
 
-void archivo::mostrarContenido(){
+Archivo::~Archivo(){}
 
-    contenido->mostrarArray();
 
-}
-
-archivo::~archivo()
-{
-
-    delete contenido;
-}

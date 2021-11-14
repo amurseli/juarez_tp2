@@ -1,49 +1,42 @@
-#ifndef ARCHIVO_H
-#define ARCHIVO_H
+#ifndef ARCVHIVO_H
+#define ARCVHIVO_H
 #include<string>
 #include<fstream>
-#include"array.h"
+#include "inventario.h"
 
 using namespace std;
 
-class archivo
+class Archivo
 {
     private:
         
-        string nombre;
+        string nombreTxt;
         bool existenciaArchivo;
-        array<string>* contenido;
 
     public:
-        //Pre:Debe recibir el nombre del archivo.
+        //Pre:Debe recibir el nombre del Archivo.
         //Post: crea la Lista.
-        archivo(string nombreArchivo);
+        Archivo(string nombreArchivo);
 
         //Pre:-
-        //Post:devuelve el estado del la variable existeciaArchivo.
+        //Post:devuelve el estado del la variable existeciaArchivo, tiene almacenada si el archivo se leyo correctamente.
         bool getArchivoValido(); 
 
         //Pre:
-        //Post: 
+        //Post:Recorre el txt de forma polimorfica.
         virtual void leerArchivo(string nombre) = 0;
 
         //Pre:
-        //Post: 
-        void agregarElementoArray(string elemento);
+        //Post:retorna el nombre del archivo.
+        string devolverNombre();
 
-        //Pre:-
-        //Post:Muestra el array
-        void mostrarContenido();
-
-        ~archivo();
+        virtual ~Archivo() = 0;
         
-
     private:
         
-        //Pre:Debe recibir el nombre del archivo.
-        //Post:valida si existe el archivo.
+        //Pre:Debe recibir el nombre del Archivo.
+        //Post:valida si existe el Archivo.
         void validarArchivo();
-
 
 };
 

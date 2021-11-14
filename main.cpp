@@ -1,23 +1,37 @@
-#include <iostream>
-#include<fstream>
-#include<string>
-#include"materiales.h"
-#include "array.h"
-#include"edificios.h"
-#include"mapa.h"
-#include"matriz.h"
-
+#include <string>
+#include "materiales.h"
+#include "edificios.h"
+#include "mapa.h"
+#include "menu.h"
 
 using namespace std;
 
-const string PATH_MATERIALES = "../materiales.txt";
-const string PATH_EDIFICIOS = "../edificios.txt";
-const string PATH_MAPA = "../mapa.txt";
-
 int main()
 {
-    Matriz prueba(2,2);
+    Menu* menu = new Menu();
+    menu->leerUbicaciones();
+
+    int opcionElegida = menu->validarArranque();
+
+    if(opcionElegida != SALIR) {
+        cout << "Bienvenido a Andypolis!" << endl;
+        menu->crearConstructora();
+    }
+
+    while (opcionElegida != SALIR)
+    {
+        menu->mostrarMenu();
+        opcionElegida = menu->elegirOpcion();
+
+        if (!menu->esOpcionValida(opcionElegida))
+            menu->mostrarMensajeError();
+        else
+        {
+           menu->procesarOpcion( opcionElegida);
+        }
+    }
+
+    delete menu;
 
     return 0;
 }
-
