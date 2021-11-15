@@ -43,7 +43,9 @@ public:
     //PRE:
     //POST: Al ser hijo de casillero debe estar definido.
     string mostrarMaterial();
-    
+
+    //PRE:
+    //POST: Destruye la clase
     virtual ~CasilleroInaccesible();
 };
 

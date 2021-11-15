@@ -5,31 +5,34 @@
 
 using namespace std;
 
-Menu::Menu() {
+Menu::Menu()
+{
     punteroMateriales = new Materiales(PATH_MATERIALES);
     punteroEdificios = new Edificios(PATH_EDIFICIOS);
     punteroMapa = new Mapa(PATH_MAPA);
     punteroMatriz = punteroMapa->retornarPunteroMatriz();
 }
 
-void Menu::leerUbicaciones() {
-    if(punteroMapa->getArchivoValido())
+void Menu::leerUbicaciones()
+{
+    if (punteroMapa->getArchivoValido())
     {
         punteroUbicaciones = new Ubicaciones(PATH_UBICACIONES, punteroMatriz);
     }
 }
 
-
 void Menu::crearConstructora()
 {
-    punteroConstructora = new Constructora(punteroEdificios,punteroMateriales,punteroMatriz);
+    punteroConstructora = new Constructora(punteroEdificios, punteroMateriales, punteroMatriz);
 }
 
-int Menu::validarArranque(){
+int Menu::validarArranque()
+{
 
     int valor = SALIR;
 
-    if(punteroMapa->getArchivoValido() && punteroEdificios->getArchivoValido() && punteroMateriales->getArchivoValido()){
+    if (punteroMapa->getArchivoValido() && punteroEdificios->getArchivoValido() && punteroMateriales->getArchivoValido())
+    {
         valor = ENTRAR;
     }
     return valor;
@@ -70,9 +73,9 @@ void Menu::procesarOpcion(int opcion_elegida) //cambiarle el nombre al puntero c
 {
     string aux;
     string nombreNuevoEdificio;
-    int coord1, coord2;
-    
-    switch (opcion_elegida){
+
+    switch (opcion_elegida)
+    {
     case CONSTRUIR_EDIFICIOS:
         cout << endl;
         punteroConstructora->construirEdificio();
@@ -90,22 +93,7 @@ void Menu::procesarOpcion(int opcion_elegida) //cambiarle el nombre al puntero c
         punteroMatriz->mostrarMatriz();
         break;
     case CONSULTAR_COORDENADA:
-        
-        cout << "Ingrese fila: ";
-        cin >> coord1;
-        cout << endl
-             << "Ingrese la columna: ";
-        cin >> coord2;
-        while(coord1 > punteroMatriz->devolverMaxFil()-1 || coord2 > punteroMatriz->devolverMaxCol()-1 || coord1 < 0 || coord2 < 0)
-        {
-            cout << "Fila -> (0, " <<  punteroMatriz->devolverMaxFil() -1 <<") Columna -> (0, " << punteroMatriz->devolverMaxCol() -1 << ")" << endl;
-            cout << "Ingrese fila: ";
-            cin >> coord1;
-            cout << endl
-                 << "Ingrese la columna: ";
-            cin >> coord2;
-        }
-        punteroMatriz->mostrarCoordenada(coord1-1, coord2-1);
+        coordenadasConsultar();
         break;
     case MOSTRAR_INVENTARIO:
         punteroMateriales->mostrarMateriales();
@@ -131,6 +119,27 @@ bool Menu::esOpcionValida(int elegida)
     return (elegida >= OPCION_MINIMA && elegida <= OPCION_MAXIMA);
 }
 
+void Menu::coordenadasConsultar()
+{
+    int coord1, coord2;
+
+    cout << "Ingrese fila: ";
+    cin >> coord1;
+    cout << endl
+         << "Ingrese la columna: ";
+    cin >> coord2;
+    while (coord1 > punteroMatriz->devolverMaxFil() - 1 || coord2 > punteroMatriz->devolverMaxCol() - 1 || coord1 < 0 || coord2 < 0)
+    {
+        cout << "Fila -> (0, " << punteroMatriz->devolverMaxFil() - 1 << ") Columna -> (0, " << punteroMatriz->devolverMaxCol() - 1 << ")" << endl;
+        cout << "Ingrese fila: ";
+        cin >> coord1;
+        cout << endl
+             << "Ingrese la columna: ";
+        cin >> coord2;
+    }
+    punteroMatriz->mostrarCoordenada(coord1 - 1, coord2 - 1);
+}
+
 Menu::~Menu()
 {
     delete punteroConstructora;
@@ -138,5 +147,4 @@ Menu::~Menu()
     delete punteroEdificios;
     delete punteroMateriales;
     delete punteroUbicaciones;
-
 }

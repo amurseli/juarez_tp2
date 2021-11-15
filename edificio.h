@@ -15,10 +15,16 @@ private:
 
 public:
     
+    //PRE:necesita el nombre del edificio
+    //POST: guarda el nombre del edficio en nombre
     Edificio (string tipoEdificio);
 
+    //PRE:
+    //POST: devuelve el nombre del edifico
     string devolverNombre();
 
+    //PRE:
+    //POST:imprime la letra del tipo de casillero de forma polimorfica o lo que tiene dentro
     virtual void imprimirLetra() =0;
 
     //PRE:

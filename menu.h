@@ -56,6 +56,8 @@ public:
 
     void leerUbicaciones();
 
+    void coordenadasConsultar();
+
     void crearConstructora();
 
     //pre: -
